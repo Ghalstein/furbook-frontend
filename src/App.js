@@ -3,6 +3,7 @@ import './App.css';
 import LoginPage from './containers/LoginPage';
 import { Switch, Route } from 'react-router-dom';
 import HomePage from './containers/HomePage';
+import ProfilePage from './containers/ProfilePage';
 
 class App extends React.Component {
 
@@ -24,6 +25,7 @@ class App extends React.Component {
         <Switch>
            <Route exact path='/' render={(routerProps)=> <LoginPage  {...routerProps} component={LoginPage} />} />
            <Route  path='/home' render={(routerProps)=> <HomePage  {...routerProps} component={HomePage} />} />
+           <Route path='/myProfile' render={(routerProps)=> <ProfilePage  {...routerProps} component={ProfilePage} />} />
           }
         </Switch>
       </React.Fragment>

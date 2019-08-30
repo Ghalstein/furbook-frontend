@@ -1,4 +1,5 @@
 import React from 'react';
+import HomeHeader from '../components/HomeHeader';
 
 class HomePage extends React.Component {
 
@@ -18,7 +19,7 @@ class HomePage extends React.Component {
   	if (!localStorage.token) this.props.history.push("/")
     return (
       <div className="HomePage">
-        Home
+        <HomeHeader />
       </div>
     );
   }
