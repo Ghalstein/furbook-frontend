@@ -24,9 +24,10 @@ class LoginPage extends React.Component{
 		})
 		.then(res => res.json())
 		.then(resp => {
-			console.log(resp)
-			localStorage.setItem('token', resp.token)
-			this.props.history.push('/home')
+			if (resp.token !== undefined) {
+				localStorage.setItem('token', resp.token)
+				this.props.history.push('/home')
+			}
 		});
 	}
 
