@@ -24,16 +24,19 @@ export default class uploadProPic extends React.Component {
 	}
 
 	handleFile = (e) => {
-		this.setState({photoFile: e.currentTarget.files[0]});
+		this.setState({proPicFile: e.currentTarget.files[0]});
 	}
 
 	render() {
 		console.log(this.state);
 		return (
-			<form onSubmit={this.handleSubmit}>
-				<input type="file" onChange={this.handleFile}/>
-				<button>Upload Photo </button>
-			</form>
+			<div>
+				Upload a new profile picture
+				<form onSubmit={this.handleSubmit}>
+					<input type="file" onChange={this.handleFile}/>
+					<button>Upload Photo </button>
+				</form>
+			</div>
 		);
 	}
 }
