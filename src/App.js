@@ -9,11 +9,11 @@ import SignupPage from './containers/SignupPage';
 class App extends React.Component {
 
   state = {
-    userInfo: {}
+    // userInfo: {}
   }
 
   componentDidMount = () => {
-    if (localStorage.token && localStorage.token !== "undefined") {
+    if (localStorage.token) {
      fetch('http://localhost:3000/profile', {
        headers: {
          Authorization: localStorage.token
@@ -28,11 +28,15 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <Switch>
-           <Route exact path='/' render={(routerProps)=> <LoginPage  {...routerProps} component={LoginPage} />} />
-           <Route exact path='/signup' render={(routerProps)=> <SignupPage  {...routerProps} component={SignupPage} />} />
-           <Route  path='/home' render={(routerProps)=> <HomePage  {...routerProps} userInfo={this.state.userInfo} component={HomePage} />} />
-           <Route path='/myProfile' render={(routerProps)=> <ProfilePage  {...routerProps} userInfo={this.state.userInfo} component={ProfilePage} />} />
-          }
+          <Route exact path='/signup' render={(routerProps)=> <SignupPage  {...routerProps} component={SignupPage} />} />
+          <Route path='/home' render={(routerProps)=> 
+            this.state.hasOwnProperty('userInfo') ?
+              <HomePage  {...routerProps} userInfo={this.state.userInfo} component={HomePage} />
+            :
+              <div>Loading...</div>
+          }/>
+          <Route path='/myProfile' render={(routerProps)=> <ProfilePage  {...routerProps} userInfo={this.state.userInfo} component={ProfilePage} />} />
+          <Route path='/' render={(routerProps)=> <LoginPage  {...routerProps} component={LoginPage} />} />
         </Switch>
       </React.Fragment>
     );
