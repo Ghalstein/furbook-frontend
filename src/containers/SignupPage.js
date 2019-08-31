@@ -43,7 +43,7 @@ class SignupPage extends React.Component{
 	}
 
   render = () => {
-  	if (localStorage.token) this.props.history.push("/home")
+  	if (localStorage.token && this.props.hasOwnProperty('history')) this.props.history.push("/home")
     return (
     	<div className="LoginPage">
 	    	<div className="form-container sign-up-container">

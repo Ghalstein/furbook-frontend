@@ -8,7 +8,7 @@ import UploadProPic from '../components/uploadProPic';
 class ProfilePage extends React.Component {
 
   render = () => {
-  	if (!localStorage.token) this.props.history.push("/")
+  	if (!localStorage.token && this.props.hasOwnProperty('history')) this.props.history.push("/")
     return (
       <div className="ProfilePage">
         ProfilePage

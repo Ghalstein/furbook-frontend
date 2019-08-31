@@ -9,18 +9,22 @@ import SignupPage from './containers/SignupPage';
 class App extends React.Component {
 
   state = {
-    // userInfo: {}
+    
+  }
+
+  fetchDataFromAPI = () => {
+    return fetch('http://localhost:3000/profile', {
+        headers: {
+        Authorization: localStorage.token
+      }
+    })
+    .then(res => res.json())
+    .then(profileInfo => this.setState({ userInfo: profileInfo }));
   }
 
   componentDidMount = () => {
     if (localStorage.token) {
-     fetch('http://localhost:3000/profile', {
-       headers: {
-         Authorization: localStorage.token
-       }
-     })
-     .then(res => res.json())
-     .then(profileInfo => this.setState({ userInfo: profileInfo }));
+      this.fetchDataFromAPI();
     }
   }
 
