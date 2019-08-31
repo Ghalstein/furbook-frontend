@@ -1,5 +1,7 @@
 import React from 'react';
 import UploadButton from '../components/UploadButton';
+import UploadPhoto from '../components/uploadPhoto';
+
 
 class ProfilePage extends React.Component {
 
@@ -8,7 +10,7 @@ class ProfilePage extends React.Component {
     return (
       <div className="ProfilePage">
         ProfilePage
-        <UploadButton />
+        <UploadPhoto userInfo={this.props.userInfo}/>
       </div>
     );
   }
