@@ -27,17 +27,12 @@ class App extends React.Component {
   render = () => {
     return (
       <React.Fragment>
-        <Switch>
-          <Route exact path='/signup' render={(routerProps)=> <SignupPage  {...routerProps} component={SignupPage} />} />
-          <Route path='/home' render={(routerProps)=> 
-            this.state.hasOwnProperty('userInfo') ?
-              <HomePage  {...routerProps} userInfo={this.state.userInfo} component={HomePage} />
-            :
-              <div>Loading...</div>
-          }/>
-          <Route path='/myProfile' render={(routerProps)=> <ProfilePage  {...routerProps} userInfo={this.state.userInfo} component={ProfilePage} />} />
-          <Route path='/' render={(routerProps)=> <LoginPage  {...routerProps} component={LoginPage} />} />
-        </Switch>
+          <Switch>
+            <Route exact path='/signup' render={(routerProps)=> <SignupPage  {...routerProps} component={SignupPage} />} />
+            <Route exect path='/home' render={(routerProps)=> <HomePage  {...routerProps} userInfo={this.state.userInfo} component={HomePage} /> }/>
+            <Route exact path='/myProfile' render={(routerProps)=> <ProfilePage  {...routerProps} userInfo={this.state.userInfo} component={ProfilePage} />} />
+            <Route path='/' render={(routerProps)=> <LoginPage  {...routerProps} component={LoginPage} />} />
+          </Switch>
       </React.Fragment>
     );
   }
