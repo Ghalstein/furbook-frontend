@@ -21,23 +21,6 @@ export default class uploadProPic extends React.Component {
 	    data: formData,
 	    config: { headers: {'Content-Type': 'multipart/form-data', Authorization: localStorage.token }}
 	  });
-		// fetch('http://localhost:3000/photos', {
-		// 	method: 'POST',
-		// 	headers: {
-		// 		'Content-Type': 'application/json',
-		// 		'Accept': 'application/json',
-		// 		'Authorization': localStorage.token
-		// 	},
-		// 	body: JSON.stringify(formData)
-		// }).then(res => res.json())
-		// 	.then(console.log)
-		// $.ajax({
-		// 	url:'/photos',
-		// 	method: 'POST',
-		// 	data: formData,
-		// 	contentType: false,
-		// 	processData: false
-		// })
 	}
 
 	handleFile = (e) => {
