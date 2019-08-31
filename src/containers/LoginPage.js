@@ -12,6 +12,10 @@ class LoginPage extends React.Component{
 		// console.log(this.state);
 	}
 
+	componentDidMount = () => {
+		if (localStorage.token) this.props.history.push("/home");
+	}
+
 	handleSubmit = (event) => {
 		event.preventDefault();
 		fetch('http://localhost:3000/login', {
@@ -32,7 +36,6 @@ class LoginPage extends React.Component{
 	}
 
   render = () => {
-  	if (localStorage.token) this.props.history.push("/home")
     return (
       <form className="loginForm" onSubmit={this.handleSubmit}>
         <input className="loginInput" type="text" value={this.state.username} onChange={this.handleChange} name="username"/>
