@@ -26,7 +26,9 @@ const mapStatesToProps = (state, props) => {
 // any time you want to pass to store 
 const mapDispatchToProps = (dispatch, props) => {
 	
-	return {}
+	return {
+		dispatch({type:  })
+	}
 }
 
 */
