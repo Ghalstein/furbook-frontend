@@ -18,7 +18,10 @@ export const logIn = (username, password) => dispatch => {
 			'Content-Type': 'application/json',
 			'Accept': 'application/json'
 		},
-		body: JSON.stringify(this.state)
+		body: JSON.stringify({
+			username: username,
+			password: password
+		})
 	})
 	.then(res => res.json())
 	.then(resp => {
@@ -29,7 +32,7 @@ export const logIn = (username, password) => dispatch => {
 	});
 }
 
-export const signUp = (username, password) => dispatch => {
+export const signUp = (username, password, email) => dispatch => {
   dispatch({ type: "SIGNUP_REQUEST_START" })
   return fetch('http://localhost:3000/signup', {
 		method: "POST",
@@ -38,9 +41,9 @@ export const signUp = (username, password) => dispatch => {
 			'Accept': 'application/json'
 		},
 		body: JSON.stringify({
-			username: this.state.username,
-			password: this.state.password,
-			email: this.state.email
+			username: username,
+			password: password,
+			email: email
 		})
 	})
 	.then(res => res.json())
