@@ -1,41 +1,36 @@
 import React from 'react';
 import './App.css';
-import LoginPage from './containers/LoginPage';
+// import LoginPage from './containers/LoginPage';
 import { Switch, Route } from 'react-router-dom';
 import HomePage from './containers/HomePage';
-import ProfilePage from './containers/ProfilePage';
-import SignupPage from './containers/SignupPage';
+// import ProfilePage from './containers/ProfilePage';
+// import SignupPage from './containers/SignupPage';
+import Pages from './pages';
 
 class App extends React.Component {
 
-  state = {
+  // state = {
     
-  }
+  // }
 
-  fetchDataFromAPI = () => {
-    return fetch('http://localhost:3000/profile', {
-        headers: {
-        Authorization: localStorage.token
-      }
-    })
-    .then(res => res.json())
-    .then(profileInfo => this.setState({ userInfo: profileInfo }));
-  }
-
-  componentDidMount = () => {
-    if (localStorage.token) {
-      this.fetchDataFromAPI();
-    }
-  }
+  // // fetchDataFromAPI = () => {
+  // //   return fetch('http://localhost:3000/profile', {
+  // //       headers: {
+  // //       Authorization: localStorage.token
+  // //     }
+  // //   })
+  // //   .then(res => res.json())
+  // //   .then(profileInfo => this.setState({ userInfo: profileInfo }));
+  // // }
 
   render = () => {
     return (
       <React.Fragment>
           <Switch>
-            <Route exact path='/signup' render={(routerProps)=> <SignupPage  {...routerProps} component={SignupPage} />} />
-            <Route exect path='/home' render={(routerProps)=> <HomePage  {...routerProps} userInfo={this.state.userInfo} component={HomePage} /> }/>
-            <Route exact path='/myProfile' render={(routerProps)=> <ProfilePage  {...routerProps} userInfo={this.state.userInfo} component={ProfilePage} />} />
-            <Route path='/' render={(routerProps)=> <LoginPage  {...routerProps} component={LoginPage} />} />
+            <Route exact path='/signup' component={Pages.SignupPage} />
+            <Route exect path='/home' render={(routerProps)=> <HomePage  {...routerProps} component={HomePage} /> }/>
+            <Route exact path="/myProfile" component={Pages.ProfilePage} />
+            <Route path='/' component={Pages.LoginPage} />
           </Switch>
       </React.Fragment>
     );
