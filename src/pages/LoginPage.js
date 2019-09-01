@@ -23,7 +23,7 @@ class LoginPage extends React.Component{
 		event.preventDefault();
 		this.props.logIn(this.state.username, this.state.password)
 			.then(()=> {
-				this.props.push("/home")
+				this.props.history.push("/home")
 			})
 	}
 
