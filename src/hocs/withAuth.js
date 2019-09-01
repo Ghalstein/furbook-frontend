@@ -12,10 +12,12 @@ export default function withAuth(ComponentToBeWrapped) {
       try {
         this.props.setCurrentUser()
           .catch(e => {
-            this.props.history.push("/login")
+            console.log("try")
+            this.props.history.push("/myProfile")
           })
       } catch (e) {
         if (e.message === "Please log in") {
+          console.log("catch")
           this.props.history.push("/login")
         }
       }
