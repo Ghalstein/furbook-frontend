@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux'
+import { logIn } from '../actions/userActions'
 
 class LoginPage extends React.Component{
 
@@ -19,21 +21,10 @@ class LoginPage extends React.Component{
 
 	handleSubmit = (event) => {
 		event.preventDefault();
-		fetch('http://localhost:3000/login', {
-			method: "POST",
-			headers: {
-				'Content-Type': 'application/json',
-				'Accept': 'application/json'
-			},
-			body: JSON.stringify(this.state)
-		})
-		.then(res => res.json())
-		.then(resp => {
-			if (resp.token !== undefined) {
-				localStorage.setItem('token', resp.token)
-				this.props.history.push('/home')
-			}
-		});
+		this.props.logIn(this.state.username, this.state.password)
+			.then(()=> {
+				this.props.history.push("/home")
+			})
 	}
 
   render = () => {
@@ -66,4 +57,14 @@ class LoginPage extends React.Component{
   }
 }
 
-export default LoginPage;
+const mapStateToProps = state => {
+  return {
+    user: state.currentUser
+  }
+}
+
+const mapDispatchToProps = {
+    logIn: logIn
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);
