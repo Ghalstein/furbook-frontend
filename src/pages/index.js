@@ -5,7 +5,5 @@ import ProfilePage from './ProfilePage'
 export default {
   LoginPage,
   SignupPage,
-  ProblemsIndexPage,
-  ProblemShowPage,
   ProfilePage
 }
