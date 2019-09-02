@@ -3,6 +3,7 @@ import './App.css';
 // import LoginPage from './containers/LoginPage';
 import { Switch, Route } from 'react-router-dom';
 import HomePage from './containers/HomePage';
+import HomeHeader from './components/HomeHeader';
 // import ProfilePage from './containers/ProfilePage';
 // import SignupPage from './containers/SignupPage';
 import Pages from './pages';
@@ -26,12 +27,13 @@ class App extends React.Component {
   render = () => {
     return (
       <React.Fragment>
-          <Switch>
-            <Route exact path='/signup' component={Pages.SignupPage} />
-            <Route exect path='/home' render={(routerProps)=> <HomePage  {...routerProps} component={HomePage} /> }/>
-            <Route exact path="/myProfile" component={Pages.ProfilePage} />
-            <Route path='/' component={Pages.LoginPage} />
-          </Switch>
+          <HomeHeader />
+            <Switch>
+              <Route exact path='/signup' component={Pages.SignupPage} />
+              <Route exect path='/home' render={(routerProps)=> <HomePage  {...routerProps} component={HomePage} /> }/>
+              <Route exact path="/myProfile" component={Pages.ProfilePage} />
+              <Route path='/' component={Pages.LoginPage} />
+            </Switch>
       </React.Fragment>
     );
   }
