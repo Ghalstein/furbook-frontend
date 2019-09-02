@@ -1,5 +1,4 @@
 import React from 'react';
-import HomeHeader from '../components/HomeHeader';
 import { connect } from 'react-redux';
 import { getCurrentUser } from '../actions/userActions';
 
@@ -23,7 +22,6 @@ class HomePage extends React.Component {
     // debugger
     return (
       <div className="HomePage">
-        <HomeHeader userInfo={this.props.userInfo}/>
         <h1> {this.state.username ? `Hello ${this.state.username}!` : 'Getting your profile...'}</h1>
       </div>
     );
