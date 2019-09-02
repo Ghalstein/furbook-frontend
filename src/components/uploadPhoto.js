@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 
-export default class uploadPhoto extends React.Component {
+class uploadPhoto extends React.Component {
 
 	state = { 
 		photoFile: null
@@ -12,7 +12,7 @@ export default class uploadPhoto extends React.Component {
 		// debugger;
 		e.preventDefault();
 		const formData = new FormData();
-		formData.append('photo[user_id]', this.props.userInfo.id);
+		formData.append('photo[user_id]', this.props.user.id);
 		formData.append('photo[picture]', this.state.photoFile);
 		// const formData = { user_id: this.props.userInfo.id, picture: this.state.photoFile};
 		debugger;
@@ -41,3 +41,11 @@ export default class uploadPhoto extends React.Component {
 		);
 	}
 }
+
+const mapStateToProps = state => {
+	return {
+		user: state.currentUser
+	}
+}
+
+export default connect(mapStateToProps)(uploadPhoto);
