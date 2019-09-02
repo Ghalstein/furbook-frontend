@@ -1,7 +1,7 @@
 import React from 'react';
 import HomeHeader from '../components/HomeHeader';
 import { connect } from 'react-redux';
-import { getCurrentUser } from '../actions/userActions'
+import { getCurrentUser } from '../actions/userActions';
 
 class HomePage extends React.Component {
 
