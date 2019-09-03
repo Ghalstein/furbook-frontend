@@ -7,7 +7,7 @@ export default function withAuth(ComponentToBeWrapped) {
   class Something extends React.Component {
     componentDidMount() {
       if (!localStorage.token) {
-        this.props.history.push("/login")
+        // this.props.history.push("/login")
       }
       try {
         this.props.setCurrentUser()
