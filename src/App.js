@@ -10,20 +10,6 @@ import Pages from './pages';
 
 class App extends React.Component {
 
-  // state = {
-    
-  // }
-
-  // // fetchDataFromAPI = () => {
-  // //   return fetch('http://localhost:3000/profile', {
-  // //       headers: {
-  // //       Authorization: localStorage.token
-  // //     }
-  // //   })
-  // //   .then(res => res.json())
-  // //   .then(profileInfo => this.setState({ userInfo: profileInfo }));
-  // // }
-
   render = () => {
     return (
       <React.Fragment>
