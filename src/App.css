@@ -284,3 +284,74 @@ li:hover ul#submenu {
   background-color:#000000;
 }
 
+/*********************************
+Post
+*********************************/
+.post-content {
+  width: 50vw;
+  /*overflow: hidden;*/
+  list-style-type: none;
+}
+.post-content .post-info .views {
+  width: ;
+}
+li {
+  list-style-type: none;
+}
+
+.post-info {
+   padding: 20px;
+   /*display: flex;*/
+   justify-content: space-around;
+   text-align: center;
+}
+
+.post-info .views {
+   /*display: flex;*/
+   justify-content: center;
+   text-decoration: none;
+   color: grey;
+   padding: 5px 0;
+   text-align: center;
+   padding: 5px 0;
+   width: 100vw;
+}
+
+
+/****
+post form
+*******/
+.postForm {
+  margin: 0 auto;
+  width: 50vw;
+}
+
+.postInput {
+  width: 20vw;
+  max-height: 10vh;
+}
+
+.postInput:click {
+  width: 20vw;
+  height: 10vh;
+}
+
+.postSubmit {
+  border-radius: 20px;
+  border: 1px solid #FF4B2B;
+  background-color: #FF4B2B;
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 12px 15px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+/*  width: 5vw;
+  height: 5vh;*/
+}
+
+textarea {
+  resize: none;
+}
+
