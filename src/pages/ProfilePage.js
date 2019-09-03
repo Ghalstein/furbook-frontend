@@ -16,6 +16,7 @@ class ProfilePage extends React.Component {
 
   render = () => {
     // debugger;
+    console.log(this.props)
     return (
       <div className="ProfilePage">
         <h1> {this.props.user.username ? `Hello ${this.props.user.username}!` : 'Getting your profile...'}</h1>
