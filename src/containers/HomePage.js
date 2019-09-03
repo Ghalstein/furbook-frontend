@@ -38,23 +38,4 @@ const mapDispatchToProps = {
   setCurrentUser: getCurrentUser
 }
 
-
-// anytime you want info form your store
-// const mapStatesToProps = (state, props) => {
-	
-// 	return {
-//     user: state.currentUser
-//   }
-// }
-
-// any time you want to pass to store 
-// const mapDispatchToProps = (dispatch, props) => {
-	
-// 	return {
-// 		dispatch({type:  })
-// 	}
-// }
-
-
-// export default HomePage;
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage)
