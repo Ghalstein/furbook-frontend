@@ -217,13 +217,16 @@ Login
 /***************************************
 Header
 **************************************/
+.dropdownmenu {
+  display: flex;
+}
 
 .dropdownmenu ul, .dropdownmenu li {
   margin: 0;
   padding: 0;
 }
 .dropdownmenu ul {
-  background: gray;
+  background: #FF4B2B;
   list-style: none;
   width: 100%;
 }
@@ -297,6 +300,10 @@ Post
 
 .icon {
   text-align: left;
+  color: #FFFFFF;
+  margin-left: 10px;
+  padding-bottom: 10px;
+  width: 10vw;
 }
 
 .content {
@@ -305,6 +312,12 @@ Post
   width: 35vw;
   margin: 0 auto;
   border-radius: 15px;
+  color: #a6a2a2;
+}
+
+.Hi {
+  padding-left: 10px;
+  color: #FF4B2B;
 }
 
 /*.post-content {
@@ -338,24 +351,53 @@ li {
 /****
 post form
 *******/
+
+.posts-container {
+  padding: 40px;
+}
+
 .postForm {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: cetner;
   margin: 0 auto;
   width: 50vw;
+  border: 1px solid #FF4B2B;
+  background-color: #FF4B2B;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.postForm h1 {
+  margin-top: -10px;
+  /*padding: 20px;*/
+  margin-right: 40px;
+  color: #FFFFFF;
 }
 
 .postInput {
-  width: 20vw;
-  max-height: 10vh;
+  width: 30vw;
+  height: 10vh;
+  border-radius: 10px;
+  border-color: #FFFFFF;
 }
 
-.postInput:click {
-  width: 40vw;
-  height: 20vh;
+.postInput:focus {
+  outline: none;
+}
+
+.postSubmit:hover {
+  background-color: #ff6e54;
+}
+
+.postSubmit:focus {
+  outline: none;
 }
 
 .postSubmit {
   border-radius: 20px;
-  border: 1px solid #FF4B2B;
+  border: 1.5px solid #FFFFFF;
   background-color: #FF4B2B;
   color: #FFFFFF;
   font-size: 12px;
@@ -364,6 +406,10 @@ post form
   letter-spacing: 1px;
   text-transform: uppercase;
   transition: transform 80ms ease-in;
+  width: 5vw;
+  height: 5vh;
+  margin-top: 20px;
+  margin-left: 40px;
 }
 /*  width: 5vw;
   height: 5vh;*/
