@@ -8,6 +8,7 @@ class Post extends React.Component {
   }
   
   componentDidMount() {
+    console.log(this.props.post)
     fetch(`http://localhost:3000/users/${this.props.post.user_id}`, {
       headers: {
         'Content-Type': 'application/json',
