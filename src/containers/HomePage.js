@@ -64,7 +64,8 @@ class HomePage extends React.Component {
 const mapStateToProps = state => {
   console.log(state.currentUser)
   return {
-    user: state.currentUser
+    user: state.currentUser,
+    posts: state.posts
   }
 }
 
