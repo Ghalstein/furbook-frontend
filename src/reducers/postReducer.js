@@ -15,7 +15,7 @@ export default (state = defaultState, action) => {
     	// debugger
       return {
       	...state,
-        posts: [...state.posts, action.payload.object]
+        posts: [action.payload.object, ...state.posts]
       }
     default:
       return state
