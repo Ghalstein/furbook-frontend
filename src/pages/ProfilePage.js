@@ -19,7 +19,7 @@ class ProfilePage extends React.Component {
     console.log(this.props)
     return (
       <div className="ProfilePage">
-        <h1> {this.props.user.username ? `Hello ${this.props.user.username}!` : 'Getting your profile...'}</h1>
+        <h1 className="Hi"> {this.props.user.username ? `Hello ${this.props.user.username}!` : 'Getting your profile...'}</h1>
         <UploadPhoto userInfo={this.props.userInfo}/>
         <UploadProPic userInfo={this.props.userInfo}/>
       </div>
