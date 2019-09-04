@@ -19,13 +19,21 @@ class Post extends React.Component {
     .then(res => res.json())
     .then(info => this.setState({username: info.object.username}))
   }
-
   render = () => {
+    let date = new Date(this.props.post.created_at)
+    date = date.toString();
+    date = date.split(' ');
+    date = date[0] + ' ' + date[1] + ' ' + date[2] + ' ' + date[3];
     return (
       <li className="post-content post-info views">
-        <div className="icon"> {this.state.username}</div>
-        <div className="content">
-          {this.props.post.content}
+        <div className="post-div">
+          <div className="icon"> {this.state.username}</div>
+          <div className="date">
+            {date.toString()}
+          </div>
+          <div className="content">
+            {this.props.post.content}
+          </div>
         </div>
       </li>
     );
