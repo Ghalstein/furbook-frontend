@@ -45,7 +45,7 @@ class HomePage extends React.Component {
   render = () => {
     return (
       <div className="HomePage">
-        <h1> {this.props.user.id ? `Hello ${this.props.user.username}!` : 'Getting your profile...'}</h1>
+        <h1 className="Hi"> {this.props.user.id ? `Hello ${this.props.user.username}!` : 'Getting your profile...'}</h1>
         <div className="postForm">
           <form className="postForm" onSubmit={this.handleSubmit}>
             <h1>Make a post</h1>
