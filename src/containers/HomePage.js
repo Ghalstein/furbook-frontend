@@ -48,7 +48,7 @@ class HomePage extends React.Component {
 
   render = () => {
     
-    console.log(this.props.posts)
+    console.log(this.props)
     return (
       <div className="HomePage">
         <h1 className="Hi"> {this.props.user.id ? `Hello ${this.props.user.username}!` : 'Getting your profile...'}</h1>
@@ -56,7 +56,7 @@ class HomePage extends React.Component {
           <CreatePost user={this.props.user}/>
         </div>
         <div className="posts-container">
-          <ul className="posts">{this.props.posts && this.props.user.id ? this.props.posts.reverse().map(post => <Post post={post} />) : 'Getting your feed...'}</ul>
+          <ul className="posts">{this.props.posts && this.props.user.id ? this.props.posts.map(post => <Post post={post} />) : 'Getting your feed...'}</ul>
         </div>
       </div>
     );
