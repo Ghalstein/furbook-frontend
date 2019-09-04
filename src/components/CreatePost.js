@@ -18,6 +18,7 @@ class CreatePost extends React.Component {
 	handleSubmit = (event) => {
     event.preventDefault();
      this.props.dispatch(createPost(this.state.postContent, this.props.user.id))
+     this.setState({postContent: ''}) 
   }
 
 	render = () => {
@@ -32,7 +33,7 @@ class CreatePost extends React.Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state)
+  // console.log(state)
   return {
     posts: state.posts
   }
