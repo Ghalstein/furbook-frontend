@@ -12,9 +12,10 @@ export default (state = defaultState, action) => {
         posts: action.payload
       }
     case 'CREATE_POST':
+    	// debugger
       return {
       	...state,
-        posts: [...state.posts, action.payload]
+        posts: [...state.posts, action.payload.object]
       }
     default:
       return state
