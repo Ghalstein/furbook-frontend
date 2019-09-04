@@ -24,7 +24,12 @@ export const createPost = (postContent, userId) => {
 export const getPosts = () => {
 
   return function(dispatch){
-    fetch("http://localhost:3000/posts")
+    fetch("http://localhost:3000/posts", { 
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+         Authorization: localStorage.token
+      }})
     .then(res => res.json())
     .then(posts => {
       dispatch({ type: 'FETCH_MY_POSTS', payload: posts})
