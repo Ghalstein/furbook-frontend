@@ -22,10 +22,10 @@ class Post extends React.Component {
   render = () => {
     return (
       <li className="post-content post-info views">
-        <div>
+        <div className="icon"> {this.state.username}</div>
+        <div className="content">
           {this.props.post.content}
         </div>
-        <a className="icon"> {this.state.username}</a>
       </li>
     );
   }
