@@ -30,6 +30,7 @@ class HomePage extends React.Component {
       })
     })
      .then(res => res.json())
+     .then(this.props.history.push("/home"))
   }
 
   handleSubmit = (event) => {
@@ -45,12 +46,16 @@ class HomePage extends React.Component {
     return (
       <div className="HomePage">
         <h1> {this.props.user.id ? `Hello ${this.props.user.username}!` : 'Getting your profile...'}</h1>
-        <form className="postForm" onSubmit={this.handleSubmit}>
-          <h1>Make a post</h1>
-          <textarea className="postInput" type="text" placeholder="What's on your mind?" value={this.state.postContent} onChange={this.handleChange} name="postContent"/>
-          <input className="postSubmit" type="submit" value="Post"/>
-        </form>
-        <ul className="posts">{this.props.user.id ? this.props.user.posts.map(post => <Post post={post}/>) : 'Getting your feed...'}</ul>
+        <div className="postForm">
+          <form className="postForm" onSubmit={this.handleSubmit}>
+            <h1>Make a post</h1>
+            <textarea className="postInput" type="text" placeholder="What's on your mind?" value={this.state.postContent} onChange={this.handleChange} name="postContent"/>
+            <input className="postSubmit" type="submit" value="Post"/>
+          </form>
+        </div>
+        <div className="posts-container">
+          <ul className="posts">{this.props.user.id ? this.props.user.posts.map(post => <Post post={post}/>) : 'Getting your feed...'}</ul>
+        </div>
       </div>
     );
   }
