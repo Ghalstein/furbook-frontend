@@ -1,5 +1,5 @@
 
-export const createPost = (content, userId) => {
+export const createPost = (postContent, userId) => {
   return function(dispatch) {
     fetch('http://localhost:3000/posts', {
       method: 'POST',
@@ -19,4 +19,17 @@ export const createPost = (content, userId) => {
       dispatch({type: "CREATE_POST", payload: post })
     })
   }
+}
+
+export const getPosts = () => {
+
+  return function(dispatch){
+    fetch("http://localhost:3000/posts")
+    .then(res => res.json())
+    .then(posts => {
+      dispatch({ type: 'FETCH_MY_POSTS', payload: posts})
+    })
+  }
+  // Return is an action
+  // return { type: FETCH_MY_POSTS, payload: myWallPosts }
 }
