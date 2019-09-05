@@ -17,11 +17,14 @@ class CreateComment extends React.Component {
 
 	handleSubmit = (event) => {
     event.preventDefault();
-     this.props.dispatch(createComment(this.state.commentContent, this.props.postInfo.user.id, this.props.postInfo.id))
-     this.setState({commentContent: ''}) 
+    if (this.props.postInfo !== undefined) {
+      this.props.dispatch(createComment(this.state.commentContent, this.props.postInfo.user.id, this.props.postInfo.id))
+      this.setState({commentContent: ''}) 
+    }
   }
 
 	render = () => {
+    // console.log("createComment:", this.props)
 	  return (
 		  <form className="commentForm" onSubmit={this.handleSubmit}>
 		    <h3>Write a comment</h3>
@@ -37,7 +40,9 @@ class CreateComment extends React.Component {
 const mapStateToProps = state => {
   // console.log(state)
   return {
-    comments: state.commentReducer.comments
+    comments: state.commentReducer.comments,
+    user: state.currentUser,
+    posts: state.postReducer.posts
   }
 }
 
