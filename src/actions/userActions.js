@@ -78,29 +78,7 @@ export const signUp = (username, password, email) => dispatch => {
   })
 }
 
-// export const newPost = (postContent, userId) => dispatch => {
-//   dispatch({ type: "MAKE_A_POST" })
-//   return fetch('http://localhost:3000/posts', {
-//     method: "POST",
-//     headers: {
-//       'Content-Type': 'application/json',
-//       'Accept': 'application/json',
-//       Authorization: localStorage.token
-//     },
-//     body: JSON.stringify({
-//       user_id: userId,
-//       postContent: postContent
-//     })
-//   })
-//    .then(res => res.json())
-//   .then((data) => {
-//     localStorage.token = data.token
-//     dispatch({ type: 'LOGIN_REQUEST_SUCCESS' })
-//   })
-//   .catch(error => {
-//     dispatch({ type: 'LOGIN_REQUEST_FAILURE', error: error })
-//   })
-// }
+
 
 export const logOut = () => dispatch => {
   localStorage.clear()
