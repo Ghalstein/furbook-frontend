@@ -25,9 +25,11 @@ class CreateComment extends React.Component {
     // debugger
 	  return (
 		  <form className="commentForm" onSubmit={this.handleSubmit}>
-		    <h2>Write a comment</h2>
-		    <textarea className="postInput" type="text" placeholder="What's on your mind?" value={this.state.commentContent} onChange={this.handleChange} name="commentContent"/>
-		    <input className="commentSubmit" type="submit" value="Post"/>
+		    <h3>Write a comment</h3>
+        <div className="commentInputs">
+  		    <textarea className="commentInput" type="text" placeholder="Leave a comment..." value={this.state.commentContent} onChange={this.handleChange} name="commentContent"/>
+  		    <input className="commentSubmit" type="submit" value="Comment"/>
+        </div>
 		  </form>
 		)
 	}
