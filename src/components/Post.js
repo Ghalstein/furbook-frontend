@@ -2,6 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Comments from '../containers/Comments';
 import CreateComment from './CreateComment';
+import { getComments } from '../actions/commentActions';
+import { connect } from 'react-redux';
+import withAuth from '../hocs/withAuth';
+import { withRouter } from 'react-router-dom';
 
 class Post extends React.Component {
 
@@ -11,13 +15,13 @@ class Post extends React.Component {
   }
 
   handleCommentsClick = () => {
-    this.setState({commentsClicked: !this.commentsClicked})
+    this.setState({commentsClicked: !this.state.commentsClicked})
   }
 
 
   
   componentDidMount() {
-    console.log(this.props.post)
+    // console.log(this.props.post)
     fetch(`http://localhost:3000/users/${this.props.post.user_id}`, {
       headers: {
         'Content-Type': 'application/json',
@@ -29,6 +33,7 @@ class Post extends React.Component {
     .then(info => this.setState({username: info.object.username}))
   }
   render = () => {
+    // console.log("posts: ", this.props)
     let date = new Date(this.props.post.created_at)
     date = date.toString();
     date = date.split(' ');
@@ -47,9 +52,17 @@ class Post extends React.Component {
           <div className="content">
             {this.props.post.content}
           </div>
-          {this.state.commentsClicked ? <Comments postComments={this.props.comments} info={this.props.post}/> : <a onClick={this.handleCommentsClick}>comments</a>}
+          {this.state.commentsClicked ? 
+            <div className="comments-container">
+              <a className="comment-tag" onClick={this.handleCommentsClick}>
+                comments
+              </a>
+              <Comments postComments={this.props.comments} info={this.props.post}/>
+            </div>
+          : 
+            <a className="comment-tag" onClick={this.handleCommentsClick}>comments</a>}
           <div className="createComment">
-            <CreateComment postInfo={this.props.info} />
+            <CreateComment postInfo={this.props.post} />
           </div>
         </div>
       </li>
@@ -57,4 +70,18 @@ class Post extends React.Component {
   }
 }
 
-export default Post;
+
+const mapStateToProps = state => {
+  // console.log(state)
+  return {
+    user: state.currentUser,
+    comments: state.commentReducer.comments
+  }
+}
+
+const mapDispatchToProps = {
+  // more to do for getComments redux
+  getComments: getComments
+}
+
+export default withAuth(connect(mapStateToProps, mapDispatchToProps)(withRouter(Post)))
