@@ -1,5 +1,5 @@
 
-export const createComment = (postContent, userId) => {
+export const createComment = (postContent, userId, postId) => {
   return function(dispatch) {
     fetch('http://localhost:3000/comments', {
       method: 'POST',
@@ -10,11 +10,12 @@ export const createComment = (postContent, userId) => {
       },
       body: JSON.stringify({
         user_id: userId,
+        post_id: postId,
         content: postContent
       })
     })
     .then(res => res.json())
-    .then(post => {
+    .then(comment => {
       // ONCE THE FETCH HAS FINISHED WE SHOULD THEN DISPATCH
       dispatch({type: "CREATE_COMMENT", payload: comment })
     })
