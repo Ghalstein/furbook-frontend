@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { logOut } from '../actions/userActions'
+import { logOut } from '../actions/userActions';
+import SearchBar from './SearchBar';
 
 class HomeHeader extends React.Component {
 
@@ -14,6 +15,8 @@ class HomeHeader extends React.Component {
     return (
       <div className="dropdownmenu">
         <ul>
+          <li><h2>furbook</h2></li>
+          <li><SearchBar/></li>
           <li><Link to="/home"> Feed</Link></li> 
         	<li><Link to="/myProfile"> Profile</Link></li> 
           <li onClick={this.onLogout}><Link to="/login">Logout</Link></li>
