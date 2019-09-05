@@ -22,7 +22,6 @@ class CreateComment extends React.Component {
   }
 
 	render = () => {
-    // debugger
 	  return (
 		  <form className="commentForm" onSubmit={this.handleSubmit}>
 		    <h3>Write a comment</h3>
@@ -38,7 +37,7 @@ class CreateComment extends React.Component {
 const mapStateToProps = state => {
   // console.log(state)
   return {
-    comments: state.comments
+    comments: state.commentReducer.comments
   }
 }
 
