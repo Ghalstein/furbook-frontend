@@ -43,12 +43,13 @@ class HomePage extends React.Component {
   componentDidMount() {
     if ((!localStorage.token) && this.props.hasOwnProperty('history')) this.props.history.push("/")
       this.props.getPosts();
+      // console.log("rerendered homepage")
       // console.log(this.props);
   }
 
   render = () => {
     
-    // console.log(this.props)
+    // console.log("homepage: ", this.props)
     return (
       <div className="HomePage">
         <h1 className="Hi"> {this.props.user.id ? `Hello ${this.props.user.username}!` : 'Getting your profile...'}</h1>
