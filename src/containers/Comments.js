@@ -2,11 +2,19 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Comment from '../components/Comment';
 import CreateComment from '../components/CreateComment';
+import { getComments } from '../actions/commentActions';
+import { connect } from 'react-redux';
+import withAuth from '../hocs/withAuth';
+import { withRouter } from 'react-router-dom';
 
 class Comments extends React.Component {
 
   state = {
     username: ''
+  }
+
+  componentDidMount() {
+  	this.props.getComments();
   }
   
   // componentDidMount() {
@@ -22,13 +30,32 @@ class Comments extends React.Component {
   //   .then(info => this.setState({username: info.object.username}))
   // }
   render = () => {
+  	console.log("FROM COMMENTS: ", this.props)
+  	let comments = this.props.comments.filter(comment => comment.post_id === this.props.info.id)
     return (
-      <div className="comment-container">
-      	{this.props.info.comments ? this.props.info.comments.map(comment => <Comment comment={comment}/>) : null}
-      	<CreateComment postInfo={this.props.info} />
-      </div>
+    	<div className="all-comments">
+	      <div className="comment-container">
+	      	{comments ? comments.map(comment => <Comment comment={comment}/>) : null}
+	      </div>
+	      <div className="createComment">
+	      	<CreateComment postInfo={this.props.info} />
+	      </div>
+	     </div>
     );
   }
 }
+// might have to move comments to posts
+const mapStateToProps = state => {
+  // console.log(state)
+  return {
+    user: state.currentUser,
+    comments: state.commentReducer.comments
+  }
+}
 
-export default Comments;
+const mapDispatchToProps = {
+  // more to do for getComments redux
+  getComments: getComments
+}
+
+export default withAuth(connect(mapStateToProps, mapDispatchToProps)(withRouter(Comments)))

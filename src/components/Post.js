@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Comments from '../containers/Comments'
+import Comments from '../containers/Comments';
+import CreateComment from './CreateComment';
 
 class Post extends React.Component {
 
@@ -35,14 +36,21 @@ class Post extends React.Component {
     return (
       <li className="post-content post-info views">
         <div className="post-div">
-          <div className="icon"> {this.state.username}</div>
-          <div className="date">
-            {date.toString()}
+          <div className="icon-date">
+            <div className="icon"> 
+              {this.state.username}
+            </div>
+            <div className="date">
+              {date.toString()}
+            </div>
           </div>
           <div className="content">
             {this.props.post.content}
           </div>
-          {this.state.commentsClicked ? <Comments info={this.props.post}/> : <a onClick={this.handleCommentsClick}>comments</a>}
+          {this.state.commentsClicked ? <Comments postComments={this.props.comments} info={this.props.post}/> : <a onClick={this.handleCommentsClick}>comments</a>}
+          <div className="createComment">
+            <CreateComment postInfo={this.props.info} />
+          </div>
         </div>
       </li>
     );

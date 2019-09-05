@@ -56,7 +56,7 @@ class HomePage extends React.Component {
           <CreatePost user={this.props.user}/>
         </div>
         <div className="posts-container">
-          <ul className="posts">{this.props.posts && this.props.user.id ? this.props.posts.map(post => <Post post={post} />) : 'Getting your feed...'}</ul>
+          <ul className="posts">{this.props.posts && this.props.user.id ? this.props.posts.map(post => <Post post={post} comments={post.comments} />) : 'Getting your feed...'}</ul>
         </div>
       </div>
     );

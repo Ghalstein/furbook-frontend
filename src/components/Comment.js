@@ -20,7 +20,7 @@ class Comment extends React.Component {
   //   .then(info => this.setState({username: info.object.username}))
   // }
   render = () => {
-    console.log("comment:", this.props)
+    console.log("COMMENT:", this.props)
     let date = new Date(this.props.comment.created_at)
     date = date.toString();
     date = date.split(' ');
