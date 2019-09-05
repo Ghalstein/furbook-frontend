@@ -1,11 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Comments from '../containers/Comments'
 
 class Post extends React.Component {
 
   state = {
-    username: ''
+    username: '',
+    commentsClicked: false
   }
+
+  handleCommentsClick = () => {
+    this.setState({commentsClicked: !this.commentsClicked})
+  }
+
+
   
   componentDidMount() {
     console.log(this.props.post)
@@ -34,10 +42,11 @@ class Post extends React.Component {
           <div className="content">
             {this.props.post.content}
           </div>
+          {this.state.commentsClicked ? <Comments info={this.props.post}/> : <a onClick={this.handleCommentsClick}>comments</a>}
         </div>
       </li>
     );
   }
 }
 
-export default Post
+export default Post;
