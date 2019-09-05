@@ -13,9 +13,10 @@ export default (state = defaultState, action) => {
       }
     case 'CREATE_POST':
     	// debugger
+    	let post = {...action.payload.object, comments:[], user:{id: action.payload.object.user_id}}
       return {
       	...state,
-        posts: [action.payload.object, ...state.posts]
+        posts: [post, ...state.posts]
       }
     default:
       return state
