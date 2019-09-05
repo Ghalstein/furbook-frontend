@@ -24,9 +24,11 @@ class CreatePost extends React.Component {
 	render = () => {
 	  return (
 		  <form className="postForm" onSubmit={this.handleSubmit}>
-		    <h1>Make a post</h1>
-		    <textarea className="postInput" type="text" placeholder="What's on your mind?" value={this.state.postContent} onChange={this.handleChange} name="postContent"/>
-		    <input className="postSubmit" type="submit" value="Post"/>
+		    <h2 className="createAPost">create a post</h2>
+        <div className="postInputs">
+  		    <textarea className="postInput" type="text" placeholder="What's on your mind?" value={this.state.postContent} onChange={this.handleChange} name="postContent"/>
+  		    <input className="postSubmit" type="submit" value="Post"/>
+        </div>
 		  </form>
 		)
 	}

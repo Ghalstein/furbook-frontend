@@ -505,6 +505,10 @@ li {
 post form
 *******/
 
+.createAPost {
+  color: #FFFFFF;
+}
+
 .posts-container {
   padding: 40px;
   height: 65vh;
