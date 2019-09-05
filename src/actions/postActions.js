@@ -18,6 +18,7 @@ export const createPost = (postContent, userId) => {
       // ONCE THE FETCH HAS FINISHED WE SHOULD THEN DISPATCH
       dispatch({type: "CREATE_POST", payload: post })
     })
+    // debugger
   }
 }
 
