@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { createPost } from '../actions/postActions';
 import withAuth from '../hocs/withAuth';
 import { withRouter } from 'react-router-dom';
+import { getComments } from '../actions/commentActions';
+
 
 class CreatePost extends React.Component {
 	
@@ -37,8 +39,15 @@ class CreatePost extends React.Component {
 const mapStateToProps = state => {
   // console.log(state)
   return {
-    posts: state.posts
+    user: state.currentUser,
+    comments: state.commentReducer.comments,
+    posts: state.postReducer.posts
   }
+}
+
+const mapDispatchToProps = {
+  // more to do for getComments redux
+  getComments: getComments
 }
 
 export default withAuth(connect(mapStateToProps)(withRouter(CreatePost)));
