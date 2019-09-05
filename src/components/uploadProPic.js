@@ -19,7 +19,7 @@ class uploadProPic extends React.Component {
 	    method: 'POST',
 	    url: `http://localhost:3000/pro_pics`,
 	    data: formData,
-	    config: { headers: {'Content-Type': 'multipart/form-data', Authorization: localStorage.token }}
+	    config: { headers: {'Content-Type': 'multipart/form-data', 'Authorization': `Bearer ${localStorage.token}` }}
 	  });
 	}
 
