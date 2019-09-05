@@ -35,7 +35,7 @@ class Comments extends React.Component {
     return (
     	<div className="all-comments">
 	      <div className="comment-container">
-	      	{comments ? comments.map(comment => <Comment comment={comment}/>) : null}
+	      	{comments.length ? comments.map(comment => <Comment comment={comment}/>) : <div className="no-comments">There are no comments...</div>}
 	      </div>
 	     </div>
     );
