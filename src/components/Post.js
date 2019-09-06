@@ -34,6 +34,7 @@ class Post extends React.Component {
   }
   render = () => {
     // console.log("posts: ", this.props)
+    // console.log(this.props.post)
     let date = new Date(this.props.post.created_at)
     date = date.toString();
     date = date.split(' ');

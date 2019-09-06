@@ -1,5 +1,6 @@
 
 export const createComment = (postContent, userId, postId) => {
+  // debugger
   return function(dispatch) {
     fetch('http://localhost:3000/comments', {
       method: 'POST',
