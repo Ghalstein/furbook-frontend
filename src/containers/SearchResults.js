@@ -10,12 +10,12 @@ import UserFound from '../components/UserFound';
 
 class SearchResults extends React.Component {
 
-
   render = () => {
     
     // console.log("homepage: ", this.props)
     return (
-      <div className="search-results-container">
+      <div className="search-modal-content">
+        <span className="close" onClick={() => this.props.handleExit()}>x</span>
         <h2> search results: </h2>
         {this.props.users.map(user => <UserFound user={user}/>)}
       </div>
