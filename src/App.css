@@ -228,6 +228,20 @@ Login
 /***************************************
 Header
 **************************************/
+.profile-link-icon {
+  width: 3em;
+  padding: 3px;
+  border-radius: 40px;
+  position: absolute;
+  right: 60px;
+}
+
+.profile-icon-combo {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .dropdownmenu {
   display: flex;
 }
