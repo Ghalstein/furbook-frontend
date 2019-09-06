@@ -78,8 +78,6 @@ export const signUp = (username, password, email) => dispatch => {
   })
 }
 
-
-
 export const logOut = () => dispatch => {
   localStorage.clear()
   dispatch({ type: 'LOGOUT' })
