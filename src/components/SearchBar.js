@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getUsers } from '../actions/usersActions'
+import SearchResults from '../containers/SearchResults';
 
 class SearchBar extends React.Component {
 
@@ -34,6 +35,12 @@ class SearchBar extends React.Component {
         <div className="search-inputs">
           <textarea className="search-user" type="text" placeholder="Find your friends..." value={this.state.postContent} onChange={this.handleChange} name="search"/>
           <input className="submit-search-user" type="submit" value="search"/>
+          {this.state.search ? 
+            <div>
+              {this.state.users.length ? <SearchResults users={this.state.users}/> : <h3> no searches found</h3>}
+            </div>
+          : 
+          null}
         </div>
       </form>
       </div>
