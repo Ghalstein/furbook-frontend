@@ -52,7 +52,7 @@ class HomePage extends React.Component {
     // console.log("homepage: ", this.props)
     return (
       <div className="HomePage">
-        <h1 className="Hi"> {this.props.user.id ? `Hello ${this.props.user.username}!` : 'Getting your profile...'}</h1>
+        <h1 className="Hi"> {this.props.user.id ? `Here is your feed ${this.props.user.username}!` : 'Getting your profile...'}</h1>
         <div className="postForm">
           <CreatePost user={this.props.user}/>
         </div>

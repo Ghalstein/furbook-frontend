@@ -6,6 +6,7 @@ import { getComments } from '../actions/commentActions';
 import { connect } from 'react-redux';
 import withAuth from '../hocs/withAuth';
 import { withRouter } from 'react-router-dom';
+// import IconPhoto from './IconPhoto';
 
 class Post extends React.Component {
 
@@ -33,7 +34,7 @@ class Post extends React.Component {
     .then(info => this.setState({username: info.object.username}))
   }
   render = () => {
-    // console.log("posts: ", this.props)
+    console.log("post: ", this.props)
     // console.log(this.props.post)
     let date = new Date(this.props.post.created_at)
     date = date.toString();
@@ -43,8 +44,15 @@ class Post extends React.Component {
       <li className="post-content">
         <div className="post-div">
           <div className="icon-date">
-            <div className="icon"> 
-              {this.state.username}
+            <div className="icon-img-text"> 
+              <div className="icon-img-text">
+                <div className="icon-img">
+                  <img src={`${this.props.user.pro_pic.picture.url}`} />
+                </div>
+                <div className="icon"> 
+                  {this.state.username}
+                </div>
+              </div>
             </div>
             <div className="date">
               {date.toString()}
