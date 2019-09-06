@@ -7,8 +7,10 @@ import HomeHeader from './components/HomeHeader';
 // import ProfilePage from './containers/ProfilePage';
 // import SignupPage from './containers/SignupPage';
 import Pages from './pages';
+import { connect } from 'react-redux';
 
 class App extends React.Component {
+
 
   render = () => {
     return (
@@ -17,7 +19,7 @@ class App extends React.Component {
             <Switch>
               <Route exact path='/signup' component={Pages.SignupPage} />
               <Route exect path='/home' render={(routerProps)=> <HomePage  {...routerProps} component={HomePage} /> }/>
-              <Route exact path="/myProfile" component={Pages.ProfilePage} />
+              <Route exact path='/profile' component={Pages.ProfilePage} />
               <Route path='/' component={Pages.LoginPage} />
             </Switch>
       </React.Fragment>
@@ -25,4 +27,11 @@ class App extends React.Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  // debugger
+  return {
+    user: state.currentUser
+  }
+}
+
+export default connect(mapStateToProps)(App)
