@@ -45,10 +45,7 @@ class SearchBar extends React.Component {
           <input className="submit-search-user" type="submit" value="search"/>
           {this.state.search ? 
             <div className="search-modal">
-              {this.state.users.length ? 
-                <SearchResults users={this.state.users} handleExit={this.handleExit}/>
-              : 
-                <h3> no searches found</h3>}
+              <SearchResults users={this.state.users} handleExit={this.handleExit}/>
             </div>
           : 
           null}
