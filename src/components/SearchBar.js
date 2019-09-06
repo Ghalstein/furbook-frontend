@@ -27,6 +27,14 @@ class SearchBar extends React.Component {
     this.props.getUsers();
   }
 
+  handleExit = () => {
+    this.setState({
+      // posts: this.props.currentUser.posts,
+      search: '',
+      users: []
+    })
+  }
+
   render = () => {
     console.log(this.state);
     return (
@@ -36,8 +44,11 @@ class SearchBar extends React.Component {
           <textarea className="search-user" type="text" placeholder="Find your friends..." value={this.state.postContent} onChange={this.handleChange} name="search"/>
           <input className="submit-search-user" type="submit" value="search"/>
           {this.state.search ? 
-            <div>
-              {this.state.users.length ? <SearchResults users={this.state.users}/> : <h3> no searches found</h3>}
+            <div className="search-modal">
+              {this.state.users.length ? 
+                <SearchResults users={this.state.users} handleExit={this.handleExit}/>
+              : 
+                <h3> no searches found</h3>}
             </div>
           : 
           null}
