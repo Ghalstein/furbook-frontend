@@ -17,18 +17,6 @@ class Comments extends React.Component {
   	this.props.getComments();
   }
   
-  // componentDidMount() {
-  //   console.log(this.props.comment)
-  //   fetch(`http://localhost:3000/users/${this.props.comment.user_id}`, {
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //       'Accept': 'application/json',
-  //        Authorization: localStorage.token
-  //     } 
-  //   })
-  //   .then(res => res.json())
-  //   .then(info => this.setState({username: info.object.username}))
-  // }
   render = () => {
   	// console.log("FROM COMMENTS: ", this.props)
   	let comments = this.props.comments.filter(comment => comment.post_id === this.props.info.id)
