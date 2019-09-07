@@ -1,10 +1,11 @@
 const defaultState = {
-	users: []
+	users: [],
+  desiredUser: {}
 }
 
 export default (state = defaultState, action) => {
   // console.log('in messages reducer', action);
-
+  // debugger
   switch (action.type) {
   	case 'FETCH_USERS':
       return {
@@ -14,7 +15,7 @@ export default (state = defaultState, action) => {
     case 'FETCH_USER':
       return {
         ...state, 
-        users: action.payload
+        desiredUser: action.payload
       }
     // case 'CREATE_POST':
     // 	// debugger
