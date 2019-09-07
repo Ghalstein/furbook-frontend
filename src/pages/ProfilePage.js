@@ -31,7 +31,15 @@ class ProfilePage extends React.Component {
             <img className="profile-icon" src={this.props.profileUser.pro_pic.picture.url} />
             <h2>{this.props.profileUser.username}</h2>
           </div>
-          <div>
+          <div className="posts-photos-div">
+            
+            <div className="posts">
+              Posts
+            </div>
+
+            <div className="photos">
+              Photos
+            </div>
           </div>
           <UploadPhoto userInfo={this.props.userInfo}/>
           <UploadProPic userInfo={this.props.userInfo}/>
