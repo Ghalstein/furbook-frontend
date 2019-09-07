@@ -19,7 +19,7 @@ class App extends React.Component {
             <Switch>
               <Route exact path='/signup' component={Pages.SignupPage} />
               <Route exect path='/home' render={(routerProps)=> <HomePage  {...routerProps} component={HomePage} /> }/>
-              <Route exact path='/profile' component={Pages.ProfilePage} />
+              <Route exact path='/users/:id' component={Pages.ProfilePage} />
               <Route path='/' component={Pages.LoginPage} />
             </Switch>
       </React.Fragment>
