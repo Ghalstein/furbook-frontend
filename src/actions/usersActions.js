@@ -17,7 +17,7 @@ export const getUsers = () => {
 }
 
 export const getUserById = (userId) => {
-
+  
   return function(dispatch){
     fetch(`http://localhost:3000/users/${userId}`, { 
       headers: {
