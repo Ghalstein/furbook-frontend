@@ -33,11 +33,11 @@ class ProfilePage extends React.Component {
           </div>
           <div className="posts-photos-div">
             
-            <div className="posts">
+            <div className="profile-posts">
               Posts
             </div>
 
-            <div className="photos">
+            <div className="profile-photos">
               Photos
             </div>
           </div>
