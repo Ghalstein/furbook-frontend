@@ -776,7 +776,11 @@ Profile Page
   align-items: center;
 }
 
-.profile-posts, .profile-photos {
+.profile-posts, .profile-photos, .no-photos-to-show, .no-posts-to-show {
   margin: 0 auto;
+}
+
+.profile-photo {
+  width: 20em;
 }
 
