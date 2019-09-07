@@ -18,23 +18,6 @@ class HomePage extends React.Component {
   //   this.setState({[event.target.name]: event.target.value})
   // }
 
-  // makePost = (postContent, userId) => {
-  //   fetch('http://localhost:3000/posts', {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //       'Accept': 'application/json',
-  //        Authorization: localStorage.token
-  //     },
-  //     body: JSON.stringify({
-  //       user_id: userId,
-  //       content: postContent
-  //     })
-  //   })
-  //    .then(res => res.json())
-  //    .then(this.props.history.push("/home"))
-  // }
-
 
 
   componentDidMount() {
