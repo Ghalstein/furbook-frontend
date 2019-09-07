@@ -34,12 +34,14 @@ class Comment extends React.Component {
         <li className="comment-content views">
           <div className="comment-content comment-div">
             <div className="icon-date">
-              <div className="icon-img-text">
-                <img className="icon-img" src={`${this.state.user.pro_pic.picture.url}`} />
-                <div className="comment-icon"> 
-                  {this.state.user.username}
+              <Link to={`users/${this.state.user.id}`} >
+                <div className="icon-img-text">
+                  <img className="icon-img" src={`${this.state.user.pro_pic.picture.url}`} />
+                  <div className="comment-icon"> 
+                    {this.state.user.username}
+                  </div>
                 </div>
-              </div>
+              </Link>
               <div className="comment-date">
                 {date.toString()}
               </div>
