@@ -11,7 +11,6 @@ import { withRouter } from 'react-router-dom';
 class Post extends React.Component {
 
   state = {
-    username: '',
     commentsClicked: false
   }
 
@@ -31,7 +30,7 @@ class Post extends React.Component {
       } 
     })
     .then(res => res.json())
-    .then(info => this.setState({username: info.username}))
+    .then(info => this.setState({postUser: info}))
   }
   render = () => {
     // console.log("post: ", this.props)
@@ -40,17 +39,20 @@ class Post extends React.Component {
     date = date.toString();
     date = date.split(' ');
     date = date[0] + ' ' + date[1] + ' ' + date[2] + ' ' + date[3];
+    if (this.state.postUser === undefined) return null;
     return (
       <li className="post-content">
         <div className="post-div">
           <div className="icon-date">
             <div className="icon-img-text"> 
-              <div className="icon-img-text">
-                <img className="icon-img" src={`${this.props.user.pro_pic.picture.url}`} />
-                <div className="icon"> 
-                  {this.state.username}
+              <Link to={`users/${this.state.postUser.id}`} >
+                <div className="icon-img-text">
+                  <img className="icon-img" src={`${this.state.postUser.pro_pic.picture.url}`} />
+                  <div className="icon"> 
+                    {this.state.postUser.username}
+                  </div>
                 </div>
-              </div>
+              </Link>
             </div>
             <div className="date">
               {date.toString()}
