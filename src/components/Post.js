@@ -11,17 +11,23 @@ import { withRouter } from 'react-router-dom';
 class Post extends React.Component {
 
   state = {
-    commentsClicked: false
+    commentsClicked: false,
+    commentsLength: 0
   }
 
   handleCommentsClick = () => {
     this.setState({commentsClicked: !this.state.commentsClicked})
   }
 
+  commentsLength = (length) => {
+    this.setState({commentsLength: length})
+  }
+
 
   
   componentDidMount() {
     // console.log(this.props.post)
+    this.props.getComments();
     fetch(`http://localhost:3000/users/${this.props.post.user_id}`, {
       headers: {
         'Content-Type': 'application/json',
@@ -32,9 +38,12 @@ class Post extends React.Component {
     .then(res => res.json())
     .then(info => this.setState({postUser: info}))
   }
+
+
   render = () => {
     // console.log("post: ", this.props)
     // console.log(this.props.post)
+    let comments = this.props.comments.filter(comment => comment.post_id === this.props.post.id)
     let date = new Date(this.props.post.created_at)
     date = date.toString();
     date = date.split(' ');
@@ -64,12 +73,12 @@ class Post extends React.Component {
           {this.state.commentsClicked ? 
             <div className="comments-container">
               <a className="comment-tag" onClick={this.handleCommentsClick}>
-                comments
+                comments ({comments.length})
               </a>
-              <Comments postComments={this.props.comments} info={this.props.post}/>
+              <Comments commentsLength={this.commentsLength} postComments={this.props.comments} info={this.props.post}/>
             </div>
           : 
-            <a className="comment-tag" onClick={this.handleCommentsClick}>comments</a>}
+            <a className="comment-tag" onClick={this.handleCommentsClick}>comments ({comments.length})</a>}
           <div className="createComment">
             <CreateComment postInfo={this.props.post} />
           </div>
