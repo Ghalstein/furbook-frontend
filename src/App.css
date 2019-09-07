@@ -559,30 +559,6 @@ Post
   justify-content: center;
 }
 
-/*
-.post-content .post-info .views {
-  width: ;
-}
-li {
-  list-style-type: none;
-}
-
-.post-info {
-   padding: 20px;
-   justify-content: space-around;
-   text-align: center;
-}
-
-.post-info .views {
-   justify-content: center;
-   text-decoration: none;
-   color: grey;
-   padding: 5px 0;
-   text-align: center;
-   padding: 5px 0;
-   width: 100vw;
-}*/
-
 
 /****
 post form
@@ -634,12 +610,6 @@ post form
   align-items: center;
 }
 
-/*.postForm h1 {
-  margin-top: -10px;
-  padding: 20px;
-  margin-right: 40px;
-  color: #FFFFFF;
-}*/
 
 .postInputs {
   display: flex;
