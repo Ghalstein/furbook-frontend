@@ -9,36 +9,6 @@ import { getPosts } from '../actions/postActions';
 
 class HomePage extends React.Component {
 
-  // state = {
-  //   // posts: this.props.currentUser.posts,
-  //   postContent: ''
-  // }
-
-  // handleChange = (event) => {
-  //   this.setState({[event.target.name]: event.target.value})
-  // }
-
-  // makePost = (postContent, userId) => {
-  //   fetch('http://localhost:3000/posts', {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //       'Accept': 'application/json',
-  //        Authorization: localStorage.token
-  //     },
-  //     body: JSON.stringify({
-  //       user_id: userId,
-  //       content: postContent
-  //     })
-  //   })
-  //    .then(res => res.json())
-  //    .then(this.props.history.push("/home"))
-  // }
-
-  // handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   this.makePost(this.state.postContent, this.props.user.id)
-  // }
 
   componentDidMount() {
     if ((!localStorage.token) && this.props.hasOwnProperty('history')) this.props.history.push("/")
