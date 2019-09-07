@@ -1,6 +1,6 @@
 const defaultState = {
 	users: [],
-  desiredUser: {}
+  user: {}
 }
 
 export default (state = defaultState, action) => {
@@ -15,7 +15,7 @@ export default (state = defaultState, action) => {
     case 'FETCH_USER':
       return {
         ...state, 
-        desiredUser: action.payload
+        user: action.payload
       }
     // case 'CREATE_POST':
     // 	// debugger

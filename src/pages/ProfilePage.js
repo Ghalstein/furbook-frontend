@@ -4,14 +4,11 @@ import UploadProPic from '../components/uploadProPic';
 import withAuth from '../hocs/withAuth';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import { getUserById } from '../actions/usersActions';
 
 // make a working redux fetch for the specific profile you are on
 
 class ProfilePage extends React.Component {
-
-  state = {
-    user: {}
-  }
 
   componentDidMount = () => {
     if (!localStorage.token && this.props.hasOwnProperty('history')) this.props.history.push("/")
@@ -19,19 +16,19 @@ class ProfilePage extends React.Component {
     //   console.log(this.props)
     //   this.setState({user: this.props.user})
     // }
+    // this.setState({userID: this.props.location.pathname.split("/")[2]})
+    this.props.getUserById(this.props.location.pathname.split("/")[2]);
   }
 
   render = () => {
-    // debugger;
-    // console.log(this.props)
     console.log(this.props)
-    if (`/users/${this.props.user.id}` === this.props.pathname) {
-      this.setState({user: this.props.user})
-    }
     return (
       <div className="/profile">
         <div className="ProfilePage">
-          <h1 className="Hi"> {this.props.user.username ? `${this.props.user.username}'s page` : 'Getting your profile...'}</h1>
+          <h1 className="Hi"> {this.props.profileUser.username ? `${this.props.profileUser.username}'s page` : 'Getting your profile...'}</h1>
+          <div className="profile-icon">
+            <img src="" />
+          </div>
           <UploadPhoto userInfo={this.props.userInfo}/>
           <UploadProPic userInfo={this.props.userInfo}/>
         </div>
@@ -43,8 +40,13 @@ class ProfilePage extends React.Component {
 const mapStateToProps = state => {
   // console.log(state)
   return {
-    user: state.currentUser
+    user: state.currentUser,
+    profileUser: state.usersReducer.user
   }
 }
 
-export default withAuth(connect(mapStateToProps)(withRouter(ProfilePage)))
+const mapDispatchToProps = {
+  getUserById: getUserById
+}
+
+export default withAuth(connect(mapStateToProps, mapDispatchToProps)(withRouter(ProfilePage)))
