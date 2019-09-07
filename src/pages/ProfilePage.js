@@ -25,19 +25,16 @@ class ProfilePage extends React.Component {
     // debugger;
     // console.log(this.props)
     console.log(this.props)
+    if (`/users/${this.props.user.id}` === this.props.pathname) {
+      this.setState({user: this.props.user})
+    }
     return (
       <div className="/profile">
-        {this.props.location.pathname === "/profile" ?
         <div className="ProfilePage">
           <h1 className="Hi"> {this.props.user.username ? `${this.props.user.username}'s page` : 'Getting your profile...'}</h1>
           <UploadPhoto userInfo={this.props.userInfo}/>
           <UploadProPic userInfo={this.props.userInfo}/>
         </div>
-        :
-        <div>
-          other user
-        </div>
-        }
       </div>
     );
   }
