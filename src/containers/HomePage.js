@@ -9,16 +9,6 @@ import { getPosts } from '../actions/postActions';
 
 class HomePage extends React.Component {
 
-  // state = {
-  //   // posts: this.props.currentUser.posts,
-  //   postContent: ''
-  // }
-
-  // handleChange = (event) => {
-  //   this.setState({[event.target.name]: event.target.value})
-  // }
-
-
 
   componentDidMount() {
     if ((!localStorage.token) && this.props.hasOwnProperty('history')) this.props.history.push("/")
