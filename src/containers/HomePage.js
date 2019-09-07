@@ -35,10 +35,7 @@ class HomePage extends React.Component {
   //    .then(this.props.history.push("/home"))
   // }
 
-  // handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   this.makePost(this.state.postContent, this.props.user.id)
-  // }
+
 
   componentDidMount() {
     if ((!localStorage.token) && this.props.hasOwnProperty('history')) this.props.history.push("/")
