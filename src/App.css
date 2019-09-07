@@ -770,3 +770,13 @@ Profile Page
   width: 15em;
 }
 
+.posts-photos-div {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-posts, .profile-photos {
+  margin: 0 auto;
+}
+
