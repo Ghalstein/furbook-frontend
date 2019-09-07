@@ -27,8 +27,6 @@ class HomeHeader extends React.Component {
   }
 }
 
-// <div className="profile-icon-combo"> { this.props.user.id ? <img className="profile-link-icon" src={`${this.props.user.pro_pic.picture.url}`}/> : null} Profile </div>
-
 const mapStateToProps = state => {
   return {
     user: state.currentUser

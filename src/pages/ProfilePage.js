@@ -5,7 +5,7 @@ import withAuth from '../hocs/withAuth';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
-
+// make a working redux fetch for the specific profile you are on
 
 class ProfilePage extends React.Component {
 
