@@ -5,6 +5,7 @@ import withAuth from '../hocs/withAuth';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { getUserById } from '../actions/usersActions';
+import ProfilePhotos from '../components/ProfilePhotos';
 
 // make a working redux fetch for the specific profile you are on
 
@@ -21,8 +22,8 @@ class ProfilePage extends React.Component {
   }
 
   render = () => {
-    console.log(this.props)
     if (!Object.keys(this.props.profileUser).length) return null;
+    console.log(this.props)
     return (
       <div className="/profile">
         <div className="ProfilePage">
@@ -39,6 +40,7 @@ class ProfilePage extends React.Component {
 
             <div className="profile-photos">
               Photos
+              <ProfilePhotos photos={this.props.profileUser.photos}/>
             </div>
           </div>
           <UploadPhoto userInfo={this.props.userInfo}/>
