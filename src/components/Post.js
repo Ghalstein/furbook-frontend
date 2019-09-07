@@ -31,10 +31,10 @@ class Post extends React.Component {
       } 
     })
     .then(res => res.json())
-    .then(info => this.setState({username: info.object.username}))
+    .then(info => this.setState({username: info.username}))
   }
   render = () => {
-    console.log("post: ", this.props)
+    // console.log("post: ", this.props)
     // console.log(this.props.post)
     let date = new Date(this.props.post.created_at)
     date = date.toString();
@@ -46,9 +46,7 @@ class Post extends React.Component {
           <div className="icon-date">
             <div className="icon-img-text"> 
               <div className="icon-img-text">
-                <div className="icon-img">
-                  <img src={`${this.props.user.pro_pic.picture.url}`} />
-                </div>
+                <img className="icon-img" src={`${this.props.user.pro_pic.picture.url}`} />
                 <div className="icon"> 
                   {this.state.username}
                 </div>
