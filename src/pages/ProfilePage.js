@@ -29,6 +29,9 @@ class ProfilePage extends React.Component {
           <h1 className="Hi"> {this.props.profileUser.username ? `${this.props.profileUser.username}'s page` : 'Getting your profile...'}</h1>
           <div className="profile-icon-div">
             <img className="profile-icon" src={this.props.profileUser.pro_pic.picture.url} />
+            <h2>{this.props.profileUser.username}</h2>
+          </div>
+          <div>
           </div>
           <UploadPhoto userInfo={this.props.userInfo}/>
           <UploadProPic userInfo={this.props.userInfo}/>
