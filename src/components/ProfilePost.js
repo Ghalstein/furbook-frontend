@@ -2,6 +2,7 @@ import React from 'react';
 import Comments from '../containers/Comments';
 import CreateComment from './CreateComment';
 import { getPostById } from '../actions/postActions';
+import { getUserById } from '../actions/usersActions';
 import withAuth from '../hocs/withAuth';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
@@ -17,10 +18,13 @@ class ProfilePost extends React.Component {
 
   componentDidMount = () => {
   	this.props.getPostById(this.props.post.id);
+  	this.props.getUserById(this.props.post.user_id);
   }
 
 	render = () => {
 		if (!Object.keys(this.props.userPost).length) return null;
+		if (!Object.keys(this.props.postUser).length) return null;
+		// debugger
 		let date = new Date(this.props.post.created_at)
     date = date.toString();
     date = date.split(' ');
@@ -36,7 +40,7 @@ class ProfilePost extends React.Component {
 			              <img className="icon-img" src='https://image.flaticon.com/icons/png/512/17/17479.png' />
 			            }
                   <div className="icon"> 
-                    {this.props.post.username}
+                    {this.props.postUser.username}
                   </div>
                 </div>
             </div>
@@ -68,12 +72,14 @@ const mapStateToProps = state => {
   // console.log(state)
   return {
     user: state.currentUser,
-    userPost: state.postReducer.post
+    userPost: state.postReducer.post,
+    postUser: state.usersReducer.user
   }
 }
 
 const mapDispatchToProps = {
-  getPostById: getPostById
+  getPostById: getPostById,
+  getUserById: getUserById
 }
 
 export default withAuth(connect(mapStateToProps, mapDispatchToProps)(withRouter(ProfilePost)))
