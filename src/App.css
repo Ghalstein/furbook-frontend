@@ -238,6 +238,12 @@ Header
   right: 60px;
 }
 
+.found-profile-link-icon {
+  width: 3em;
+  padding: 3px;
+  border-radius: 40px;
+}
+
 .profile-icon-combo {
   display:flex;
   align-items: center;
@@ -344,7 +350,7 @@ Header
   margin-top: 5px;
   margin-left: 1em;
 }
-.dropdownmenu li:hover a {
+.header-links:hover {
   background: #FFFFFF;
   color:#888888;
 }
@@ -726,12 +732,15 @@ Search-results
 }
 
 .user-found {
-  background: #FFFFFF;
+  display:flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   max-width: 10em;
   padding:10px;
   border-radius: 10px;
   margin-top: 10px;
+  color:#FFFFFF;
 }
 
 .no-user-found {
@@ -785,6 +794,7 @@ Profile Page
 
 .profile-posts, .profile-photos, .no-photos-to-show, .no-posts-to-show {
   margin: 0 auto;
+  overflow: auto;
 }
 
 .profile-photo {
