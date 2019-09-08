@@ -6,8 +6,8 @@ import { getComments } from '../actions/commentActions';
 import { connect } from 'react-redux';
 import withAuth from '../hocs/withAuth';
 import { withRouter } from 'react-router-dom';
-import { getPostById } from '../actions/postActions';
-import { getUserById } from '../actions/usersActions';
+import { getPostById } from '../actions/targetPostActions';
+import { getUserById } from '../actions/targetUserActions';
 // import IconPhoto from './IconPhoto';
 
 class Post extends React.Component {
@@ -26,7 +26,8 @@ class Post extends React.Component {
     // console.log(this.props.post)
     this.props.getComments();
     this.props.getUserById(this.props.post.user_id)
-    this.props.getPostById(this.props.post.id)
+    // this.props.getUserById(this.props.post.user_id)
+    // this.props.getPostById(this.props.post.id)
     // fetch(`http://localhost:3000/users/${this.props.post.user_id}`, {
     //   headers: {
     //     'Content-Type': 'application/json',
@@ -36,24 +37,27 @@ class Post extends React.Component {
     // })
     // .then(res => res.json())
     // .then(info => this.setState({postUser: info}))
+
   }
 
 
   render = () => {
-    // console.log("post: ", this.props)
-    console.log(this.props)
-    let comments = this.props.comments.filter(comment => comment.post_id === this.props.post.id)
+    console.log("post: ", this.props)
+    // console.log(this.props)
+    // let comments = this.props.comments.filter(comment => comment.post_id === this.props.post.id)
     let date = new Date(this.props.post.created_at)
     date = date.toString();
     date = date.split(' ');
     date = date[0] + ' ' + date[1] + ' ' + date[2] + ' ' + date[3];
-    if (!Object.keys(this.props.postInfo).length || !Object.keys(this.props.postUser).length) return null;
+    if (!Object.keys(this.props.postUser).length) return null;
+    // if (this.props.postUser.id !== this.props.post.user_id) return null;
+    // debugger
     return (
       <li className="post-content">
         <div className="post-div">
           <div className="icon-date">
             <div className="icon-img-text"> 
-              <Link to={`users/${this.props.postUser.id}`} >
+              <Link to={`users/${this.props.post.user_id}`} >
                 <div className="icon-img-text">
                  {this.props.postUser.pro_pic ?
                     <img className="icon-img" src={this.props.postUser.pro_pic.picture.url} />
@@ -61,7 +65,7 @@ class Post extends React.Component {
                     <img className="icon-img" src='https://image.flaticon.com/icons/png/512/17/17479.png' />
                   }
                   <div className="icon"> 
-                    {this.props.postUser.username}
+                    {this.props.post.user.username}
                   </div>
                 </div>
               </Link>
@@ -71,17 +75,17 @@ class Post extends React.Component {
             </div>
           </div>
           <div className="content">
-            {this.props.postInfo.content}
+            {this.props.post.content}
           </div>
           {this.state.commentsClicked ? 
             <div className="comments-container">
               <a className="comment-tag" onClick={this.handleCommentsClick}>
-                comments ({this.props.postInfo.comments.length})
+                comments ({this.props.post.comments.length})
               </a>
-              <Comments postComments={this.props.comments} info={this.props.post}/>
+              <Comments postComments={this.props.post.comments} info={this.props.post}/>
             </div>
           : 
-            <a className="comment-tag" onClick={this.handleCommentsClick}>comments ({comments.length})</a>}
+            <a className="comment-tag" onClick={this.handleCommentsClick}>comments ({this.props.post.comments.length})</a>}
           <div className="createComment">
             <CreateComment postInfo={this.props.post} />
           </div>
@@ -97,8 +101,8 @@ const mapStateToProps = state => {
   return {
     user: state.currentUser,
     comments: state.commentReducer.comments,
-    postUser: state.usersReducer.user,
-    postInfo: state.postReducer.post
+    postUser: state.userReducer.user,
+    postInfo: state.targetPostReducer.post
   }
 }
 
@@ -109,4 +113,4 @@ const mapDispatchToProps = {
   getUserById: getUserById
 }
 
-export default withAuth(connect(mapStateToProps, mapDispatchToProps)(withRouter(Post)))
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Post))
