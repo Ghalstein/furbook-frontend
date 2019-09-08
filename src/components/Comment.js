@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { getUserById } from '../actions/targetUserActions';
+import { getUserById } from '../actions/usersActions';
 import { connect } from 'react-redux';
 
 class Comment extends React.Component {
@@ -36,7 +36,11 @@ class Comment extends React.Component {
             <div className="icon-date">
               <Link to={`users/${this.state.user.id}`} >
                 <div className="icon-img-text">
-                  <img className="icon-img" src={`${this.state.user.pro_pic.picture.url}`} />
+                  {this.state.user.pro_pic ?
+                    <img className="icon-img" src={this.state.user.pro_pic.picture.url} />
+                  :
+                    <img className="icon-img" src='https://image.flaticon.com/icons/png/512/17/17479.png' />
+                  }
                   <div className="comment-icon"> 
                     {this.state.user.username}
                   </div>
@@ -70,4 +74,4 @@ const mapDispatchToProps = {
   getUserById: getUserById
 }
 
-export default Comment;
+export default connect()(Comment);

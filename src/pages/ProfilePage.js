@@ -4,9 +4,9 @@ import UploadProPic from '../components/uploadProPic';
 import withAuth from '../hocs/withAuth';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import { getUserById } from '../actions/usersActions';
 import ProfilePhotos from '../components/ProfilePhotos';
 import ProfilePosts from '../components/ProfilePosts';
-import { getUserById } from '../actions/targetUserActions';
 
 // make a working redux fetch for the specific profile you are on
 
@@ -41,7 +41,7 @@ class ProfilePage extends React.Component {
             {this.props.profileUser.posts.length ? 
               <div className="profile-posts">
                 <h2> Posts</h2>
-                <ProfilePosts profileUser={this.props.profileUser} />
+                <ProfilePosts user={this.props.profileUser} />
               </div>
             :
               <h2 className="no-posts-to-show">No posts to show...</h2>
@@ -68,7 +68,7 @@ const mapStateToProps = state => {
   // console.log(state)
   return {
     user: state.currentUser,
-    profileUser: state.userReducer.user
+    profileUser: state.usersReducer.user
   }
 }
 

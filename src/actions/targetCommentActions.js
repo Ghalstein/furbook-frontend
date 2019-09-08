@@ -1,7 +1,7 @@
-export const getPostById = (id) => {
+export const getCommentById = (id) => {
 
   return function(dispatch){
-    fetch(`http://localhost:3000/posts/${id}`, { 
+    fetch(`http://localhost:3000/comments/${id}`, { 
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
@@ -9,7 +9,7 @@ export const getPostById = (id) => {
       }})
     .then(res => res.json())
     .then(post => {
-      dispatch({ type: 'FETCH_MY_POST', payload: post})
+      dispatch({ type: 'FETCH_MY_COMMENT', payload: post})
     })
   }
   // Return is an action

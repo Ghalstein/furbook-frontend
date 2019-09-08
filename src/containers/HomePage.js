@@ -18,16 +18,16 @@ class HomePage extends React.Component {
   }
 
   render = () => {
-// debugger 
-    console.log("homepage: ", this.props)
+    
+    // console.log("homepage: ", this.props)
     return (
       <div className="HomePage">
         <h1 className="Hi"> {this.props.user.id ? `Here is your feed ${this.props.user.username}!` : 'Getting your profile...'}</h1>
         <div className="postForm">
-          <CreatePost/>
+          <CreatePost user={this.props.user}/>
         </div>
         <div className="posts-container">
-          <ul className="posts">{Object.keys(this.props.posts).length ? this.props.posts.map(post => <Post post={post} comments={post.comments} />) : 'Getting your feed...'}</ul>
+          <ul className="posts">{this.props.posts && this.props.user.id ? this.props.posts.map(post => <Post post={post} comments={post.comments} />) : 'Getting your feed...'}</ul>
         </div>
       </div>
     );

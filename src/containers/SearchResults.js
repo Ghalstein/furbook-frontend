@@ -12,14 +12,12 @@ class SearchResults extends React.Component {
 
   render = () => {
     
-    console.log("homepage: ", this.props)
+    // console.log("homepage: ", this.props)
     return (
       <div className="search-modal-content">
         <span className="close" onClick={() => this.props.handleExit()}>x</span>
         <h2> search results: </h2>
-        <ul>
-          {this.props.users.length ? this.props.users.map(user => <UserFound user={user}/>) : <div className="no-user-found"> No users found... </div>}
-        </ul>
+        {this.props.users.length ? this.props.users.map(user => <UserFound user={user}/>) : <div className="no-user-found"> No users found... </div>}
       </div>
     );
   }

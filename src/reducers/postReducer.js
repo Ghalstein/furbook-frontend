@@ -1,5 +1,6 @@
 const defaultState = {
-	posts: []
+	posts: [],
+  post: {}
 }
 
 export default (state = defaultState, action) => {
@@ -8,12 +9,20 @@ export default (state = defaultState, action) => {
   switch (action.type) {
   	case 'FETCH_MY_POSTS':
       return {
+        ...state,
         posts: action.payload
       }
     case 'CREATE_POST':
-    	// let post = {...action.payload., comments:[], user:{id: action.payload.user_id}}
+    	// debugger
+    	let post = {...action.payload.object, comments:[], user:{id: action.payload.object.user_id}}
       return {
-        posts: [action.payload, ...state.posts]
+      	...state,
+        posts: [post, ...state.posts]
+      }
+    case 'FETCH_MY_POST':
+      return {
+        ...state,
+        post: action.payload
       }
     default:
       return state

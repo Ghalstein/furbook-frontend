@@ -7,7 +7,6 @@ Login
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  list-style-type: none;
 }
 
 .LoginPage {
@@ -238,12 +237,6 @@ Header
   right: 60px;
 }
 
-.found-profile-link-icon {
-  width: 3em;
-  padding: 3px;
-  border-radius: 40px;
-}
-
 .profile-icon-combo {
   display:flex;
   align-items: center;
@@ -310,7 +303,7 @@ Header
   background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
   background: linear-gradient(to right, #FF4B2B, #FF416C);
   list-style: none;
-  width: 100vw;
+  width: 100%;
 }
 .dropdownmenu li {
   float: left;
@@ -350,7 +343,7 @@ Header
   margin-top: 5px;
   margin-left: 1em;
 }
-.header-links:hover {
+.dropdownmenu li:hover a {
   background: #FFFFFF;
   color:#888888;
 }
@@ -552,7 +545,6 @@ Post
 
 .comment-icon {
   padding-right:80px;
-  color: #FFFFFF;
   /*margin-bottom:20px;*/
 }
 
@@ -702,17 +694,16 @@ HomePage
 Search-results
 *********************************/
 .search-modal {
-  margin: 0 auto;
-  margin-top: 9em;
-  position: fixed;  /*Stay in place */
+  margin-top: 5vh;
+  position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
   left: 0;
-  /*top: 0;*/
-  /*width: 100%;  Full width */
-  /*height: 100%;  Full height */
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  /*background-color: rgb(0,0,0); /* Fallback color */
-  /*background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
 .search-modal-content {
@@ -721,10 +712,10 @@ Search-results
   border-radius: 20px;
   background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
   background: linear-gradient(to right, #FF4B2B, #FF416C);
-  /*margin: 5vh auto;  15% from the top and centered */
+  margin: 5vh auto; /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
-  width: 30em; /* Could be more or less, depending on screen size */
+  width: 50vw; /* Could be more or less, depending on screen size */
   height: 25vh;
   text-align: cetner;
   color: #FF416C;
@@ -732,15 +723,12 @@ Search-results
 }
 
 .user-found {
-  display:flex;
-  justify-content: center;
-  align-items: center;
+  background: #FFFFFF;
   text-align: center;
   max-width: 10em;
   padding:10px;
   border-radius: 10px;
   margin-top: 10px;
-  color:#FFFFFF;
 }
 
 .no-user-found {
@@ -788,13 +776,8 @@ Profile Page
   align-items: center;
 }
 
-.posts-photos-div h2 {
-  color: #FF4B2B;
-}
-
 .profile-posts, .profile-photos, .no-photos-to-show, .no-posts-to-show {
   margin: 0 auto;
-  overflow: auto;
 }
 
 .profile-photo {
@@ -823,7 +806,6 @@ Profile Page
   overflow: scroll;
   max-height: 15em;
   margin-top: 20px;
-  color: #FFFFFF;
   /*position: relative;
   right: 125px;*/
 }

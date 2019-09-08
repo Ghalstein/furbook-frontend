@@ -19,7 +19,7 @@ class CreatePost extends React.Component {
 
 	handleSubmit = (event) => {
     event.preventDefault();
-     this.props.createPost(this.state.postContent, this.props.user.id)
+     this.props.dispatch(createPost(this.state.postContent, this.props.user.id))
      this.setState({postContent: ''}) 
   }
 
@@ -47,8 +47,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
   // more to do for getComments redux
-  getComments: getComments,
-  createPost: createPost
+  getComments: getComments
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(CreatePost));
+export default withAuth(connect(mapStateToProps)(withRouter(CreatePost)));

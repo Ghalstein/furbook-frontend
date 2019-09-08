@@ -20,10 +20,11 @@ class Comments extends React.Component {
   render = () => {
   	// console.log("FROM COMMENTS: ", this.props)
   	let comments = this.props.comments.filter(comment => comment.post_id === this.props.info.id)
+    this.props.commentsLength(comments.length)
     return (
     	<div className="all-comments">
 	      <div className="comment-container">
-	      	{this.props.info.comments.length ? this.props.info.comments.map(comment => <Comment comment={comment}/>) : <div className="no-comments">There are no comments...</div>}
+	      	{comments.length ? comments.map(comment => <Comment comment={comment}/>) : <div className="no-comments">There are no comments...</div>}
 	      </div>
 	     </div>
     );

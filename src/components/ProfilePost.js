@@ -1,8 +1,7 @@
 import React from 'react';
 import Comments from '../containers/Comments';
 import CreateComment from './CreateComment';
-import { getPostById } from '../actions/targetPostActions';
-import { getUserById } from '../actions/targetUserActions';
+import { getPostById } from '../actions/postActions';
 import withAuth from '../hocs/withAuth';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
@@ -18,13 +17,10 @@ class ProfilePost extends React.Component {
 
   componentDidMount = () => {
   	this.props.getPostById(this.props.post.id);
-  	this.props.getUserById(this.props.post.user_id);
   }
 
 	render = () => {
 		if (!Object.keys(this.props.userPost).length) return null;
-		if (!Object.keys(this.props.postUser).length) return null;
-		// debugger
 		let date = new Date(this.props.post.created_at)
     date = date.toString();
     date = date.split(' ');
@@ -34,13 +30,13 @@ class ProfilePost extends React.Component {
           <div className="icon-date">
             <div className="icon-img-text"> 
                 <div className="icon-img-text">
-                  {this.props.postUser.pro_pic ?
+                  {this.props.user.pro_pic ?
 			              <img className="icon-img" src={this.props.user.pro_pic.picture.url} />
 			            :
 			              <img className="icon-img" src='https://image.flaticon.com/icons/png/512/17/17479.png' />
 			            }
                   <div className="icon"> 
-                    {this.props.postUser.username}
+                    {this.props.post.username}
                   </div>
                 </div>
             </div>
@@ -72,14 +68,12 @@ const mapStateToProps = state => {
   // console.log(state)
   return {
     user: state.currentUser,
-    userPost: state.targetPostReducer.post,
-    postUser: state.userReducer.user
+    userPost: state.postReducer.post
   }
 }
 
 const mapDispatchToProps = {
-  getPostById: getPostById,
-  getUserById: getUserById
+  getPostById: getPostById
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(ProfilePost))
+export default withAuth(connect(mapStateToProps, mapDispatchToProps)(withRouter(ProfilePost)))

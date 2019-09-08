@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getUsers } from '../actions/usersActions'
 import SearchResults from '../containers/SearchResults';
-import withAuth from '../hocs/withAuth';
-import { withRouter } from 'react-router-dom';
 
 class SearchBar extends React.Component {
 
@@ -16,7 +14,7 @@ class SearchBar extends React.Component {
 
   handleChange = (event) => {
     this.setState({[event.target.name]: event.target.value})
-    let search = this.props.users.filter(user => user.username.toLowerCase().includes(this.state.search.toLowerCase()))
+    let search = this.props.users.map(user => user.username).filter(username => username.toLowerCase().includes(this.state.search.toLowerCase()))
     this.setState({users: search})
   }
 
@@ -69,4 +67,4 @@ const mapDispatchToProps = {
   getUsers: getUsers
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(SearchBar))
+export default connect(mapStateToProps, mapDispatchToProps)(SearchBar)
