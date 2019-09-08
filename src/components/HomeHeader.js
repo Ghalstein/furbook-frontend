@@ -18,9 +18,9 @@ class HomeHeader extends React.Component {
         <ul>
           <li><h2>furbook</h2></li>
           <li><SearchBar/></li>
-          <li><Link to="/home">Feed</Link></li> 
-        	<li><Link to={`/users/${this.props.user.id}`}>Profile</Link></li> 
-          <li onClick={this.onLogout}><Link to="/login">Logout</Link></li>
+          <li><Link className="header-links" to="/home">Feed</Link></li> 
+        	<li><Link className="header-links" to={`/users/${this.props.user.id}`}>Profile</Link></li> 
+          <li onClick={this.onLogout}><Link className="header-links" to="/login">Logout</Link></li>
         </ul>
       </div>
     );
