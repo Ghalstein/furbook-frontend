@@ -18,7 +18,7 @@ class CreateComment extends React.Component {
 	handleSubmit = (event) => {
     event.preventDefault();
     if (this.props.postInfo !== undefined) {
-      this.props.dispatch(createComment(this.state.commentContent, this.props.postInfo.user.id, this.props.postInfo.id))
+      this.props.dispatch(createComment(this.state.commentContent, this.props.user.id, this.props.postInfo.id))
       this.setState({commentContent: ''}) 
     }
   }
