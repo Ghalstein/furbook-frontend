@@ -1,18 +1,17 @@
-export const getUsers = () => {
-
+export const getUserById = (userId) => {
+  
   return function(dispatch){
-    fetch("http://localhost:3000/users", { 
+    fetch(`http://localhost:3000/users/${userId}`, { 
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
          Authorization: localStorage.token
       }})
     .then(res => res.json())
-    .then(users => {
-      dispatch({ type: 'FETCH_USERS', payload: users})
+    .then(user => {
+      dispatch({ type: 'FETCH_USER', payload: user})
     })
   }
   // Return is an action
   // return { type: FETCH_MY_POSTS, payload: myWallPosts }
 }
-

@@ -6,14 +6,15 @@ import { getCurrentUser } from '../actions/userActions'
 export default function withAuth(ComponentToBeWrapped) {
   class Something extends React.Component {
     componentDidMount() {
-      if (!localStorage.token) {
-        // this.props.history.push("/login")
+      if (!localStorage.token || localStorage.token === undefined || localStorage.token === "undefined") {
+        localStorage.clear();
+        this.props.history.push("/login")
       }
       try {
         this.props.setCurrentUser()
           .catch(e => {
             console.log("try")
-            this.props.history.push("/myProfile")
+            this.props.history.push("/users/:id")
           })
       } catch (e) {
         if (e.message === "Please log in") {

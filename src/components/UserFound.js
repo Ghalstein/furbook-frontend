@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 // import { connect } from 'react-redux';
 // import { getCurrentUser } from '../actions/userActions';
 // import withAuth from '../hocs/withAuth';
@@ -14,9 +15,18 @@ class UserFound extends React.Component {
     
     // console.log("homepage: ", this.props)
     return (
-      <div className="user-found">
-        {this.props.user}
-      </div>
+    	<li>
+	    	<Link to={`users/${this.props.user.id}`} >
+		      <div className="user-found">
+		      	{this.props.user.pro_pic ?
+		          <img className="found-profile-link-icon" src={this.props.user.pro_pic.picture.url} />
+		        :
+		          <img className="found-profile-link-icon" src='https://image.flaticon.com/icons/png/512/17/17479.png' />
+		        }
+		        {this.props.user.username}
+		      </div>
+		    </Link>
+		  </li>
     );
   }
 }
