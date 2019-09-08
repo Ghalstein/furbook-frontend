@@ -1,6 +1,5 @@
 const defaultState = {
-	users: [],
-  user: {}
+	users: []
 }
 
 export default (state = defaultState, action) => {
@@ -9,13 +8,7 @@ export default (state = defaultState, action) => {
   switch (action.type) {
   	case 'FETCH_USERS':
       return {
-        ...state,
         users: action.payload
-      }
-    case 'FETCH_USER':
-      return {
-        ...state, 
-        user: action.payload
       }
     // case 'CREATE_POST':
     // 	// debugger
