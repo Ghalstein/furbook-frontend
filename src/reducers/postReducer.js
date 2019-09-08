@@ -1,5 +1,6 @@
 const defaultState = {
-	posts: []
+	posts: [],
+  post: {}
 }
 
 export default (state = defaultState, action) => {
@@ -17,6 +18,11 @@ export default (state = defaultState, action) => {
       return {
       	...state,
         posts: [post, ...state.posts]
+      }
+    case 'FETCH_MY_POST':
+      return {
+        ...state,
+        post: action.payload
       }
     default:
       return state
