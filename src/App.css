@@ -782,5 +782,40 @@ Profile Page
 
 .profile-photo {
   width: 20em;
+  border-radius: 10px;
+}
+.profile-post {
+  color: #FF4B2B;
+  margin-right:100px;
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
 
+.profile-post-container {
+  display: inline-block;
+  max-width: 30em;
+  min-width: 20em;
+  overflow-wrap: break-word;
+  background: #faf5f5;
+  border-radius: 10px;
+  color: #FF416C;
+  padding: 25px;
+  margin-right: 50px;
+  margin-left: 50px;
+  margin-bottom: 20px;
+  overflow: scroll;
+  max-height: 15em;
+  margin-top: 20px;
+  /*position: relative;
+  right: 125px;*/
+}
+
+.profile-post-div {
+  background: #FF416C;
+  background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
+  background: linear-gradient(to right, #FF4B2B, #FF416C);
+  padding: 15px;
+  width: 40em;
+  border-radius: 10px;
+  color: #FFFFFF;
+}
