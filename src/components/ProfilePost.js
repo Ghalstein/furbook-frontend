@@ -1,8 +1,8 @@
 import React from 'react';
 import Comments from '../containers/Comments';
 import CreateComment from './CreateComment';
-import { getPostById } from '../actions/postActions';
-import { getUserById } from '../actions/usersActions';
+import { getPostById } from '../actions/targetPostActions';
+import { getUserById } from '../actions/targetUserActions';
 import withAuth from '../hocs/withAuth';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
@@ -34,7 +34,7 @@ class ProfilePost extends React.Component {
           <div className="icon-date">
             <div className="icon-img-text"> 
                 <div className="icon-img-text">
-                  {this.props.user.pro_pic ?
+                  {this.props.postUser.pro_pic ?
 			              <img className="icon-img" src={this.props.user.pro_pic.picture.url} />
 			            :
 			              <img className="icon-img" src='https://image.flaticon.com/icons/png/512/17/17479.png' />
@@ -72,8 +72,8 @@ const mapStateToProps = state => {
   // console.log(state)
   return {
     user: state.currentUser,
-    userPost: state.postReducer.post,
-    postUser: state.usersReducer.user
+    userPost: state.targetPostReducer.post,
+    postUser: state.userReducer.user
   }
 }
 
@@ -82,4 +82,4 @@ const mapDispatchToProps = {
   getUserById: getUserById
 }
 
-export default withAuth(connect(mapStateToProps, mapDispatchToProps)(withRouter(ProfilePost)))
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(ProfilePost))
