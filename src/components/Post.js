@@ -6,21 +6,18 @@ import { getComments } from '../actions/commentActions';
 import { connect } from 'react-redux';
 import withAuth from '../hocs/withAuth';
 import { withRouter } from 'react-router-dom';
+import { getPostById } from '../actions/postActions';
+import { getUserById } from '../actions/usersActions';
 // import IconPhoto from './IconPhoto';
 
 class Post extends React.Component {
 
   state = {
-    commentsClicked: false,
-    commentsLength: 0
+    commentsClicked: false
   }
 
   handleCommentsClick = () => {
     this.setState({commentsClicked: !this.state.commentsClicked})
-  }
-
-  commentsLength = (length) => {
-    this.setState({commentsLength: length})
   }
 
 
@@ -28,6 +25,7 @@ class Post extends React.Component {
   componentDidMount() {
     // console.log(this.props.post)
     this.props.getComments();
+    this.props.getPostById(this.props.post.id)
     fetch(`http://localhost:3000/users/${this.props.post.user_id}`, {
       headers: {
         'Content-Type': 'application/json',
@@ -42,7 +40,7 @@ class Post extends React.Component {
 
   render = () => {
     // console.log("post: ", this.props)
-    // console.log(this.props.post)
+    console.log(this.props)
     let comments = this.props.comments.filter(comment => comment.post_id === this.props.post.id)
     let date = new Date(this.props.post.created_at)
     date = date.toString();
@@ -75,7 +73,7 @@ class Post extends React.Component {
               <a className="comment-tag" onClick={this.handleCommentsClick}>
                 comments ({comments.length})
               </a>
-              <Comments commentsLength={this.commentsLength} postComments={this.props.comments} info={this.props.post}/>
+              <Comments postComments={this.props.comments} info={this.props.post}/>
             </div>
           : 
             <a className="comment-tag" onClick={this.handleCommentsClick}>comments ({comments.length})</a>}
@@ -93,13 +91,16 @@ const mapStateToProps = state => {
   // console.log(state)
   return {
     user: state.currentUser,
-    comments: state.commentReducer.comments
+    comments: state.commentReducer.comments,
+    postUser: state.usersReducer.user,
+    postInfo: state.postReducer.post
   }
 }
 
 const mapDispatchToProps = {
   // more to do for getComments redux
-  getComments: getComments
+  getComments: getComments,
+  getPostById: getPostById
 }
 
 export default withAuth(connect(mapStateToProps, mapDispatchToProps)(withRouter(Post)))
