@@ -20,7 +20,6 @@ class Comments extends React.Component {
   render = () => {
   	// console.log("FROM COMMENTS: ", this.props)
   	let comments = this.props.comments.filter(comment => comment.post_id === this.props.info.id)
-    this.props.commentsLength(comments.length)
     return (
     	<div className="all-comments">
 	      <div className="comment-container">
