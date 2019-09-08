@@ -25,16 +25,17 @@ class Post extends React.Component {
   componentDidMount() {
     // console.log(this.props.post)
     this.props.getComments();
+    this.props.getUserById(this.props.post.user_id)
     this.props.getPostById(this.props.post.id)
-    fetch(`http://localhost:3000/users/${this.props.post.user_id}`, {
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-         Authorization: localStorage.token
-      } 
-    })
-    .then(res => res.json())
-    .then(info => this.setState({postUser: info}))
+    // fetch(`http://localhost:3000/users/${this.props.post.user_id}`, {
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //     'Accept': 'application/json',
+    //      Authorization: localStorage.token
+    //   } 
+    // })
+    // .then(res => res.json())
+    // .then(info => this.setState({postUser: info}))
   }
 
 
@@ -46,17 +47,21 @@ class Post extends React.Component {
     date = date.toString();
     date = date.split(' ');
     date = date[0] + ' ' + date[1] + ' ' + date[2] + ' ' + date[3];
-    if (this.state.postUser === undefined) return null;
+    if (!Object.keys(this.props.postInfo).length || !Object.keys(this.props.postUser).length) return null;
     return (
       <li className="post-content">
         <div className="post-div">
           <div className="icon-date">
             <div className="icon-img-text"> 
-              <Link to={`users/${this.state.postUser.id}`} >
+              <Link to={`users/${this.props.postUser.id}`} >
                 <div className="icon-img-text">
-                  <img className="icon-img" src={`${this.state.postUser.pro_pic.picture.url}`} />
+                 {this.props.postUser.pro_pic ?
+                    <img className="icon-img" src={this.props.postUser.pro_pic.picture.url} />
+                  :
+                    <img className="icon-img" src='https://image.flaticon.com/icons/png/512/17/17479.png' />
+                  }
                   <div className="icon"> 
-                    {this.state.postUser.username}
+                    {this.props.postUser.username}
                   </div>
                 </div>
               </Link>
@@ -66,12 +71,12 @@ class Post extends React.Component {
             </div>
           </div>
           <div className="content">
-            {this.props.post.content}
+            {this.props.postInfo.content}
           </div>
           {this.state.commentsClicked ? 
             <div className="comments-container">
               <a className="comment-tag" onClick={this.handleCommentsClick}>
-                comments ({comments.length})
+                comments ({this.props.postInfo.comments.length})
               </a>
               <Comments postComments={this.props.comments} info={this.props.post}/>
             </div>
@@ -100,7 +105,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = {
   // more to do for getComments redux
   getComments: getComments,
-  getPostById: getPostById
+  getPostById: getPostById,
+  getUserById: getUserById
 }
 
 export default withAuth(connect(mapStateToProps, mapDispatchToProps)(withRouter(Post)))
