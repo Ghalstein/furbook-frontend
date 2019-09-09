@@ -49,6 +49,7 @@ class Post extends React.Component {
     date = date.split(' ');
     date = date[0] + ' ' + date[1] + ' ' + date[2] + ' ' + date[3];
     if (this.state.postUser === undefined) return null;
+    // debugger
     return (
       <li className="post-content">
         <div className="post-div">
@@ -57,7 +58,7 @@ class Post extends React.Component {
               <Link to={`users/${this.state.postUser.id}`} >
                 <div className="icon-img-text">
                   {this.state.postUser.pro_pic.length ?
-                    <img className="icon-img" src={this.state.postUser.pro_pic.picture.url} />
+                    <img className="icon-img" src={this.state.postUser.pro_pic.slice(-1)[0].picture.url} />
                   :
                     <img className="icon-img" src='https://image.flaticon.com/icons/png/512/17/17479.png' />
                   }

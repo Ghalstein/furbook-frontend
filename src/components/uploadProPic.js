@@ -30,11 +30,11 @@ class uploadProPic extends React.Component {
 	render() {
 		console.log(this.props);
 		return (
-			<div>
+			<div className="uplaod-form">
 				Upload a new profile picture
 				<form onSubmit={this.handleSubmit}>
 					<input type="file" onChange={this.handleFile}/>
-					<button>Upload Photo </button>
+					<button className="upload-button">Upload Photo </button>
 				</form>
 			</div>
 		);

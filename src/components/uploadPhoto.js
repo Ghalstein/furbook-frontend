@@ -35,7 +35,7 @@ class uploadPhoto extends React.Component {
 				Upload a new photo
 				<form onSubmit={this.handleSubmit}>
 					<input type="file" onChange={this.handleFile}/>
-					<button>Upload Photo </button>
+					<button className="upload-button">Upload Photo </button>
 				</form>
 			</div>
 		);

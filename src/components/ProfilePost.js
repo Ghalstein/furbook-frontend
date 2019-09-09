@@ -137,7 +137,7 @@ class ProfilePost extends React.Component {
               <Link className= "profile-post-link "to={`users/${this.state.postUser.id}`} >
                 <div className="icon-img-text">
                   {this.state.postUser.pro_pic.length ?
-                    <img className="icon-img" src={this.state.postUser.pro_pic.picture.url} />
+                    <img className="icon-img" src={this.state.postUser.pro_pic.slice(-1)[0].picture.url} />
                   :
                     <img className="icon-img" src='https://image.flaticon.com/icons/png/512/17/17479.png' />
                   }
