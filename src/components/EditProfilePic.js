@@ -12,6 +12,7 @@ class EditProfilePic extends React.Component {
     // console.log("createComment:", this.props)
     return (
       <div className="profile-modal-content">
+        <h3 className="close">x</h3>
         <UploadProPic />
       </div>
     )
