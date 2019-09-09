@@ -13,9 +13,15 @@ class UserFound extends React.Component {
   render = () => {
     
     // console.log("homepage: ", this.props)
+    console.log(this.props.user)
     return (
       <div className="user-found">
-        {this.props.user}
+	      {this.props.user.pro_pic.length ?
+	        <img className="search-icon-img" src={this.props.user.pro_pic.slice(-1)[0].picture.url} />
+	      :
+	        <img className="search-icon-img" src='https://image.flaticon.com/icons/png/512/17/17479.png' />
+	      }
+        {this.props.user.username}
       </div>
     );
   }

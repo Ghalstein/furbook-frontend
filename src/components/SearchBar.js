@@ -14,7 +14,7 @@ class SearchBar extends React.Component {
 
   handleChange = (event) => {
     this.setState({[event.target.name]: event.target.value})
-    let search = this.props.users.map(user => user.username).filter(username => username.toLowerCase().includes(this.state.search.toLowerCase()))
+    let search = this.props.users.filter(user => user.username.toLowerCase().includes(this.state.search.toLowerCase()))
     this.setState({users: search})
   }
 
