@@ -942,3 +942,38 @@ Profile Page
   padding: 30px;
 
 }
+
+.friend-options {
+  margin: 0 auto;
+  margin-left: 5em;
+}
+
+.friend-request, .unfriend {
+  padding: 10px;
+}
+
+.friend-request {
+  background: #FFFFFF;
+  color: #FF416C;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  border-radius: 20px;
+  border: 2px solid #FF4B2B;
+}
+
+.unfriend {
+  background: blue;
+  background: #FF416C;
+  background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
+  background: linear-gradient(to right, #FF4B2B, #FF416C);
+  color: #FFFFFF;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  border-radius: 20px;
+}
+
+.request-pending {
+  color: #FF416C;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bolder;
+}
