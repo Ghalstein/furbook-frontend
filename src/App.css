@@ -974,7 +974,6 @@ Profile Page
 }
 
 .unfriend {
-  background: blue;
   background: #FF416C;
   background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
   background: linear-gradient(to right, #FF4B2B, #FF416C);
@@ -988,4 +987,10 @@ Profile Page
   color: #FF416C;
   font-family: 'Montserrat', sans-serif;
   font-weight: bolder;
+}
+
+.unfriend:hover {
+  background: #FFFFFF;
+  color: #FF416C;
+  border: 2px solid #FF4B2B;
 }
