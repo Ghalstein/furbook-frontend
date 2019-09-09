@@ -36,8 +36,8 @@ class Comment extends React.Component {
             <div className="icon-date">
               <Link className="comment-link" to={`users/${this.state.user.id}`} >
                 <div className="icon-img-text">
-                  {this.state.user.pro_pic ?
-                    <img className="icon-img" src={this.state.user.pro_pic.picture.url} />
+                  {this.state.user.pro_pic.length ?
+                    <img className="icon-img" src={this.state.user.pro_pic.splice(-1)[0].picture.url} />
                   :
                     <img className="icon-img" src='https://image.flaticon.com/icons/png/512/17/17479.png' />
                   }
