@@ -11,6 +11,11 @@ Login
   list-style: none;
 }
 
+button:hover, button:focus {
+  cursor:pointer;
+  outline:none;
+}
+
 body {
   overflow: auto
 }
@@ -959,6 +964,13 @@ Profile Page
   font-weight: bold;
   border-radius: 20px;
   border: 2px solid #FF4B2B;
+}
+
+.friend-request:hover {
+  background: #FF416C;
+  background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
+  background: linear-gradient(to right, #FF4B2B, #FF416C);
+  color: #FFFFFF;
 }
 
 .unfriend {
