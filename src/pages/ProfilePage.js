@@ -7,6 +7,7 @@ import { withRouter } from 'react-router-dom';
 import { getUserById } from '../actions/usersActions';
 import ProfilePhotos from '../components/ProfilePhotos';
 import ProfilePosts from '../components/ProfilePosts';
+import EditProfilePic from '../components/EditProfilePic';
 
 // make a working redux fetch for the specific profile you are on
 
@@ -39,7 +40,7 @@ class ProfilePage extends React.Component {
         <div className="ProfilePage">
         {this.state.iconClicked ? 
           <div className="profile-modal">
-            Is it working?
+            <EditProfilePic/>
           </div>
         :
           null
@@ -47,7 +48,7 @@ class ProfilePage extends React.Component {
           <h1 className="Hi"> {this.props.profileUser.username ? `${this.props.profileUser.username}'s page` : 'Getting your profile...'}</h1>
           <div className="profile-icon-div">
             {this.props.profileUser.pro_pic.length ?
-              <img onClick={this.handleIconClick} className="profile-icon" src={this.props.profileUser.pro_pic.picture.url} />
+              <img onClick={this.handleIconClick} className="profile-icon" src={this.props.profileUser.pro_pic.slice(-1)[0].picture.url} />
             :
               <img onClick={this.handleIconClick} className="profile-icon" src='https://image.flaticon.com/icons/png/512/17/17479.png' />
             }
