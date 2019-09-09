@@ -7,6 +7,8 @@ Login
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  text-decoration-style: none;
+  list-style: none;
 }
 
 .LoginPage {
@@ -545,7 +547,12 @@ Post
 
 .comment-icon {
   padding-right:80px;
+  color: #FFFFFF;
   /*margin-bottom:20px;*/
+}
+
+.comment-link {
+  color: #FFFFFF;
 }
 
 .comment-date {
@@ -841,4 +848,8 @@ Profile Page
 
 .profile-username {
   color: #FF416C;;
+}
+
+.profile-post-link {
+  color: #FFFFFF;
 }
