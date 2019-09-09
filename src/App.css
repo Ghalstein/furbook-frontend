@@ -920,3 +920,25 @@ Profile Page
   text-decoration: none;
   cursor: pointer;
 }
+
+/*message header*/
+
+.message-menu {
+  position: fixed;
+  right:0;
+  bottom: 0;
+  background: #FF416C;
+  background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
+  background: linear-gradient(to right, #FF4B2B, #FF416C);
+  height: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 5em;
+}
+
+.messages-header {
+  color: #FFFFFF;
+  padding: 30px;
+
+}
