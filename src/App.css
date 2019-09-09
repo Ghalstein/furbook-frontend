@@ -776,8 +776,15 @@ Profile Page
   align-items: center;
 }
 
+.posts-photos-div h2 {
+  color: #FF416C;;
+}
+
 .profile-posts, .profile-photos, .no-photos-to-show, .no-posts-to-show {
   margin: 0 auto;
+  margin-top: 0;
+  overflow: auto;
+  max-height: 32em;
 }
 
 .profile-photo {
@@ -818,4 +825,20 @@ Profile Page
   width: 40em;
   border-radius: 10px;
   color: #FFFFFF;
+  margin-bottom: 10px;
+}
+
+.profile-posts-container h2 {
+  margin: 0 auto;
+  margin-bottom: 10px;
+  margin-left: 10em;
+  color: #FF416C;;
+}
+
+.profile-posts-container {
+  margin-left: 10em;
+}
+
+.profile-username {
+  color: #FF416C;;
 }
