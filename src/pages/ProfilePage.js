@@ -26,9 +26,8 @@ class ProfilePage extends React.Component {
   }
 
   handleIconClick = () => {
-    this.setState({iconClicked: true})
     if (this.props.user.id === parseInt(this.props.location.pathname.split("/")[2])) {
-      console.log("they are the same")
+      this.setState({iconClicked: true})
     }
   }
 
@@ -38,6 +37,13 @@ class ProfilePage extends React.Component {
     return (
       <div className="/profile">
         <div className="ProfilePage">
+        {this.state.iconClicked ? 
+          <div className="profile-modal">
+            Is it working?
+          </div>
+        :
+          null
+        }
           <h1 className="Hi"> {this.props.profileUser.username ? `${this.props.profileUser.username}'s page` : 'Getting your profile...'}</h1>
           <div className="profile-icon-div">
             {this.props.profileUser.pro_pic.length ?
