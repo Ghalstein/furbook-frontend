@@ -32,6 +32,10 @@ class ProfilePage extends React.Component {
     }
   }
 
+  handleCloseIcon = () => {
+    this.setState({iconClicked: false})
+  }
+
   render = () => {
     if (!Object.keys(this.props.profileUser).length) return null;
     console.log(this.props)
@@ -40,7 +44,7 @@ class ProfilePage extends React.Component {
         <div className="ProfilePage">
         {this.state.iconClicked ? 
           <div className="profile-modal">
-            <EditProfilePic/>
+            <EditProfilePic handleCloseIcon={this.handleCloseIcon}/>
           </div>
         :
           null
