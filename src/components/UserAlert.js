@@ -11,11 +11,15 @@ import { Link } from 'react-router-dom';
 class UserAlert extends React.Component {
 
   render = () => {
-    
+    if (!this.props.user.id) return null;
     // console.log("homepage: ", this.props)
+    // console.log(this.props)
+    // debugger
     return (
       <div className="notfication-alert">
-        <Link to={`/users/${this.props.user.id}`}>{this.props.user.username}</Link>
+        <Link to={`/users/${this.props.user.id}`} onClick={() => this.props.handleExitNotifications()}>
+          {this.props.user.username} wants to be friends. Click here to checkout {this.props.user.username}'s page. 
+        </Link>
       </div>
     );
   }
