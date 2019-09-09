@@ -12,6 +12,9 @@ import ProfilePosts from '../components/ProfilePosts';
 
 class ProfilePage extends React.Component {
 
+  state = {
+    iconClicked: false
+  }
   componentDidMount = () => {
     if (!localStorage.token && this.props.hasOwnProperty('history')) this.props.history.push("/")
     // if (this.props.location.pathname === "/profile") {
@@ -20,6 +23,13 @@ class ProfilePage extends React.Component {
     // }
     // this.setState({userID: this.props.location.pathname.split("/")[2]})
     this.props.getUserById(this.props.location.pathname.split("/")[2]);
+  }
+
+  handleIconClick = () => {
+    this.setState({iconClicked: true})
+    if (this.props.user.id === parseInt(this.props.location.pathname.split("/")[2])) {
+      console.log("they are the same")
+    }
   }
 
   render = () => {
@@ -31,15 +41,15 @@ class ProfilePage extends React.Component {
           <h1 className="Hi"> {this.props.profileUser.username ? `${this.props.profileUser.username}'s page` : 'Getting your profile...'}</h1>
           <div className="profile-icon-div">
             {this.props.profileUser.pro_pic ?
-              <img className="profile-icon" src={this.props.profileUser.pro_pic.picture.url} />
+              <img onClick={this.handleIconClick} className="profile-icon" src={this.props.profileUser.pro_pic.picture.url} />
             :
-              <img className="profile-icon" src='https://image.flaticon.com/icons/png/512/17/17479.png' />
+              <img onClick={this.handleIconClick} className="profile-icon" src='https://image.flaticon.com/icons/png/512/17/17479.png' />
             }
-            <h2>{this.props.profileUser.username}</h2>
+            <h2 className="profile-username">{this.props.profileUser.username}</h2>
           </div>
           <div className="posts-photos-div">
             {this.props.profileUser.posts.length ? 
-              <div className="profile-posts">
+              <div className="profile-posts-container">
                 <h2> Posts</h2>
                 <ProfilePosts user={this.props.profileUser} />
               </div>
@@ -51,13 +61,18 @@ class ProfilePage extends React.Component {
               <div className="profile-photos">
                 <h2> Photos</h2>
                 <ProfilePhotos photos={this.props.profileUser.photos}/>
+                <UploadPhoto userInfo={this.props.userInfo}/>
               </div>
             :
-              <h2 className="no-photos-to-show">No photos to show...</h2>
+              <div className="profile-photos">
+                <h2 className="no-photos-to-show">No photos to show...</h2>
+                <UploadPhoto userInfo={this.props.userInfo}/>
+              </div>
             }
           </div>
-          <UploadPhoto userInfo={this.props.userInfo}/>
-          <UploadProPic userInfo={this.props.userInfo}/>
+          <div className="upload-pro-pic">
+            <UploadProPic userInfo={this.props.userInfo}/>
+          </div>
         </div>
       </div>
     );
