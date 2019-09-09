@@ -58,6 +58,7 @@ class ProfilePage extends React.Component {
 
   render = () => {
     if (!Object.keys(this.props.profileUser).length) return null;
+    if (!this.props.user.id) return null;
     return (
       <div className="/profile">
         <div className="ProfilePage">
@@ -87,7 +88,10 @@ class ProfilePage extends React.Component {
                 this.props.profileUser.pending_friend_requests.find(friend => friend.id === this.props.user.id) || this.state.friendRequestSent ?
                   <a className="request-pending">Request Pending</a>
                 :
-                  <button onClick={this.handleFriendRequest} className="friend-request">Friend Request</button>
+                  this.props.user.pending_friend_requests.find(friend => friend.id === this.props.profileUser.id) ?
+                    <button className="accept-request"> Accept their Request </button>
+                  :
+                    <button onClick={this.handleFriendRequest} className="friend-request">Friend Request</button>
             }
           </div>
           <div className="posts-photos-div">

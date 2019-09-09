@@ -953,11 +953,11 @@ Profile Page
   margin-left: 5em;
 }
 
-.friend-request, .unfriend {
+.friend-request, .unfriend, .accept-request {
   padding: 10px;
 }
 
-.friend-request {
+.friend-request, .accept-request {
   background: #FFFFFF;
   color: #FF416C;
   font-family: 'Montserrat', sans-serif;
@@ -966,7 +966,7 @@ Profile Page
   border: 2px solid #FF4B2B;
 }
 
-.friend-request:hover {
+.friend-request:hover, .accept-request:hover {
   background: #FF416C;
   background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
   background: linear-gradient(to right, #FF4B2B, #FF416C);
