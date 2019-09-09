@@ -77,9 +77,6 @@ class ProfilePage extends React.Component {
               </div>
             }
           </div>
-          <div className="upload-pro-pic">
-            <UploadProPic userInfo={this.props.userInfo}/>
-          </div>
         </div>
       </div>
     );
