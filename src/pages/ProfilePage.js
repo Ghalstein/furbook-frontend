@@ -64,14 +64,12 @@ class ProfilePage extends React.Component {
               null
             :
               this.props.profileUser.friends.find(friend => friend.id === parseInt(this.props.location.pathname.split("/")[2])) ?
-                <button>Unfriend</button>
+                <button className="unfriend">Unfriend</button>
               :
                 this.props.profileUser.pending_friend_requests.find(friend => friend.id === parseInt(this.props.location.pathname.split("/")[2])) ?
-                  <a>Pending Friend Request...</a>
+                  <a className="request-pending">Request Pending</a>
                 :
-                  <button>Friend Request</button>
-
-
+                  <button className="friend-request">Friend Request</button>
             }
           </div>
           <div className="posts-photos-div">
