@@ -8,6 +8,7 @@ import HomeHeader from './components/HomeHeader';
 // import SignupPage from './containers/SignupPage';
 import Pages from './pages';
 import { connect } from 'react-redux';
+import MessageHeader from './components/MessageHeader';
 
 class App extends React.Component {
 
@@ -16,6 +17,7 @@ class App extends React.Component {
     return (
       <React.Fragment>
           <HomeHeader />
+          <MessageHeader />
             <Switch>
               <Route exact path='/signup' component={Pages.SignupPage} />
               <Route exect path='/home' render={(routerProps)=> <HomePage  {...routerProps} component={HomePage} /> }/>
