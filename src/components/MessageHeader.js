@@ -12,7 +12,7 @@ class MessageHeader extends React.Component {
   	if (!localStorage.token && this.props.hasOwnProperty('history')) this.props.history.push("/")
       // console.log(this.props)
     return (
-      <div className="dropdownmenu">
+      <div className="message-menu">
         <ul>
           <li><h2>messages</h2></li>
         </ul>
