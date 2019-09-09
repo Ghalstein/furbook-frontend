@@ -8,14 +8,30 @@ import { withRouter } from 'react-router-dom';
 
 class MessageHeader extends React.Component {
 
+  state ={
+      open: false
+  }
+
+  handleClick = () => {
+    this.setState({open: !this.state.open})
+  }
+
   render = () => {
-  	if (!localStorage.token && this.props.hasOwnProperty('history')) this.props.history.push("/")
-      // console.log(this.props)
+  	// if (!localStorage.token && this.props.hasOwnProperty('history')) this.props.history.push("/")
+      console.log(this.state)
+    
     return (
-      <div className="message-menu">
-        <ul>
-          <li><h2>messages</h2></li>
-        </ul>
+      <div className="message-setup">
+        {this.state.open ? 
+          <div>
+            "I'm open"
+          </div>
+        :
+          null
+        }
+        <div className="message-menu">
+            <a onClick={this.handleClick} className="messages-header">messages</a>
+        </div>
       </div>
     );
   }
