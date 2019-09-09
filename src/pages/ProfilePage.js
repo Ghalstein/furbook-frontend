@@ -24,6 +24,7 @@ class ProfilePage extends React.Component {
     // }
     // this.setState({userID: this.props.location.pathname.split("/")[2]})
     this.props.getUserById(this.props.location.pathname.split("/")[2]);
+    console.log(this.props)
   }
 
   handleIconClick = () => {
@@ -36,10 +37,27 @@ class ProfilePage extends React.Component {
     this.setState({iconClicked: false})
   }
 
+  handleFriendRequest = () => {
+    fetch(`http://localhost:3000/friendships`, {
+      method: "POST",
+      headers: {
+        'Authorization': localStorage.token,
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify(
+        {
+          'user_id': this.props.user.id,
+          'friend_user_id': this.props.profileUser.id
+        })
+
+    }).then(res => res.json())
+    .then(this.setState({friendRequestSent: true}))
+  }
+
 
   render = () => {
     if (!Object.keys(this.props.profileUser).length) return null;
-    console.log(this.props)
     return (
       <div className="/profile">
         <div className="ProfilePage">
@@ -63,13 +81,13 @@ class ProfilePage extends React.Component {
             {this.props.user.id === parseInt(this.props.location.pathname.split("/")[2]) ?
               null
             :
-              this.props.profileUser.friends.find(friend => friend.id === parseInt(this.props.location.pathname.split("/")[2])) ?
+              this.props.profileUser.friends.find(friend => friend.id === this.props.user.id) ?
                 <button className="unfriend">Unfriend</button>
               :
-                this.props.profileUser.pending_friend_requests.find(friend => friend.id === parseInt(this.props.location.pathname.split("/")[2])) ?
+                this.props.profileUser.pending_friend_requests.find(friend => friend.id === this.props.user.id) || this.state.friendRequestSent ?
                   <a className="request-pending">Request Pending</a>
                 :
-                  <button className="friend-request">Friend Request</button>
+                  <button onClick={this.handleFriendRequest} className="friend-request">Friend Request</button>
             }
           </div>
           <div className="posts-photos-div">
