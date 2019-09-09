@@ -905,3 +905,18 @@ Profile Page
   margin-top: 5em;
 
 }
+
+.profile-close {
+  color: #D3D3D3;
+  float: right;
+  font-size: 25px;
+  font-weight: bold;
+  margin-top:-15px;
+}
+
+
+.profile-close:hover, .profile-close:focus {
+  color: #FF4B2B;
+  text-decoration: none;
+  cursor: pointer;
+}
