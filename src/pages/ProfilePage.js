@@ -68,8 +68,21 @@ class ProfilePage extends React.Component {
           "pending": false
         })
     }).then(res => res.json())
-    .then(console.log)
+    .then(this.setState({acceptedRequest: true}))
 
+  }
+
+  handleUnfriend = () => {
+    let id = this.props.user.pending_friend_requests.find(friendRequest => friendRequest.user.id === this.props.profileUser.id).id;
+    fetch(`http://localhost:3000/friendships/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Authorization': localStorage.token,
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    }).then(res => res.json())
+    .then(this.setState({unfriended: true}))
   }
 
 
@@ -101,13 +114,13 @@ class ProfilePage extends React.Component {
             {this.props.user.id === parseInt(this.props.location.pathname.split("/")[2]) ?
               null
             :
-              this.props.profileUser.friends.find(friend => friend.user.id === this.props.user.id) ?
+              this.props.profileUser.friends.find(friend => friend.user.id === this.props.user.id) || this.state.acceptedRequest ?
                 <button className="unfriend">Unfriend</button>
               :
                 this.props.profileUser.pending_friend_requests.find(friendRequest => friendRequest.user.id === this.props.user.id) || this.state.friendRequestSent ?
                   <a className="request-pending">Request Pending</a>
                 :
-                  this.props.user.pending_friend_requests.find(friendRequest => friendRequest.user.id === this.props.profileUser.id) ?
+                  this.props.user.pending_friend_requests.find(friendRequest => friendRequest.user.id === this.props.profileUser.id) || !this.state.unfriended?
                     <button onClick={this.handleAccept} className="accept-request"> Accept their Request </button>
                   :
                     <button onClick={this.handleFriendRequest} className="friend-request">Friend Request</button>
