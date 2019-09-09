@@ -23,6 +23,7 @@ class HomeHeader extends React.Component {
           <li><SearchBar/></li>
           <li><Link to="/home">Feed</Link></li> 
         	<li><Link onClick={this.goToProfile} to={`/users/${this.props.user.id}`}>Profile</Link></li> 
+          <li></li>
           <li onClick={this.onLogout}><Link to="/login">Logout</Link></li>
         </ul>
       </div>
