@@ -59,6 +59,21 @@ class ProfilePage extends React.Component {
             }
             <h2 className="profile-username">{this.props.profileUser.username}</h2>
           </div>
+          <div className="friend-options">
+            {this.props.user.id === parseInt(this.props.location.pathname.split("/")[2]) ?
+              null
+            :
+              this.props.profileUser.friends.find(friend => friend.id === parseInt(this.props.location.pathname.split("/")[2])) ?
+                <button>Unfriend</button>
+              :
+                this.props.profileUser.pending_friend_requests.find(friend => friend.id === parseInt(this.props.location.pathname.split("/")[2])) ?
+                  <a>Pending Friend Request...</a>
+                :
+                  <button>Friend Request</button>
+
+
+            }
+          </div>
           <div className="posts-photos-div">
             {this.props.profileUser.posts.length ? 
               <div className="profile-posts-container">
