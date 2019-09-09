@@ -10,6 +10,9 @@ class HomeHeader extends React.Component {
     this.props.logOut()
   }
 
+  goToProfile = () => {
+
+  }
   render = () => {
   	if (!localStorage.token && this.props.hasOwnProperty('history')) this.props.history.push("/")
       // console.log(this.props)
@@ -19,7 +22,7 @@ class HomeHeader extends React.Component {
           <li><h2>furbook</h2></li>
           <li><SearchBar/></li>
           <li><Link to="/home">Feed</Link></li> 
-        	<li><Link to={`/users/${this.props.user.id}`}>Profile</Link></li> 
+        	<li><Link onClick={this.goToProfile} to={`/users/${this.props.user.id}`}>Profile</Link></li> 
           <li onClick={this.onLogout}><Link to="/login">Logout</Link></li>
         </ul>
       </div>
