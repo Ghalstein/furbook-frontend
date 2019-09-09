@@ -13,7 +13,7 @@ class EditProfilePic extends React.Component {
     // console.log(this.props)
     return (
       <div className="profile-modal-content">
-        <h3 className="close" onClick={() => this.props.handleCloseIcon()}>x</h3>
+        <h3 className="profile-close" onClick={() => this.props.handleCloseIcon()}>x</h3>
         <UploadProPic />
       </div>
     )
