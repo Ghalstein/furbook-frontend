@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 // import { connect } from 'react-redux';
 // import { getCurrentUser } from '../actions/userActions';
 // import withAuth from '../hocs/withAuth';
@@ -14,7 +15,7 @@ class UserAlert extends React.Component {
     // console.log("homepage: ", this.props)
     return (
       <div className="notfication-alert">
-        {this.props.user.username}
+        <Link to={`/users/${this.props.user.id}`}>{this.props.user.username}</Link>
       </div>
     );
   }
