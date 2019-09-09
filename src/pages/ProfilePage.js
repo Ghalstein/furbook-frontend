@@ -36,6 +36,7 @@ class ProfilePage extends React.Component {
     this.setState({iconClicked: false})
   }
 
+
   render = () => {
     if (!Object.keys(this.props.profileUser).length) return null;
     console.log(this.props)
@@ -72,12 +73,20 @@ class ProfilePage extends React.Component {
               <div className="profile-photos">
                 <h2> Photos</h2>
                 <ProfilePhotos photos={this.props.profileUser.photos}/>
-                <UploadPhoto userInfo={this.props.userInfo}/>
+                {this.props.user.id === parseInt(this.props.location.pathname.split("/")[2]) ?
+                  <UploadPhoto userInfo={this.props.userInfo}/>
+                :
+                  null
+                }
               </div>
             :
               <div className="profile-photos">
                 <h2 className="no-photos-to-show">No photos to show...</h2>
-                <UploadPhoto userInfo={this.props.userInfo}/>
+                {this.props.user.id === parseInt(this.props.location.pathname.split("/")[2]) ?
+                  <UploadPhoto userInfo={this.props.userInfo}/>
+                :
+                  null
+                }
               </div>
             }
           </div>
