@@ -20,6 +20,7 @@ class HomePage extends React.Component {
   render = () => {
     
     // console.log("homepage: ", this.props)
+    if (!this.props.user.id) return null
     return (
       <div className="HomePage">
         <h1 className="Hi"> {this.props.user.id ? `Here is your feed ${this.props.user.username}!` : 'Getting your profile...'}</h1>
