@@ -23,27 +23,35 @@ class HomeHeader extends React.Component {
     this.setState({notificationsClicked: !this.state.notificationsClicked})
   }
 
+  handleExitNotifications = () => {
+    this.setState({
+      // posts: this.props.currentUser.posts,
+      notificationsClicked: false
+    })
+  }
+
   render = () => {
   	if (!localStorage.token && this.props.hasOwnProperty('history')) this.props.history.push("/")
       // console.log(this.props)
     // debugger
+    if (!this.props.user.id) return null;
     return (
       <div className="dropdownmenu">
         <ul>
           <li><h2>furbook</h2></li>
           <li><SearchBar/></li>
           <li><Link to="/home">Feed</Link></li> 
-        	<li><Link onClick={this.goToProfile} to={`/users/${this.props.user.id}`}>Profile</Link></li> 
-          <li><a onClick={this.handleNotifClick}>Notifications</a></li>
+        	<li><Link to={`/users/${this.props.user.id}`}>Profile</Link></li> 
+          <li><a className="notif" onClick={this.handleNotifClick}>Notifications ({this.props.user.pending_friend_requests.length})</a></li>
           <li onClick={this.onLogout}><Link to="/login">Logout</Link></li>
         </ul>
+        {this.state.notificationsClicked ?
         <div className="notifications-modal">
-          {this.state.notificationsClicked ?
-            <Notifications requests={this.props.user.pending_friend_requests}/>
-          :
-            null
-          }
+          <Notifications handleExitNotifications={this.handleExitNotifications} requests={this.props.user.pending_friend_requests}/>
         </div>
+        :
+          null
+        }
       </div>
     );
   }
