@@ -15,7 +15,7 @@ class ProfilePage extends React.Component {
 
   state = {
     iconClicked: false,
-    editProfileClicked: false
+    editProfileClicked: false,
   }
   componentDidMount = () => {
     if (!localStorage.token && this.props.hasOwnProperty('history')) this.props.history.push("/")
@@ -26,6 +26,7 @@ class ProfilePage extends React.Component {
     // this.setState({userID: this.props.location.pathname.split("/")[2]})
     this.props.getUserById(this.props.location.pathname.split("/")[2]);
     this.setState({pathname: this.props.location.pathname})
+    this.setState({profileUser: this.props.profileUser})
   }
 
   handleIconClick = () => {
