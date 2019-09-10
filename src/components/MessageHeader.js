@@ -24,7 +24,7 @@ class MessageHeader extends React.Component {
     return (
       <div className="message-setup">
         {this.state.open ? 
-          <div className="opened-message-container">
+          <div className="messages-modal">
             <MessagesContainer messagesInfo={this.props.user.messages_info}/>
           </div>
         :
