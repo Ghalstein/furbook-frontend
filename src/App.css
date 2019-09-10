@@ -585,7 +585,7 @@ Post
   padding-left: 10px;
   color: #FF4B2B;
   text-align:center;
-
+  margin-bottom: 1em;
 }
 
 .date {
@@ -825,6 +825,10 @@ Profile Page
 
 .profile-icon-div {
   padding: 20px;
+  width: 20em;
+  background: WhiteSmoke;
+  border-radius: 10px;
+  margin-bottom: 1em;
 }
 
 .profile-icon {
@@ -903,7 +907,15 @@ Profile Page
 }
 
 .profile-username {
-  color: #FF416C;;
+  color: #FFFFFF;
+  background: #FF416C;
+  background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
+  background: linear-gradient(to right, #FF4B2B, #FF416C);
+  text-align:center;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-radius: 10px;
+  overflow:wrap;
 }
 
 .profile-post-link {
