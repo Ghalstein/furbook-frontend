@@ -1136,3 +1136,7 @@ message header
   color: #FF416C;
   overflow: scroll;
 }
+
+.your-dms {
+  color: #FFFFFF;
+}
