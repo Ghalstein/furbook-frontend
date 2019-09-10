@@ -5,6 +5,7 @@ import SearchBar from './SearchBar';
 import { getCurrentUser } from '../actions/userActions';
 import withAuth from '../hocs/withAuth';
 import { withRouter } from 'react-router-dom';
+import MessagesContainer from './MessagesContainer';
 
 class MessageHeader extends React.Component {
 
@@ -23,8 +24,8 @@ class MessageHeader extends React.Component {
     return (
       <div className="message-setup">
         {this.state.open ? 
-          <div>
-            "I'm open"
+          <div className="opened-message-container">
+            <MessagesContainer messagesInfo={this.props.user.messages_info}/>
           </div>
         :
           null
