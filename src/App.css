@@ -17,7 +17,8 @@ button:hover, button:focus {
 }
 
 body {
-  overflow: auto
+  /*overflow: auto*/
+  overflow:wrap;
 }
 
 .LoginPage {
@@ -836,8 +837,8 @@ Profile Page
 }
 
 .ProfilePage {
-  margin-left: 1em;
-  margin-right: 1em;
+  margin-left: 5em;
+  margin-right: 5em;
 }
 
 .profile-icon-div {

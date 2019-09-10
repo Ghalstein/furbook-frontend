@@ -134,7 +134,7 @@ class ProfilePost extends React.Component {
         <div className="profile-post-div">
           <div className="icon-date">
             <div className="icon-img-text"> 
-              <Link className= "profile-post-link "to={`users/${this.state.postUser.id}`} >
+              <Link className= "profile-post-link "to={`/users/${this.state.postUser.id}`} >
                 <div className="icon-img-text">
                   {this.state.postUser.pro_pic.length ?
                     <img className="icon-img" src={this.state.postUser.pro_pic.slice(-1)[0].picture.url} />
@@ -186,4 +186,4 @@ const mapDispatchToProps = {
   getComments: getComments
 }
 
-export default withAuth(connect(mapStateToProps, mapDispatchToProps)(withRouter(ProfilePost)))
+export default connect(mapStateToProps, mapDispatchToProps)(ProfilePost)

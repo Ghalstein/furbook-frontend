@@ -34,7 +34,7 @@ class Comment extends React.Component {
         <li className="comment-content views">
           <div className="comment-content comment-div">
             <div className="icon-date">
-              <Link className="comment-link" to={`users/${this.state.user.id}`} >
+              <Link className="comment-link" to={`/users/${this.state.user.id}`} >
                 <div className="icon-img-text">
                   {this.state.user.pro_pic.length ?
                     <img className="icon-img" src={this.state.user.pro_pic.splice(-1)[0].picture.url} />
