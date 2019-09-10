@@ -89,7 +89,7 @@ class ProfilePage extends React.Component {
   }
 
   handleEditProfile = () => {
-    this.SetState({editProfileClicked: !this.state.editProfileClicked})
+    this.setState({editProfileClicked: !this.state.editProfileClicked})
   }
 
 
@@ -100,6 +100,7 @@ class ProfilePage extends React.Component {
       this.setState({pathname: this.props.location.pathname})
       window.location.reload();
     }
+    // debugger
     console.log(this.props)
     // debugger
     return (

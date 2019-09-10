@@ -256,6 +256,7 @@ Header
 
 .dropdownmenu {
   display: flex;
+  flex-wrap:wrap;
 }
 
 .search-inputs {
@@ -862,7 +863,11 @@ Profile Page
   display:flex;
   justify-content: center;
   /*align-items: center;*/
+  flex-wrap:wrap;
   background: WhiteSmoke;
+  width: 100em;
+  height: 23em;
+  margin-top: -2em;
 }
 
 .posts-photos-div h2 {
@@ -873,7 +878,7 @@ Profile Page
   margin: 0 auto;
   margin-top: 0;
   overflow: auto;
-  max-height: 32em;
+  max-height: 20em;
 }
 
 .profile-photo {
@@ -926,6 +931,7 @@ Profile Page
 
 .profile-posts-container {
   margin-left: 10em;
+  max-height: 20em;
 }
 
 .profile-username {
@@ -952,6 +958,10 @@ Profile Page
   overflow: auto; /* Enable scroll if needed */
   margin-top: 10em;
   margin-left: 21em;
+}
+
+.edit-profile {
+  padding:10px;
 }
 
 .profile-modal-content {
@@ -1081,4 +1091,15 @@ Profile Page
   /*position: absolute;
   top: 10px;
   right: 60px;*/
+}
+./profile {
+  overflow: auto;
+}
+
+/********************
+message header
+*********************/
+
+.messages-header:hover {
+  cursor: pointer;
 }
