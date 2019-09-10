@@ -1221,3 +1221,11 @@ message header
   background: linear-gradient(to right, #FF4B2B, #fa7d7d);
   cursor:pointer;
 }
+
+.message-friend-name {
+  margin-bottom: 1em;
+}
+
+.messageForm {
+  margin-top: 15em;
+}
