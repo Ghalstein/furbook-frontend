@@ -13,8 +13,12 @@ class MessageHeader extends React.Component {
       open: false
   }
 
-  handleClick = () => {
-    this.setState({open: !this.state.open})
+  handleOpen = () => {
+    this.setState({open: true})
+  }
+
+  handleClose = () => {
+    this.setState({open: false})
   }
 
   render = () => {
@@ -25,13 +29,13 @@ class MessageHeader extends React.Component {
       <div className="message-setup">
         {this.state.open ? 
           <div className="messages-modal">
-            <MessagesContainer messagesInfo={this.props.user.messages_info}/>
+            <MessagesContainer handleClose={this.handleClose} messagesInfo={this.props.user.messages_info}/>
           </div>
         :
           null
         }
         <div className="message-menu">
-            <a onClick={this.handleClick} className="messages-header">messages</a>
+            <a onClick={this.handleOpen} className="messages-header">messages</a>
         </div>
       </div>
     );
