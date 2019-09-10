@@ -256,6 +256,7 @@ Header
 
 .dropdownmenu {
   display: flex;
+  overflow-right:scroll;
 }
 
 .search-inputs {
@@ -837,6 +838,7 @@ Profile Page
 .ProfilePage {
   margin-left: 1em;
   margin-right: 1em;
+  
 }
 
 .profile-icon-div {
@@ -862,6 +864,7 @@ Profile Page
   display:flex;
   justify-content: center;
   /*align-items: center;*/
+  position:fixed;
   background: WhiteSmoke;
 }
 
