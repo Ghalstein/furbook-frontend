@@ -436,7 +436,7 @@ Post
   height: 80vh;
   margin: 0 auto;
   overflow: scroll;
-
+  border-radius:10px;
   /*background: red;*/
 }
 
@@ -869,6 +869,7 @@ Profile Page
   width: 100em;
   height: 23em;
   margin-top: -2em;
+  border-radius:10px;
 }
 
 .posts-photos-div h2 {
@@ -880,6 +881,7 @@ Profile Page
   margin-top: 0;
   overflow: auto;
   max-height: 20em;
+  border-radius:10px;
 }
 
 .profile-photo {
