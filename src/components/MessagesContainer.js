@@ -1,4 +1,5 @@
 import React from 'react';
+import MessageFriends from './MessageFriends'
 
 class MessagesContainer extends React.Component {
 
@@ -6,7 +7,10 @@ class MessagesContainer extends React.Component {
 
 		return (
 			<div className="messages-container-modal">
-			MessagesContainer
+				<div className="your-dms">
+					Your DM's
+				</div>
+				<MessageFriends messagesInfo={this.props.messagesInfo}/>
 			</div>
 		)
 	}
