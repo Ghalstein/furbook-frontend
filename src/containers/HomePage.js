@@ -11,7 +11,7 @@ class HomePage extends React.Component {
 
 
   componentDidMount() {
-    if ((!localStorage.token) && this.props.hasOwnProperty('history')) this.props.history.push("/")
+    if ((!localStorage.token ) && this.props.hasOwnProperty('history')) this.props.history.push("/")
       this.props.getPosts();
       // console.log("rerendered homepage")
       // console.log(this.props);
