@@ -103,29 +103,31 @@ class ProfilePage extends React.Component {
           null
         }
           <h1 className="Hi"> {this.props.profileUser.username ? `${this.props.profileUser.username}'s page` : 'Getting your profile...'}</h1>
-          <div className="profile-icon-div">
-            {this.props.profileUser.pro_pic.length ?
-              <img onClick={this.handleIconClick} className="profile-icon" src={this.props.profileUser.pro_pic.slice(-1)[0].picture.url} />
-            :
-              <img onClick={this.handleIconClick} className="profile-icon" src='https://image.flaticon.com/icons/png/512/17/17479.png' />
-            }
-            <h2 className="profile-username">{this.props.profileUser.username}</h2>
-          </div>
-          <div className="friend-options">
-            {this.props.user.id === parseInt(this.props.location.pathname.split("/")[2]) ?
-              null
-            :
-              this.props.profileUser.friends.find(friend => friend.user.id === this.props.user.id) || this.state.acceptedRequest || this.state.unfriended? 
-                <button onClick={this.handleUnfriend} className="unfriend">Unfriend</button>
+          <div className="profile-icon-friend-options">
+            <div className="profile-icon-div">
+              {this.props.profileUser.pro_pic.length ?
+                <img onClick={this.handleIconClick} className="profile-icon" src={this.props.profileUser.pro_pic.slice(-1)[0].picture.url} />
               :
-                this.props.profileUser.pending_friend_requests.find(friendRequest => friendRequest.user.id === this.props.user.id) || this.state.friendRequestSent ?
-                  <a className="request-pending">Request Pending</a>
+                <img onClick={this.handleIconClick} className="profile-icon" src='https://image.flaticon.com/icons/png/512/17/17479.png' />
+              }
+              <h2 className="profile-username">{this.props.profileUser.username}</h2>
+            </div>
+            <div className="friend-options">
+              {this.props.user.id === parseInt(this.props.location.pathname.split("/")[2]) ?
+                null
+              :
+                this.props.profileUser.friends.find(friend => friend.user.id === this.props.user.id) || this.state.acceptedRequest || this.state.unfriended? 
+                  <button onClick={this.handleUnfriend} className="unfriend">Unfriend</button>
                 :
-                  this.props.user.pending_friend_requests.find(friendRequest => friendRequest.user.id === this.props.profileUser.id) ?
-                    <button onClick={this.handleAccept} className="accept-request"> Accept their Request </button>
+                  this.props.profileUser.pending_friend_requests.find(friendRequest => friendRequest.user.id === this.props.user.id) || this.state.friendRequestSent ?
+                    <a className="request-pending">Request Pending</a>
                   :
-                    <button onClick={this.handleFriendRequest} className="friend-request">Friend Request</button>
-            }
+                    this.props.user.pending_friend_requests.find(friendRequest => friendRequest.user.id === this.props.profileUser.id) ?
+                      <button onClick={this.handleAccept} className="accept-request"> Accept their Request </button>
+                    :
+                      <button onClick={this.handleFriendRequest} className="friend-request">Friend Request</button>
+              }
+            </div>
           </div>
           <div className="posts-photos-div">
             {this.props.profileUser.posts.length ? 
