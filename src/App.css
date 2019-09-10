@@ -822,6 +822,10 @@ Search-results
 /********************************
 Profile Page
 ********************************/
+.ProfilePage {
+  margin-left: 1em;
+  margin-right: 1em;
+}
 
 .profile-icon-div {
   padding: 20px;
