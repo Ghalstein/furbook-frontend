@@ -838,7 +838,7 @@ Profile Page
 .ProfilePage {
   margin-left: 1em;
   margin-right: 1em;
-  
+
 }
 
 .profile-icon-div {
@@ -955,6 +955,10 @@ Profile Page
   overflow: auto; /* Enable scroll if needed */
   margin-top: 10em;
   margin-left: 21em;
+}
+
+.edit-profile {
+  padding:10px;
 }
 
 .profile-modal-content {
