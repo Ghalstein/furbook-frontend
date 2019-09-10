@@ -4,6 +4,7 @@ import { getMessages } from '../actions/messageActions';
 import { connect } from 'react-redux';
 import withAuth from '../hocs/withAuth';
 import { withRouter } from 'react-router-dom';
+import Message from './Message';
 
 class MessageFriend extends React.Component {
 
@@ -25,8 +26,12 @@ class MessageFriend extends React.Component {
 
 	render = () => {
 		// debugger
-		console.log(this.props.messageInfo)
-		let messages = this.props.messages.filter(message => message.friendship_id === this.props.messageInfo.friendship_id)
+
+		// console.log(this.props.messageInfo)
+		// debugger
+
+		console.log(this.props)
+		if (!Object.keys(this.props.messages).length) return null
 		return (
 				<div>
 					{this.state.messageOpend ?
@@ -36,6 +41,9 @@ class MessageFriend extends React.Component {
 							</div>
 							<div className="message-friend-name">
 								{this.props.messageInfo.friend.username}
+							</div>
+							<div className="dm-container">
+								{this.props.messages.map(message => <Message messageInfo={message} friendship_id={this.props.messageInfo.friendship_id} friend={this.props.messageInfo.friend}/>)}
 							</div>
 							<div>
 								<CreateMessage messageInfo={this.props.messageInfo}/>
