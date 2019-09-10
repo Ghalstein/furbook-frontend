@@ -1,4 +1,5 @@
 import React from 'react';
+import CreateMessage from './CreateMessage'
 
 class MessageFriend extends React.Component {
 
@@ -9,6 +10,11 @@ class MessageFriend extends React.Component {
 	handleOpenMessages = () => {
 		this.setState({messageOpend: true})
 	}
+
+	handleCloseMessages = () => {
+		this.setState({messageOpend: false})
+	}
+
 	render = () => {
 		// debugger
 		console.log(this.props.messageInfo)
@@ -16,7 +22,12 @@ class MessageFriend extends React.Component {
 				<div>
 					{this.state.messageOpend ?
 						<div className="chat">
-							Chat Box
+							<div className="top-chat">
+								<a onClick={this.handleCloseMessages} className="close x-out">x</a>
+							</div>
+							<div>
+								<CreateMessage messageInfo={this.props.messageInfo}/>
+							</div>
 						</div>
 					:
 						<div onClick={this.handleOpenMessages} className="message-friend">
