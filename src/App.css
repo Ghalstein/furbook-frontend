@@ -1175,3 +1175,49 @@ message header
   border-radius: 10px;
   padding:10px;
 }
+
+.x-out {
+  color:#FF416C;
+}
+
+.messageInput {
+  width: 20em;
+  height: 4em;
+  border: 1px solid #FF4B2B;
+  border-radius:10px;
+  padding:10px;
+  margin-right: 1em;
+}
+
+.messageInput:focus {
+  outline:none;
+}
+
+.messageInputs {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.messageSubmit {
+  border-radius: 20px;
+  border: 1.5px solid #FFFFFF;
+  background: #FF416C;
+  background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
+  background: linear-gradient(to right, #FF4B2B, #FF416C);
+  color: #FFFFFF;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+  width: 10em;
+  height: 4em;
+
+}
+
+.messageSubmit:hover {
+  background: #fa7d7d;
+  background: -webkit-linear-gradient(to right, #FF4B2B, #fa7d7d);
+  background: linear-gradient(to right, #FF4B2B, #fa7d7d);
+  cursor:pointer;
+}
