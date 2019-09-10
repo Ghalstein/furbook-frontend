@@ -79,6 +79,7 @@ export const signUp = (username, password, email) => dispatch => {
 }
 
 export const logOut = () => dispatch => {
+  window.location.reload();
   localStorage.clear()
   dispatch({ type: 'LOGOUT' })
 }
