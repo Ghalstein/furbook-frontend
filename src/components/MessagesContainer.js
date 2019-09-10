@@ -5,7 +5,7 @@ class MessagesContainer extends React.Component {
 	render = () => {
 
 		return (
-			<div>
+			<div className="messages-container-modal">
 			MessagesContainer
 			</div>
 		)
