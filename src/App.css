@@ -1162,3 +1162,16 @@ message header
   color: LightGray;
   cursor:pointer;
 }
+
+.chat {
+  background: #FFFFFF;
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  /*right: 0;
+  bottom: 0;*/
+  overflow: auto; /* Enable scroll if needed */
+  width:13em;
+  height: 20em;
+  border-radius: 10px;
+  padding:10px;
+}
