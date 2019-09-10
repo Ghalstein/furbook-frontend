@@ -853,6 +853,11 @@ Profile Page
   height: 15em;
 }
 
+.profile-icon:hover {
+  transform: rotate(10deg);
+  cursor: pointer;
+}
+
 .posts-photos-div {
   display:flex;
   justify-content: center;

@@ -14,7 +14,8 @@ import EditProfilePic from '../components/EditProfilePic';
 class ProfilePage extends React.Component {
 
   state = {
-    iconClicked: false
+    iconClicked: false,
+    editProfileClicked: false
   }
   componentDidMount = () => {
     if (!localStorage.token && this.props.hasOwnProperty('history')) this.props.history.push("/")
@@ -87,6 +88,10 @@ class ProfilePage extends React.Component {
     .then(window.location.reload())
   }
 
+  handleEditProfile = () => {
+    this.SetState({editProfileClicked: !this.state.editProfileClicked})
+  }
+
 
   render = () => {
     if (!Object.keys(this.props.profileUser).length) return null;
@@ -119,7 +124,7 @@ class ProfilePage extends React.Component {
             </div>
             <div className="friend-options">
               {this.props.user.id === parseInt(this.props.location.pathname.split("/")[2]) ?
-                null
+                <button className="edit-profile" onClick={this.handleEditProfile}>Edit Profile</button>
               :
                 this.props.profileUser.friends.find(friend => friend.user.id === this.props.user.id) || this.state.acceptedRequest || this.state.unfriended? 
                   <button onClick={this.handleUnfriend} className="unfriend">Unfriend</button>
