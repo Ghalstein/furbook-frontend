@@ -21,3 +21,20 @@ export const createMessage = (messageContent, user_id, friendship_id) => {
     })
   }
 }
+
+export const getMessages = () => {
+  return function(dispatch){
+    fetch("http://localhost:3000/messages", { 
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+         Authorization: localStorage.token
+      }})
+    .then(res => res.json())
+    .then(messages => {
+      dispatch({ type: 'FETCH_MY_MESSAGES', payload: messages})
+    })
+  }
+  // Return is an action
+  // return { type: FETCH_MY_POSTS, payload: myWallPosts }
+}

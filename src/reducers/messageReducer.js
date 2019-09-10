@@ -12,6 +12,13 @@ export default (state = defaultState, action) => {
       	...state,
         messages: [...state.messages, action.payload.object]
       }
+
+      case 'FETCH_MY_MESSAGES':
+      // debugger
+      return {
+        ...state,
+        messages: action.payload
+      }
       // debugger
     default:
       return state
