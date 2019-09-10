@@ -1103,12 +1103,12 @@ Profile Page
 message header
 *********************/
 
-.messages-header:hover {
+.messages-header:hover, .message-header:focus {
   cursor: pointer;
+  color: LightGray;
 }
 
 .messages-modal {
-  margin-top: 5vh;
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
   right: 0;
@@ -1118,7 +1118,7 @@ message header
   overflow: auto; /* Enable scroll if needed */
   /*background-color: rgb(0,0,0); /* Fallback color */
   /*background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  margin-bottom: 3em;
+ /* margin-bottom: 3em;*/
 }
 
 .messages-container-modal {
@@ -1140,6 +1140,11 @@ message header
 .your-dms {
   color: #FFFFFF;
   margin-bottom:1em;
+}
+
+.your-dms:hover, .your-dms:focus {
+  color: LightGray;
+  cursor:pointer;
 }
 
 .message-friends {
