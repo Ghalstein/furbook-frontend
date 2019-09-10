@@ -1139,4 +1139,21 @@ message header
 
 .your-dms {
   color: #FFFFFF;
+  margin-bottom:1em;
+}
+
+.message-friends {
+}
+
+.message-friend {
+  background: #FFFFFF;
+  color: #FF416C;
+  padding:10px;
+  border-radius:10px;
+}
+
+.message-friend:focus,  .message-friend:hover{
+  background: #FFFFFF;
+  color: LightGray;
+  cursor:pointer;
 }
