@@ -93,7 +93,7 @@ class ProfilePage extends React.Component {
     if (!this.props.user.id) return null;
     if (this.props.location.pathname !== this.state.pathname) {
       this.setState({pathname: this.props.location.pathname})
-      window.location.reload()
+      window.location.reload();
     }
     console.log(this.props)
     // debugger

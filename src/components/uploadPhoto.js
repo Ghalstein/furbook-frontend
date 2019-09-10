@@ -15,7 +15,7 @@ class uploadPhoto extends React.Component {
 		formData.append('photo[user_id]', this.props.user.id);
 		formData.append('photo[picture]', this.state.photoFile);
 		// const formData = { user_id: this.props.userInfo.id, picture: this.state.photoFile};
-		debugger;
+		// debugger;
 		axios({
 	    method: 'POST',
 	    url: `http://localhost:3000/photos`,
