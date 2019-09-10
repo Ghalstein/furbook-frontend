@@ -28,7 +28,7 @@ class CreateMessage extends React.Component {
 	  return (
 		  <form className="messageForm" onSubmit={this.handleSubmit}>
         <div className="messageInputs">
-  		    <textarea className="messageInput" type="text" placeholder="Write a message..." value={this.state.commentContent} onChange={this.handleChange} name="messageContent"/>
+  		    <textarea className="messageInput" type="text" placeholder="Write a message..." value={this.state.messageContent} onChange={this.handleChange} name="messageContent"/>
   		    <input className="messageSubmit" type="submit" value="Send"/>
         </div>
 		  </form>

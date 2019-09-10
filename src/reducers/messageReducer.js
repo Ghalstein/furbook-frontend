@@ -7,10 +7,10 @@ export default (state = defaultState, action) => {
 
   switch (action.type) {
     case 'CREATE_MESSAGE':
-      
+      // debugger
       return {
       	...state,
-        messages: [...state.messages, action.payload.object]
+        messages: [...state.messages, action.payload]
       }
 
       case 'FETCH_MY_MESSAGES':
