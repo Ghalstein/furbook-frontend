@@ -822,6 +822,13 @@ Search-results
 /********************************
 Profile Page
 ********************************/
+.profile-icon-friend-options {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2em;
+}
+
 .ProfilePage {
   margin-left: 1em;
   margin-right: 1em;
@@ -844,7 +851,8 @@ Profile Page
 .posts-photos-div {
   display:flex;
   justify-content: center;
-  align-items: center;
+  /*align-items: center;*/
+  background: WhiteSmoke;
 }
 
 .posts-photos-div h2 {
@@ -1012,6 +1020,7 @@ Profile Page
 .friend-options {
   margin: 0 auto;
   margin-left: 5em;
+  margin-top: 15em;
 }
 
 .friend-request, .unfriend, .accept-request {
