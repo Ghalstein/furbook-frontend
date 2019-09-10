@@ -119,7 +119,7 @@ class ProfilePage extends React.Component {
             </div>
             <div className="friend-options">
               {this.props.user.id === parseInt(this.props.location.pathname.split("/")[2]) ?
-                null
+                <button className="edit-profile" >Edit Profile</button>
               :
                 this.props.profileUser.friends.find(friend => friend.user.id === this.props.user.id) || this.state.acceptedRequest || this.state.unfriended? 
                   <button onClick={this.handleUnfriend} className="unfriend">Unfriend</button>
