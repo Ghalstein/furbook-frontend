@@ -24,6 +24,7 @@ class ProfilePage extends React.Component {
     // }
     // this.setState({userID: this.props.location.pathname.split("/")[2]})
     this.props.getUserById(this.props.location.pathname.split("/")[2]);
+    this.setState({pathname: this.props.location.pathname})
   }
 
   handleIconClick = () => {
@@ -90,6 +91,10 @@ class ProfilePage extends React.Component {
   render = () => {
     if (!Object.keys(this.props.profileUser).length) return null;
     if (!this.props.user.id) return null;
+    if (this.props.location.pathname !== this.state.pathname) {
+      this.setState({pathname: this.props.location.pathname})
+      window.location.reload()
+    }
     console.log(this.props)
     // debugger
     return (
