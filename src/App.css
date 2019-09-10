@@ -791,6 +791,11 @@ Search-results
   padding:10px;
   border-radius: 10px;
   margin-top: 10px;
+  color: #FF416C;
+}
+
+.user-found-name {
+  color:#FF416C;
 }
 
 .no-user-found {

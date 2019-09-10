@@ -17,7 +17,7 @@ class UserFound extends React.Component {
     console.log(this.props.user)
     return (
       <div className="user-found">
-      	<Link onClick={() => this.props.handleExit()} to={`/users/${this.props.user.id}`}>
+      	<Link className="user-found-name"onClick={() => this.props.handleExit()} to={`/users/${this.props.user.id}`}>
 		      {this.props.user.pro_pic.length ?
 		        <img className="search-icon-img" src={this.props.user.pro_pic.slice(-1)[0].picture.url} />
 		      :
