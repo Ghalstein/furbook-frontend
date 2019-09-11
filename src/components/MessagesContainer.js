@@ -10,7 +10,7 @@ class MessagesContainer extends React.Component {
 				<div onClick={() => this.props.handleClose()} className="your-dms">
 					Your DM's
 				</div>
-				<MessageFriends messagesInfo={this.props.messagesInfo}/>
+				<MessageFriends friends={this.props.friends} updateMessage={this.props.updateMessage} messagesInfo={this.props.messagesInfo}/>
 			</div>
 		)
 	}
