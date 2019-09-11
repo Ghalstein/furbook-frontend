@@ -551,6 +551,7 @@ Post
   margin: 0 auto;
   border-radius: 15px;
   color: #faf5f5;
+  margin-left: 3em;
   /*position: relative;
   right: 125px;*/
 }
@@ -559,6 +560,7 @@ Post
   margin: 0 auto;
   max-height: 200px;
   overflow: scroll;
+  /*margin-right: 2em;*/
   /*background: #faf5f5;*/
 }
 
@@ -867,7 +869,7 @@ Profile Page
   flex-wrap:wrap;
   background: WhiteSmoke;
   width: 100em;
-  height: 23em;
+  height: 27em;
   margin-top: -2em;
   border-radius:10px;
 }
@@ -880,7 +882,7 @@ Profile Page
   margin: 0 auto;
   margin-top: 0;
   overflow: auto;
-  max-height: 20em;
+  max-height: 24em;
   border-radius:10px;
 }
 
@@ -1243,6 +1245,7 @@ message header
   font-size: 12px;
   border-radius: 10px;
   border: 1px solid #FF4B2B;
+  min-width: 4em;
   max-width: 12em;
   overflow-wrap: break-word;
   margin-left:10em;
