@@ -17,7 +17,10 @@ class Message extends React.Component {
       this.setState({info: this.props})
       this.setState({friend: true})
     }
+
+  
   }
+
   render = () => {
     // debugger
     if (!Object.keys(this.state.info).length) return null
