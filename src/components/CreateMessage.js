@@ -20,11 +20,19 @@ class CreateMessage extends React.Component {
     if (this.props.messageInfo !== undefined) {
       this.props.dispatch(createMessage(this.state.messageContent, this.props.user.id, this.props.messageInfo.friendship_id))
       this.setState({messageContent: ''}) 
+      var objDiv = document.querySelector(".dm-container");
+      if (objDiv) {
+        objDiv.scrollTop = objDiv.scrollHeight;
+      }
     }
   }
 
 	render = () => {
     // console.log("createComment:", this.props)
+    var objDiv = document.querySelector(".dm-container");
+    if (objDiv) {
+      objDiv.scrollTop = objDiv.scrollHeight;
+    }
 	  return (
 		  <form className="messageForm" onSubmit={this.handleSubmit}>
         <div className="messageInputs">

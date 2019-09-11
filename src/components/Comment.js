@@ -28,16 +28,16 @@ class Comment extends React.Component {
     date = date.toString();
     date = date.split(' ');
     date = date[0] + ' ' + date[1] + ' ' + date[2] + ' ' + date[3];
-    // debugger
     if (Object.keys(this.state.user).length) {
+      // debugger
       return (
         <li className="comment-content views">
           <div className="comment-content comment-div">
             <div className="icon-date">
               <Link className="comment-link" to={`/users/${this.state.user.id}`} >
                 <div className="icon-img-text">
-                  {this.state.user.pro_pic.length ?
-                    <img className="icon-img" src={this.state.user.pro_pic.splice(-1)[0].picture.url} />
+                  {this.state.user.pro_pics.length ?
+                    <img className="icon-img" src={this.state.user.pro_pics.splice(-1)[0].picture.url} />
                   :
                     <img className="icon-img" src='https://image.flaticon.com/icons/png/512/17/17479.png' />
                   }

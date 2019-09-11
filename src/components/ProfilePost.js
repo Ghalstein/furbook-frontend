@@ -95,7 +95,11 @@ class ProfilePost extends React.Component {
     commentsLength: 0
   }
 
-  handleCommentsClick = () => {
+  handleCommentsClick = (e) => {
+    var commentsScroll = e.target.parentElement.parentElement.parentElement.parentElement;
+      // if (commentsScroll) {
+      //   commentsScroll.scrollTop = commentsScroll.scrollHeight;
+      // }
     this.setState({commentsClicked: !this.state.commentsClicked})
   }
 
@@ -123,6 +127,7 @@ class ProfilePost extends React.Component {
   render = () => {
     // console.log("post: ", this.props)
     // console.log(this.props.post)
+    // debugger
     let comments = this.props.comments.filter(comment => comment.post_id === this.props.post.id)
     let date = new Date(this.props.post.created_at)
     date = date.toString();
@@ -136,8 +141,8 @@ class ProfilePost extends React.Component {
             <div className="icon-img-text"> 
               <Link className= "profile-post-link "to={`/users/${this.state.postUser.id}`} >
                 <div className="icon-img-text">
-                  {this.state.postUser.pro_pic.length ?
-                    <img className="icon-img" src={this.state.postUser.pro_pic.slice(-1)[0].picture.url} />
+                  {this.state.postUser.pro_pics.length ?
+                    <img className="icon-img" src={this.state.postUser.pro_pics.slice(-1)[0].picture.url} />
                   :
                     <img className="icon-img" src='https://image.flaticon.com/icons/png/512/17/17479.png' />
                   }
@@ -156,7 +161,7 @@ class ProfilePost extends React.Component {
           </div>
           {this.state.commentsClicked ? 
             <div className="comments-container">
-              <a className="comment-tag" onClick={this.handleCommentsClick}>
+              <a className="comment-tag" onClick={e => this.handleCommentsClick(e)}>
                 comments ({comments.length})
               </a>
               <Comments commentsLength={this.commentsLength} postComments={this.props.comments} info={this.props.post}/>

@@ -37,11 +37,12 @@ class Post extends React.Component {
     })
     .then(res => res.json())
     .then(info => this.setState({postUser: info}))
+    // debugger
   }
 
 
   render = () => {
-    // console.log("post: ", this.props)
+    console.log("post: ", this.props)
     // console.log(this.props.post)
     let comments = this.props.comments.filter(comment => comment.post_id === this.props.post.id)
     let date = new Date(this.props.post.created_at)
@@ -49,21 +50,20 @@ class Post extends React.Component {
     date = date.split(' ');
     date = date[0] + ' ' + date[1] + ' ' + date[2] + ' ' + date[3];
     if (this.state.postUser === undefined) return null;
-    // debugger
     return (
       <li className="post-content">
         <div className="post-div">
           <div className="icon-date">
             <div className="icon-img-text"> 
-              <Link to={`users/${this.state.postUser.id}`} >
+              <Link to={`/users/${this.props.post.user.id}`} >
                 <div className="icon-img-text">
-                  {this.state.postUser.pro_pic.length ?
-                    <img className="icon-img" src={this.state.postUser.pro_pic.slice(-1)[0].picture.url} />
+                  {this.props.post.user.pro_pic_url.length ?
+                    <img className="icon-img" src={this.props.post.user.pro_pic_url.slice(-1)[0].url} />
                   :
                     <img className="icon-img" src='https://image.flaticon.com/icons/png/512/17/17479.png' />
                   }
                   <div className="icon"> 
-                    {this.state.postUser.username}
+                    {this.props.post.user.username}
                   </div>
                 </div>
               </Link>

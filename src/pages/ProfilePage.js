@@ -5,6 +5,7 @@ import withAuth from '../hocs/withAuth';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { getUserById } from '../actions/usersActions';
+import { createMessage } from '../actions/messageActions';
 import ProfilePhotos from '../components/ProfilePhotos';
 import ProfilePosts from '../components/ProfilePosts';
 import EditProfilePic from '../components/EditProfilePic';
@@ -57,8 +58,8 @@ class ProfilePage extends React.Component {
   }
 
   handleAccept = () => {
-    let id = this.props.user.pending_friend_requests.find(friendRequest => friendRequest.user.id === this.props.profileUser.id).id;
-    fetch(`http://localhost:3000/friendships/${id}`, {
+    let friendship = this.props.user.pending_friend_requests.find(friendRequest => friendRequest.user.id === this.props.profileUser.id);
+    fetch(`http://localhost:3000/friendships/${friendship.id}`, {
       method: 'PATCH',
       headers: {
         'Authorization': localStorage.token,
@@ -71,8 +72,8 @@ class ProfilePage extends React.Component {
         })
     })
     .then(this.setState({acceptedRequest: true}))
-    .then(window.location.reload())
-
+    .then(this.props.createMessage("Thanks for accepting my friend request", friendship.user_id, friendship.id))
+    // .then(window.location.reload())
   }
 
   handleUnfriend = () => {
@@ -116,8 +117,8 @@ class ProfilePage extends React.Component {
           <h1 className="Hi"> {this.props.profileUser.username ? `${this.props.profileUser.username}'s page` : 'Getting your profile...'}</h1>
           <div className="profile-icon-friend-options">
             <div className="profile-icon-div">
-              {this.props.profileUser.pro_pic.length ?
-                <img onClick={this.handleIconClick} className="profile-icon" src={this.props.profileUser.pro_pic.slice(-1)[0].picture.url} />
+              {this.props.profileUser.pro_pics.length ?
+                <img onClick={this.handleIconClick} className="profile-icon" src={this.props.profileUser.pro_pics.slice(-1)[0].picture.url} />
               :
                 <img onClick={this.handleIconClick} className="profile-icon" src='https://image.flaticon.com/icons/png/512/17/17479.png' />
               }
@@ -186,7 +187,8 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = {
-  getUserById: getUserById
+  getUserById: getUserById,
+  createMessage: createMessage
 }
 
 export default withAuth(connect(mapStateToProps, mapDispatchToProps)(withRouter(ProfilePage)))

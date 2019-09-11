@@ -1,6 +1,7 @@
 import React from 'react';
 import CreateMessage from './CreateMessage';
-import { getMessages } from '../actions/messageActions';
+import { getMessages, viewedMessage } from '../actions/messageActions';
+// import { viewedMessage } from '../actions/messageActions';
 import { connect } from 'react-redux';
 import withAuth from '../hocs/withAuth';
 import { withRouter } from 'react-router-dom';
@@ -12,16 +13,25 @@ class MessageFriend extends React.Component {
 		messageOpend: false
 	}
 
+	loop = setInterval(() => {this.props.getMessages()}, 3000)
+
 	componentDidMount() {
-  	this.props.getMessages();
+		this.props.getMessages()
+	}
+
+  componentWillUnmount() {
+  	clearInterval(this.loop)
   }
 
-	handleOpenMessages = () => {
+	handleOpenMessages = (notifications) => {
 		this.setState({messageOpend: true})
+		console.log()
+		notifications.forEach( message => this.props.updateMessage(message))
 	}
 
 	handleCloseMessages = () => {
 		this.setState({messageOpend: false})
+		this.props.getMessages();
 	}
 
 	render = () => {
@@ -29,11 +39,17 @@ class MessageFriend extends React.Component {
 
 		// console.log(this.props.messageInfo)
 		// debugger
-
+    var objDiv = document.querySelector(".dm-container");
+	  if (objDiv) {
+	    objDiv.scrollTop = objDiv.scrollHeight;
+	  }
 		console.log(this.props)
 		if (!Object.keys(this.props.messages).length) return null
+			// debugger
+		let notifications = this.props.messages.filter(message => !message.viewed && message.user.id !== this.props.user.id)
+		// debugger
 		return (
-				<div>
+				<div className="chat-container">
 					{this.state.messageOpend ?
 						<div className="chat">
 							<div className="top-chat">
@@ -50,8 +66,8 @@ class MessageFriend extends React.Component {
 							</div>
 						</div>
 					:
-						<div onClick={this.handleOpenMessages} className="message-friend">
-							{this.props.messageInfo.friend.username}
+						<div onClick={() => this.handleOpenMessages(notifications)} className="message-friend">
+							{this.props.messageInfo.friend.username} ({notifications.length})
 						</div>
 					}
 				</div>
@@ -69,7 +85,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
   // more to do for getComments redux
-  getMessages: getMessages
+  getMessages: getMessages,
+  viewedMessage: viewedMessage
 }
 
 export default withAuth(connect(mapStateToProps, mapDispatchToProps)(withRouter(MessageFriend)))

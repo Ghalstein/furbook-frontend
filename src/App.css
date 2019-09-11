@@ -551,6 +551,7 @@ Post
   margin: 0 auto;
   border-radius: 15px;
   color: #faf5f5;
+  margin-left: 3em;
   /*position: relative;
   right: 125px;*/
 }
@@ -559,6 +560,7 @@ Post
   margin: 0 auto;
   max-height: 200px;
   overflow: scroll;
+  /*margin-right: 2em;*/
   /*background: #faf5f5;*/
 }
 
@@ -867,7 +869,7 @@ Profile Page
   flex-wrap:wrap;
   background: WhiteSmoke;
   width: 100em;
-  height: 23em;
+  height: 27em;
   margin-top: -2em;
   border-radius:10px;
 }
@@ -880,7 +882,7 @@ Profile Page
   margin: 0 auto;
   margin-top: 0;
   overflow: auto;
-  max-height: 20em;
+  max-height: 24em;
   border-radius:10px;
 }
 
@@ -1130,7 +1132,7 @@ message header
   margin: 0 auto; /* 15% from the top and centered */
   padding: 20px;
   /*border: 1px solid #888;*/
-  width: 15em; /* Could be more or less, depending on screen size */
+  width: 19em; /* Could be more or less, depending on screen size */
   height: 25em;
   text-align: cetner;
   color: #FF416C;
@@ -1169,11 +1171,21 @@ message header
   z-index: 1; /* Sit on top */
   /*right: 0;
   bottom: 0;*/
-  overflow: auto; /* Enable scroll if needed */
-  width:13em;
-  height: 20em;
+  /*overflow: auto;*/ /* Enable scroll if needed */
+  width:17em;
+  max-height: 21em;
   border-radius: 10px;
   padding:10px;
+}
+
+.dm-container {
+  max-height: 14em;
+  overflow:scroll;
+  margin-bottom:1em;
+}
+
+.chat-container {
+  height: 20em;
 }
 
 .x-out {
@@ -1226,6 +1238,27 @@ message header
   margin-bottom: 1em;
 }
 
-.messageForm {
-  margin-top: 15em;
+.user-message-text {
+  background: #FF416C;
+  color: #FFFFFF;
+  padding: 10px;
+  font-size: 12px;
+  border-radius: 10px;
+  border: 1px solid #FF4B2B;
+  min-width: 4em;
+  max-width: 12em;
+  overflow-wrap: break-word;
+  margin-left:10em;
+}
+
+.friend-message-text {
+  background: #FFFFFF;
+  color: #FF416C;
+  padding: 10px;
+  font-size: 12px;
+  border-radius: 10px;
+  border: 1px solid #FF4B2B;
+  max-width: 12em;
+  min-width: 4em;
+  overflow-wrap: break-word;
 }
