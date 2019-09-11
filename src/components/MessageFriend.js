@@ -33,7 +33,7 @@ class MessageFriend extends React.Component {
 		console.log(this.props)
 		if (!Object.keys(this.props.messages).length) return null
 		return (
-				<div>
+				<div className="chat-container">
 					{this.state.messageOpend ?
 						<div className="chat">
 							<div className="top-chat">
