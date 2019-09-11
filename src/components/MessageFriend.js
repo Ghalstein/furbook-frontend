@@ -32,6 +32,7 @@ class MessageFriend extends React.Component {
 
 		console.log(this.props)
 		if (!Object.keys(this.props.messages).length) return null
+			debugger
 		return (
 				<div className="chat-container">
 					{this.state.messageOpend ?
@@ -51,7 +52,7 @@ class MessageFriend extends React.Component {
 						</div>
 					:
 						<div onClick={this.handleOpenMessages} className="message-friend">
-							{this.props.messageInfo.friend.username}
+							{this.props.messageInfo.friend.username} 
 						</div>
 					}
 				</div>
