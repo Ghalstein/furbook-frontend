@@ -10,7 +10,7 @@ export default (state = defaultState, action) => {
       
       return {
       	...state,
-        comments: [...state.comments, action.payload.object]
+        comments: [...state.comments, action.payload]
       }
       // debugger
     case 'FETCH_MY_COMMENTS':
