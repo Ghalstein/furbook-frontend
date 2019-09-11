@@ -1236,6 +1236,25 @@ message header
   margin-bottom: 1em;
 }
 
-.messageForm {
-  
+.user-message-text {
+  background: #FF416C;
+  color: #FFFFFF;
+  padding: 10px;
+  font-size: 12px;
+  border-radius: 10px;
+  border: 1px solid #FF4B2B;
+  max-width: 8em;
+  overflow-wrap: break-word;
+  margin-left:8em;
+}
+
+.friend-message-text {
+  background: #FFFFFF;
+  color: #FF416C;
+  padding: 10px;
+  font-size: 12px;
+  border-radius: 10px;
+  border: 1px solid #FF4B2B;
+  max-width: 8em;
+  overflow-wrap: break-word;
 }
