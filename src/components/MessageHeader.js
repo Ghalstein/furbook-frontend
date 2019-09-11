@@ -23,8 +23,10 @@ class MessageHeader extends React.Component {
 
   render = () => {
   	// if (!localStorage.token && this.props.hasOwnProperty('history')) this.props.history.push("/")
-      console.log(this.state)
-    
+      if (!this.props.user.id) return null;
+      console.log(this.props)
+      // debugger
+      let notifications = this.props.user.messages_info[0].messages.filter(message => !message.viewed && user.id !== this.props.user.id)
     return (
       <div className="message-setup">
         {this.state.open ? 
@@ -35,7 +37,7 @@ class MessageHeader extends React.Component {
           null
         }
         <div className="message-menu">
-            <a onClick={this.handleOpen} className="messages-header">messages</a>
+            <a onClick={this.handleOpen} className="messages-header">messages ({notifications.length})</a>
         </div>
       </div>
     );
