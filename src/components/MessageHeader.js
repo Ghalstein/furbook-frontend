@@ -16,6 +16,7 @@ class MessageHeader extends React.Component {
 
   handleOpen = () => {
     this.setState({open: true})
+    this.props.getMessages()
   }
 
   handleClose = () => {
