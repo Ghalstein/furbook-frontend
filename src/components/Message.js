@@ -35,8 +35,6 @@ class Message extends React.Component {
     return (
       <li className="message-content views">
         <div className="message-content comment-div">
-          <div className="icon-date">
-          </div>
           { this.state.info.messageInfo.user.id !== this.props.user.id ?
             <div className="friend-message-text">
               {this.state.info.messageInfo.content}
