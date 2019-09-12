@@ -22,7 +22,7 @@ class Comment extends React.Component {
     .then(info => this.setState({user: info}))
   }
   render = () => {
-    console.log(this.state)
+    // console.log(this.state)
     // console.log("COMMENT:", this.props)
     let date = new Date(this.props.comment.created_at)
     date = date.toString();
@@ -36,8 +36,8 @@ class Comment extends React.Component {
             <div className="icon-date">
               <Link className="comment-link" to={`/users/${this.state.user.id}`} >
                 <div className="icon-img-text">
-                  {this.state.user.pro_pics.length ?
-                    <img className="icon-img" src={this.state.user.pro_pics.splice(-1)[0].picture.url} />
+                  {this.props.comment.user.pro_pic_url.length ?
+                    <img className="icon-img" src={this.props.comment.user.pro_pic_url.splice(-1)[0].url} />
                   :
                     <img className="icon-img" src='https://image.flaticon.com/icons/png/512/17/17479.png' />
                   }
