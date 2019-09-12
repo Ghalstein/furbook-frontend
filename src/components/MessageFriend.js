@@ -25,7 +25,6 @@ class MessageFriend extends React.Component {
 
 	handleOpenMessages = (notifications) => {
 		this.props.openMessage(this.props.messageInfo.friendship_id);
-		console.log()
 		notifications.forEach( message => this.props.updateMessage(message))
 	}
 
@@ -35,19 +34,22 @@ class MessageFriend extends React.Component {
 	}
 
 	messageCreated = () => {
-		this.props.getMessages();
+		// this.props.getMessages();
 	}
+
+	componentDidUpdate() {
+    // var objDiv = document.querySelector(".dm-container");
+    // if (!!objDiv) {
+    //   objDiv.scrollTop = objDiv.scrollHeight;
+    // }
+  }
 
 	render = () => {
 		// debugger
 
-		// console.log(this.props.messageInfo)
+		// console.log(this.props)
 		// debugger
-    var objDiv = document.querySelector(".dm-container");
-	  if (objDiv) {
-	    objDiv.scrollTop = objDiv.scrollHeight;
-	  }
-		console.log(this.props)
+
 		// debugger
 		// if (!Object.keys(this.props.messages).length) return null
 			
