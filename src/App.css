@@ -21,6 +21,25 @@ body {
   overflow:wrap;
 }
 
+input:focus {
+  outline:none;
+}
+
+.errors-container {
+  margin-left: 2em;
+  background: #FFFFFF;
+}
+
+.errors {
+  background: #FFFFFF;
+}
+
+.error {
+  background: #FFFFFF;
+  color: red;
+
+}
+
 .LoginPage {
   background: #f6f5f7;
   display: flex;
@@ -240,6 +259,51 @@ body {
 /***************************************
 Header
 **************************************/
+
+.pic-modal {
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  right: 0;
+  bottom: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0);  /*Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.closePic {
+  margin-left: 63rem;
+  margin-top:10rem;
+  width: 3em;
+  height:3em;
+  position:fixed;
+  padding:10px;
+  border-radius: 10px
+}
+
+.modal-profile-photo {
+  /*background-color: #fefefe;*/
+  /*background: white;*/
+  /*border-radius: 20px;*/
+  /*position:fixed;*/
+  /*background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
+  background: linear-gradient(to right, #FF4B2B, #FF416C);*/
+  top:auto;
+  left:auto;
+  margin: 0 auto; /* 15% from the top and centered */
+  margin-left: 35em;
+  margin-top: 10em;
+  /*padding: 20px;*/
+  width: 30em;
+  /*border: 1px solid #888;*/
+  text-align: center;
+  color: #FF416C;
+  overflow: scroll;
+  margin-top: ;
+  border-radius: 10px
+}
+
 .profile-link-icon {
   width: 3em;
   padding: 3px;
@@ -866,28 +930,39 @@ Profile Page
   display:flex;
   justify-content: center;
   /*align-items: center;*/
-  flex-wrap:wrap;
+  /*flex-wrap:wrap;*/
   background: WhiteSmoke;
   width: 100em;
   height: 27em;
   margin-top: -2em;
   border-radius:10px;
+  /*overflow:scroll;*/
 }
 
 .posts-photos-div h2 {
   color: #FF416C;;
 }
 
-.profile-posts, .profile-photos, .no-photos-to-show, .no-posts-to-show {
+.profile-posts, .no-posts-to-show {
   margin: 0 auto;
-  margin-top: 0;
-  overflow: auto;
+  margin-top: 1em;
+  overflow: scroll;
   max-height: 24em;
   border-radius:10px;
 }
 
+.profile-photos, .no-photos-to-show {
+  margin: 0 auto;
+  margin-top: 1em;
+  overflow: scroll;
+  /*max-height: 24em;*/
+  border-radius:10px;
+  max-width: 20em;
+}
+
 .profile-photo {
-  width: 20em;
+  width: 15em;
+  max-height: 18em;
   border-radius: 10px;
 }
 .profile-post {
@@ -1127,16 +1202,22 @@ message header
   /*background-color: #fefefe;*/
   background: #FF416C;
   /*border-radius: 20px;*/
+  position:fixed;
+  bottom:0;
+  right: 0;
   background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
   background: linear-gradient(to right, #FF4B2B, #FF416C);
   margin: 0 auto; /* 15% from the top and centered */
   padding: 20px;
   /*border: 1px solid #888;*/
   width: 19em; /* Could be more or less, depending on screen size */
-  height: 25em;
+  height: 26em;
   text-align: cetner;
   color: #FF416C;
   overflow: scroll;
+  margin-top: ;
+  border: 2px solid #FFFFFF;
+  border-radius: 10px
 }
 
 .your-dms {
@@ -1150,6 +1231,8 @@ message header
 }
 
 .message-friends {
+  display: inline-block;
+  margin-bottom: 50px;
 }
 
 .message-friend {
@@ -1157,6 +1240,7 @@ message header
   color: #FF416C;
   padding:10px;
   border-radius:10px;
+  z-index: 1; 
 }
 
 .message-friend:focus,  .message-friend:hover{
@@ -1167,8 +1251,9 @@ message header
 
 .chat {
   background: #FFFFFF;
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  /*position: fixed; */
+  z-index: 2; 
+  position:absolute;
   /*right: 0;
   bottom: 0;*/
   /*overflow: auto;*/ /* Enable scroll if needed */
@@ -1176,6 +1261,8 @@ message header
   max-height: 21em;
   border-radius: 10px;
   padding:10px;
+  overflow: auto;
+  margin-bottom:1em;
 }
 
 .dm-container {
@@ -1185,7 +1272,7 @@ message header
 }
 
 .chat-container {
-  height: 20em;
+  height: 3em;
 }
 
 .x-out {
@@ -1232,10 +1319,16 @@ message header
   background: -webkit-linear-gradient(to right, #FF4B2B, #fa7d7d);
   background: linear-gradient(to right, #FF4B2B, #fa7d7d);
   cursor:pointer;
+  
+}
+
+.messageSubmit:focus {
+  outline:none;
 }
 
 .message-friend-name {
   margin-bottom: 1em;
+
 }
 
 .user-message-text {
@@ -1262,3 +1355,9 @@ message header
   min-width: 4em;
   overflow-wrap: break-word;
 }
+
+.closeout {
+  margin-left: 9em;
+  font-size: 20px;
+}
+

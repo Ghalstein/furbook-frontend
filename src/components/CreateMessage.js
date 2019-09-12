@@ -15,24 +15,29 @@ class CreateMessage extends React.Component {
     this.setState({[event.target.name]: event.target.value})
   }
 
+  componentDidUpdate() {
+    // var objDiv = document.querySelector(".dm-container");
+    // if (objDiv) {
+    //   objDiv.scrollTop = objDiv.scrollHeight;
+    // }
+  }
+
 	handleSubmit = (event) => {
     event.preventDefault();
-    if (this.props.messageInfo !== undefined) {
+    // if (this.props.messageInfo !== undefined) {
       this.props.dispatch(createMessage(this.state.messageContent, this.props.user.id, this.props.messageInfo.friendship_id))
-      this.setState({messageContent: ''}) 
-      var objDiv = document.querySelector(".dm-container");
-      if (objDiv) {
-        objDiv.scrollTop = objDiv.scrollHeight;
-      }
-    }
+      this.setState({messageContent: ''})
+
+      // this.props.messageCreated()
+    // }
   }
 
 	render = () => {
     // console.log("createComment:", this.props)
-    var objDiv = document.querySelector(".dm-container");
-    if (objDiv) {
-      objDiv.scrollTop = objDiv.scrollHeight;
-    }
+    // var objDiv = document.querySelector(".dm-container");
+    // if (objDiv) {
+    //   objDiv.scrollTop = objDiv.scrollHeight;
+    // }
 	  return (
 		  <form className="messageForm" onSubmit={this.handleSubmit}>
         <div className="messageInputs">

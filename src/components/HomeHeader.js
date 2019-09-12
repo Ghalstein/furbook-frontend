@@ -31,6 +31,10 @@ class HomeHeader extends React.Component {
   }
 
   render = () => {
+    if (localStorage.token === "undefined") {
+      alert("Invalid login")
+      this.props.logOut()
+    }
   	if (!localStorage.token && this.props.hasOwnProperty('history')) this.props.history.push("/")
       // console.log(this.props)
     // debugger

@@ -21,7 +21,9 @@ class uploadPhoto extends React.Component {
 	    url: `http://localhost:3000/photos`,
 	    data: formData,
 	    config: { headers: {'Content-Type': 'multipart/form-data', 'Authorization': `Bearer ${localStorage.token}` }}
-	  });
+	  })
+	  .then(() => window.location.reload(false))
+	  // this.props.uploadedPhoto();
 	}
 
 	handleFile = (e) => {
@@ -29,7 +31,7 @@ class uploadPhoto extends React.Component {
 	}
 
 	render() {
-		console.log(this.state);
+		// console.log(this.state);
 		return (
 			<div>
 				Upload a new photo

@@ -17,11 +17,20 @@ class Message extends React.Component {
       this.setState({info: this.props})
       this.setState({friend: true})
     }
+  }
 
-  
+  componentDidUpdate() {
+    var objDiv = document.querySelector(".dm-container");
+    if (objDiv) {
+      objDiv.scrollTop = objDiv.scrollHeight;
+    }
   }
 
   render = () => {
+    // var objDiv = document.querySelector(".dm-container");
+    // if (objDiv) {
+    //   objDiv.scrollTop = objDiv.scrollHeight;
+    // }
     // debugger
     if (!Object.keys(this.state.info).length) return null
     if (this.state.info.messageInfo.friendship.id !== this.props.friendship_id) return null;
@@ -35,8 +44,6 @@ class Message extends React.Component {
     return (
       <li className="message-content views">
         <div className="message-content comment-div">
-          <div className="icon-date">
-          </div>
           { this.state.info.messageInfo.user.id !== this.props.user.id ?
             <div className="friend-message-text">
               {this.state.info.messageInfo.content}

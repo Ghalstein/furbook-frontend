@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { signUp } from '../actions/userActions';
+import { signUp, logIn } from '../actions/userActions';
 
 class SignupPage extends React.Component{
 
@@ -9,7 +9,8 @@ class SignupPage extends React.Component{
 		username: "",
 		password: "",
 		passwordConfirmation: "",
-		email: ""
+		email: "",
+		user: {}
 	}
 
 	handleChange = (event) => {
@@ -24,28 +25,50 @@ class SignupPage extends React.Component{
   }
 
 	handleSubmit = (event) => {
+		event.preventDefault();
 		if (this.state.password !== this.state.passwordConfirmation) {
 			alert("Passwords do not match");
 			return;
 		}
-		event.preventDefault();
+		// if (!this.state.password.trim()) {
+		// 	alert("Password cannot be blank")
+		// 	return;
+		// }
+		// if (!this.state.email.trim()) {
+		// 	alert("Email cannot be blank")
+		// 	return;
+		// }
+		// if (!this.state.username.trim()) {
+		// 	alert("Username cannot be blank")
+		// 	return;
+		// }
 		this.props.signUp(this.state.username, this.state.password, this.state.email)
-    .then(()=> {
-      this.props.history.push("/profile")
-    })
+		.then(user => this.setState({user: user}));
+
+		// this.props.history.push('/login');
+		// alert("Thank you for joining. Please sign in and enjoy.");
+		// this.props.logIn(this.state.username, this.state.password)
 	}
 
   render = () => {
+  	if (this.state.user) {
+  		if (this.state.user.token) {
+  			localStorage.token = this.state.user.token;
+  			this.props.history.push('/home');
+  		}
+  	}
+  	// debugger
     return (
     	<div className="LoginPage">
 	    	<div className="form-container sign-up-container">
+	    		{this.state.user.hasOwnProperty('errors') ? <div className="errors-container"><ul className="errors">{this.state.user.errors.map(error => <li className="error">{error}</li>)}</ul></div> : null}
 		      <form className="signupForm" onSubmit={this.handleSubmit}>
 						<h1>Create Account</h1>
-			      <input className="signupInput" type="text" placeholder="Name" value={this.state.username} onChange={this.handleChange} name="username"/>
+			      <input className="signupInput" type="text" placeholder="Username" value={this.state.username} onChange={this.handleChange} name="username"/>
 			      <input className="signupInput" type="text" placeholder="Email" value={this.state.email} onChange={this.handleChange} name="email"/>
 			      <input className="signupInput" type="password" placeholder="Password" value={this.state.password} onChange={this.handleChange} name="password"/>
 			      <input className="signupInput" type="password" placeholder="Confirm Password" value={this.state.passwordConfirmation} onChange={this.handleChange} name="passwordConfirmation"/>
-			      <input className="signupSubmit" type="submit" value="Login"/>
+			      <input className="signupSubmit" type="submit" value="Sign up"/>
 					</form>
 				</div>
 				<div className="overlay-container">
@@ -68,7 +91,8 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = {
-    signUp: signUp
+    signUp: signUp,
+    logIn: logIn
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignupPage)

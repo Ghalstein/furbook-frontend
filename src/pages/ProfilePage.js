@@ -29,6 +29,10 @@ class ProfilePage extends React.Component {
     this.setState({pathname: this.props.location.pathname})
   }
 
+  uploadedPhoto = () => {
+    this.setState({editProfileClicked: true})
+  }
+
   handleIconClick = () => {
     if (this.props.user.id === parseInt(this.props.location.pathname.split("/")[2])) {
       this.setState({iconClicked: true})
@@ -59,6 +63,7 @@ class ProfilePage extends React.Component {
 
   handleAccept = () => {
     let friendship = this.props.user.pending_friend_requests.find(friendRequest => friendRequest.user.id === this.props.profileUser.id);
+    // this.props.createMessage("Thanks for accepting my friend request", friendship.user_id, friendship.id)
     fetch(`http://localhost:3000/friendships/${friendship.id}`, {
       method: 'PATCH',
       headers: {
@@ -72,8 +77,7 @@ class ProfilePage extends React.Component {
         })
     })
     .then(this.setState({acceptedRequest: true}))
-    .then(this.props.createMessage("Thanks for accepting my friend request", friendship.user_id, friendship.id))
-    // .then(window.location.reload())
+    .then(window.location.reload())
   }
 
   handleUnfriend = () => {
@@ -102,7 +106,7 @@ class ProfilePage extends React.Component {
       window.location.reload();
     }
     // debugger
-    console.log(this.props)
+    // console.log(this.props)
     // debugger
     return (
       <div className="/profile">
@@ -154,18 +158,18 @@ class ProfilePage extends React.Component {
             {this.props.profileUser.photos.length ? 
               <div className="profile-photos">
                 <h2> Photos</h2>
-                <ProfilePhotos photos={this.props.profileUser.photos}/>
                 {this.props.user.id === parseInt(this.props.location.pathname.split("/")[2]) ?
-                  <UploadPhoto userInfo={this.props.userInfo}/>
+                  <UploadPhoto uploadedPhoto={this.uploadedPhoto} userInfo={this.props.userInfo}/>
                 :
                   null
                 }
+                <ProfilePhotos photos={this.props.profileUser.photos}/>
               </div>
             :
               <div className="profile-photos">
                 <h2 className="no-photos-to-show">No photos to show...</h2>
                 {this.props.user.id === parseInt(this.props.location.pathname.split("/")[2]) ?
-                  <UploadPhoto userInfo={this.props.userInfo}/>
+                  <UploadPhoto uploadedPhoto={this.uploadedPhoto} userInfo={this.props.userInfo}/>
                 :
                   null
                 }

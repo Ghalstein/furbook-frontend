@@ -20,6 +20,11 @@ class CreateComment extends React.Component {
     if (this.props.postInfo !== undefined) {
       this.props.dispatch(createComment(this.state.commentContent, this.props.user.id, this.props.postInfo.id))
       this.setState({commentContent: ''}) 
+      // this.props.commentCreated();
+      var commentScroll = document.querySelector(".comment-container");
+      if (commentScroll) {
+        commentScroll.scrollTop = commentScroll.scrollHeight;
+      }
     }
   }
 

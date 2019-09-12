@@ -9,48 +9,55 @@ import Message from './Message';
 
 class MessageFriend extends React.Component {
 
-	state = {
-		messageOpend: false
-	}
+	// state = {
+	// 	messageOpend: false
+	// }
 
-	loop = setInterval(() => {this.props.getMessages()}, 3000)
+	// loop = setInterval(() => {this.props.getMessages()}, 3000)
 
 	componentDidMount() {
 		this.props.getMessages()
 	}
 
-  componentWillUnmount() {
-  	clearInterval(this.loop)
-  }
+  // componentWillUnmount() {
+  // 	clearInterval(this.loop)
+  // }
 
 	handleOpenMessages = (notifications) => {
-		this.setState({messageOpend: true})
-		console.log()
+		this.props.openMessage(this.props.messageInfo.friendship_id);
 		notifications.forEach( message => this.props.updateMessage(message))
 	}
 
 	handleCloseMessages = () => {
-		this.setState({messageOpend: false})
+		this.props.closeMessage();
 		this.props.getMessages();
 	}
+
+	messageCreated = () => {
+		// this.props.getMessages();
+	}
+
+	componentDidUpdate() {
+    // var objDiv = document.querySelector(".dm-container");
+    // if (!!objDiv) {
+    //   objDiv.scrollTop = objDiv.scrollHeight;
+    // }
+  }
 
 	render = () => {
 		// debugger
 
-		// console.log(this.props.messageInfo)
+		// console.log(this.props)
 		// debugger
-    var objDiv = document.querySelector(".dm-container");
-	  if (objDiv) {
-	    objDiv.scrollTop = objDiv.scrollHeight;
-	  }
-		console.log(this.props)
-		if (!Object.keys(this.props.messages).length) return null
-			// debugger
-		let notifications = this.props.messages.filter(message => !message.viewed && message.user.id !== this.props.user.id)
+
+		// debugger
+		// if (!Object.keys(this.props.messages).length) return null
+			
+		let notifications = this.props.messages.filter(message => !message.viewed && message.user.id === this.props.messageInfo.friend.id)
 		// debugger
 		return (
 				<div className="chat-container">
-					{this.state.messageOpend ?
+					{this.props.openedMessage === this.props.messageInfo.friendship_id ?
 						<div className="chat">
 							<div className="top-chat">
 								<a onClick={this.handleCloseMessages} className="close x-out">x</a>
@@ -62,7 +69,7 @@ class MessageFriend extends React.Component {
 								{this.props.messages.map(message => <Message messageInfo={message} friendship_id={this.props.messageInfo.friendship_id} friend={this.props.messageInfo.friend}/>)}
 							</div>
 							<div>
-								<CreateMessage messageInfo={this.props.messageInfo}/>
+								<CreateMessage messageInfo={this.props.messageInfo} messageCreated={this.messageCreated}/>
 							</div>
 						</div>
 					:

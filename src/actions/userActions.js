@@ -70,12 +70,12 @@ export const signUp = (username, password, email) => dispatch => {
 		})
 	})
 	.then(res => res.json())
-  .then((user) => {
-    dispatch({ type: 'SIGNUP_REQUEST_SUCCESS' })
-  })
-  .catch(error => {
-    dispatch({ type: 'SIGNUP_REQUEST_FAILURE', error: error })
-  })
+  // .then((user) => {
+  //   dispatch({ type: 'SIGNUP_REQUEST_SUCCESS' })
+  // })
+  // .catch(error => {
+  //   dispatch({ type: 'SIGNUP_REQUEST_FAILURE', error: error })
+  // })
 }
 
 export const logOut = () => dispatch => {
