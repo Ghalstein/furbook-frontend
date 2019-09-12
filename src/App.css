@@ -21,6 +21,10 @@ body {
   overflow:wrap;
 }
 
+input:focus {
+  outline:none;
+}
+
 .LoginPage {
   background: #f6f5f7;
   display: flex;
@@ -1138,6 +1142,8 @@ message header
   color: #FF416C;
   overflow: scroll;
   margin-top: ;
+  border: 2px solid #FFFFFF;
+  border-radius: 10px
 }
 
 .your-dms {
@@ -1234,11 +1240,12 @@ message header
 
 }
 
-.messageSubmit:hover {
+.messageSubmit:hover, .messageSubmit:focus {
   background: #fa7d7d;
   background: -webkit-linear-gradient(to right, #FF4B2B, #fa7d7d);
   background: linear-gradient(to right, #FF4B2B, #fa7d7d);
   cursor:pointer;
+  outline:none;
 }
 
 .message-friend-name {
