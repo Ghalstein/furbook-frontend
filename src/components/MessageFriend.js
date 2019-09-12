@@ -9,28 +9,28 @@ import Message from './Message';
 
 class MessageFriend extends React.Component {
 
-	state = {
-		messageOpend: false
-	}
+	// state = {
+	// 	messageOpend: false
+	// }
 
-	loop = setInterval(() => {this.props.getMessages()}, 3000)
+	// loop = setInterval(() => {this.props.getMessages()}, 3000)
 
 	componentDidMount() {
 		this.props.getMessages()
 	}
 
-  componentWillUnmount() {
-  	clearInterval(this.loop)
-  }
+  // componentWillUnmount() {
+  // 	clearInterval(this.loop)
+  // }
 
 	handleOpenMessages = (notifications) => {
-		this.setState({messageOpend: true})
+		this.props.openMessage(this.props.messageInfo.friendship_id);
 		console.log()
 		notifications.forEach( message => this.props.updateMessage(message))
 	}
 
 	handleCloseMessages = () => {
-		this.setState({messageOpend: false})
+		this.props.closeMessage();
 		this.props.getMessages();
 	}
 
@@ -44,13 +44,13 @@ class MessageFriend extends React.Component {
 	    objDiv.scrollTop = objDiv.scrollHeight;
 	  }
 		console.log(this.props)
-		if (!Object.keys(this.props.messages).length) return null
+		// debugger
+		// if (!Object.keys(this.props.messages).length) return null
 			// debugger
 		let notifications = this.props.messages.filter(message => !message.viewed && message.user.id !== this.props.user.id)
-		// debugger
 		return (
 				<div className="chat-container">
-					{this.state.messageOpend ?
+					{this.props.openedMessage === this.props.messageInfo.friendship_id ?
 						<div className="chat">
 							<div className="top-chat">
 								<a onClick={this.handleCloseMessages} className="close x-out">x</a>
