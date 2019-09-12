@@ -964,6 +964,7 @@ Profile Page
   width: 15em;
   max-height: 18em;
   border-radius: 10px;
+  margin-bottom:1em;
 }
 .profile-post {
   color: #FF4B2B;
@@ -1267,6 +1268,7 @@ message header
   /*overflow: auto;*/ /* Enable scroll if needed */
   width:17em;
   max-height: 21em;
+  min-height: 21em;
   border-radius: 10px;
   padding:10px;
   overflow: auto;
@@ -1365,7 +1367,7 @@ message header
 }
 
 .closeout {
-  margin-left: 9em;
+  margin-left: 8em;
   font-size: 20px;
 }
 
