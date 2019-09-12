@@ -24,6 +24,7 @@ class CreateMessage extends React.Component {
       if (objDiv) {
         objDiv.scrollTop = objDiv.scrollHeight;
       }
+      this.props.messageCreated()
     }
   }
 
