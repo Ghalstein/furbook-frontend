@@ -42,7 +42,7 @@ class Post extends React.Component {
 
 
   render = () => {
-    console.log("post: ", this.props)
+    // console.log("post: ", this.props)
     // console.log(this.props.post)
     let comments = this.props.comments.filter(comment => comment.post_id === this.props.post.id)
     let date = new Date(this.props.post.created_at)
