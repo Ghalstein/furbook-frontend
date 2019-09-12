@@ -52,8 +52,7 @@ class Post extends React.Component {
     date = date.toString();
     date = date.split(' ');
     date = date[0] + ' ' + date[1] + ' ' + date[2] + ' ' + date[3];
-    if (this.state.postUser === undefined) return null;
-    console.log("hi from posts")
+    // console.log("hi from posts")
     return (
       <li className="post-content">
         <div className="post-div">
