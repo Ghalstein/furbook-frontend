@@ -59,6 +59,7 @@ class ProfilePage extends React.Component {
 
   handleAccept = () => {
     let friendship = this.props.user.pending_friend_requests.find(friendRequest => friendRequest.user.id === this.props.profileUser.id);
+    // this.props.createMessage("Thanks for accepting my friend request", friendship.user_id, friendship.id)
     fetch(`http://localhost:3000/friendships/${friendship.id}`, {
       method: 'PATCH',
       headers: {
@@ -72,8 +73,7 @@ class ProfilePage extends React.Component {
         })
     })
     .then(this.setState({acceptedRequest: true}))
-    .then(this.props.createMessage("Thanks for accepting my friend request", friendship.user_id, friendship.id))
-    // .then(window.location.reload())
+    .then(window.location.reload())
   }
 
   handleUnfriend = () => {
