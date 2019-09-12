@@ -29,6 +29,10 @@ class ProfilePage extends React.Component {
     this.setState({pathname: this.props.location.pathname})
   }
 
+  uploadedPhoto = () => {
+    this.setState({editProfileClicked: true})
+  }
+
   handleIconClick = () => {
     if (this.props.user.id === parseInt(this.props.location.pathname.split("/")[2])) {
       this.setState({iconClicked: true})
@@ -154,18 +158,18 @@ class ProfilePage extends React.Component {
             {this.props.profileUser.photos.length ? 
               <div className="profile-photos">
                 <h2> Photos</h2>
-                <ProfilePhotos photos={this.props.profileUser.photos}/>
                 {this.props.user.id === parseInt(this.props.location.pathname.split("/")[2]) ?
-                  <UploadPhoto userInfo={this.props.userInfo}/>
+                  <UploadPhoto uploadedPhoto={this.uploadedPhoto} userInfo={this.props.userInfo}/>
                 :
                   null
                 }
+                <ProfilePhotos photos={this.props.profileUser.photos}/>
               </div>
             :
               <div className="profile-photos">
                 <h2 className="no-photos-to-show">No photos to show...</h2>
                 {this.props.user.id === parseInt(this.props.location.pathname.split("/")[2]) ?
-                  <UploadPhoto userInfo={this.props.userInfo}/>
+                  <UploadPhoto uploadedPhoto={this.uploadedPhoto} userInfo={this.props.userInfo}/>
                 :
                   null
                 }
