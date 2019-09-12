@@ -1133,10 +1133,11 @@ message header
   padding: 20px;
   /*border: 1px solid #888;*/
   width: 19em; /* Could be more or less, depending on screen size */
-  height: 25em;
+  height: 33em;
   text-align: cetner;
   color: #FF416C;
   overflow: scroll;
+  margin-top: ;
 }
 
 .your-dms {
@@ -1150,6 +1151,8 @@ message header
 }
 
 .message-friends {
+  display: inline-block;
+  margin-bottom: 50px;
 }
 
 .message-friend {
@@ -1157,6 +1160,7 @@ message header
   color: #FF416C;
   padding:10px;
   border-radius:10px;
+  z-index: 1; 
 }
 
 .message-friend:focus,  .message-friend:hover{
@@ -1167,8 +1171,9 @@ message header
 
 .chat {
   background: #FFFFFF;
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  /*position: fixed; */
+  z-index: 2; 
+  position:absolute;
   /*right: 0;
   bottom: 0;*/
   /*overflow: auto;*/ /* Enable scroll if needed */
@@ -1176,6 +1181,8 @@ message header
   max-height: 21em;
   border-radius: 10px;
   padding:10px;
+  overflow: auto;
+  margin-bottom:1em;
 }
 
 .dm-container {
@@ -1185,7 +1192,7 @@ message header
 }
 
 .chat-container {
-  height: 20em;
+  height: 3em;
 }
 
 .x-out {
@@ -1236,6 +1243,7 @@ message header
 
 .message-friend-name {
   margin-bottom: 1em;
+
 }
 
 .user-message-text {
@@ -1261,4 +1269,9 @@ message header
   max-width: 12em;
   min-width: 4em;
   overflow-wrap: break-word;
+}
+
+.closeout {
+  margin-left: 9em;
+  font-size: 20px;
 }
