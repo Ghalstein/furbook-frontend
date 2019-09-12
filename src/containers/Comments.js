@@ -20,7 +20,7 @@ class Comments extends React.Component {
   render = () => {
     var commentScroll = document.querySelector(".comment-container");
     if (commentScroll) {
-      commentScroll.scrollTop = 10000;
+      commentScroll.scrollTop = commentScroll.scrollHeight;
     }
     // var postScroll = document.querySelector(".profile-posts");
     // if (postScroll) {
@@ -33,7 +33,7 @@ class Comments extends React.Component {
     // }
   	// console.log("FROM COMMENTS: ", this.props)
   	let comments = this.props.comments.filter(comment => comment.post_id === this.props.info.id)
-    
+
     return (
     	<div className="all-comments">
 	      <div className="comment-container">
