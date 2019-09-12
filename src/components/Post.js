@@ -40,6 +40,9 @@ class Post extends React.Component {
     // debugger
   }
 
+  commentCreated = () => {
+    this.props.getComments();
+  }
 
   render = () => {
     // console.log("post: ", this.props)
@@ -50,6 +53,7 @@ class Post extends React.Component {
     date = date.split(' ');
     date = date[0] + ' ' + date[1] + ' ' + date[2] + ' ' + date[3];
     if (this.state.postUser === undefined) return null;
+    console.log("hi from posts")
     return (
       <li className="post-content">
         <div className="post-div">
@@ -85,7 +89,7 @@ class Post extends React.Component {
           : 
             <a className="comment-tag" onClick={this.handleCommentsClick}>comments ({comments.length})</a>}
           <div className="createComment">
-            <CreateComment postInfo={this.props.post} />
+            <CreateComment commentCreated={this.commentCreated} postInfo={this.props.post} />
           </div>
         </div>
       </li>
