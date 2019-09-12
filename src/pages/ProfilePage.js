@@ -102,7 +102,7 @@ class ProfilePage extends React.Component {
       window.location.reload();
     }
     // debugger
-    console.log(this.props)
+    // console.log(this.props)
     // debugger
     return (
       <div className="/profile">
