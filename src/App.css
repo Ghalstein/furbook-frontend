@@ -1223,6 +1223,13 @@ message header
 .your-dms {
   color: #FFFFFF;
   margin-bottom:1em;
+  position:fixed;
+  background: #FF416C;
+  background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
+  background: linear-gradient(to right, #FF4B2B, #FF416C);
+  height: 3em;
+  width: 17em;
+  padding:10px;
 }
 
 .your-dms:hover, .your-dms:focus {
@@ -1231,6 +1238,7 @@ message header
 }
 
 .message-friends {
+  margin-top:3em;
   display: inline-block;
   margin-bottom: 50px;
 }
