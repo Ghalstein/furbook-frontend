@@ -20,7 +20,8 @@ class uploadProPic extends React.Component {
 	    url: `http://localhost:3000/pro_pics`,
 	    data: formData,
 	    config: { headers: {'Content-Type': 'multipart/form-data', 'Authorization': `Bearer ${localStorage.token}` }}
-	  });
+	  })
+	  .then(() => window.location.reload(false))
 	}
 
 	handleFile = (e) => {
@@ -28,7 +29,7 @@ class uploadProPic extends React.Component {
 	}
 
 	render() {
-		console.log(this.props);
+		// console.log(this.props);
 		return (
 			<div className="uplaod-form">
 				Upload a new profile picture
