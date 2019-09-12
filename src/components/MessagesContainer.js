@@ -8,7 +8,7 @@ class MessagesContainer extends React.Component {
 		return (
 			<div className="messages-container-modal">
 				<div onClick={() => this.props.handleClose()} className="your-dms">
-					Your DM's
+					<a>Messages</a><a className="closeout">–</a>
 				</div>
 				<MessageFriends friends={this.props.friends} updateMessage={this.props.updateMessage} messagesInfo={this.props.messagesInfo}/>
 			</div>
