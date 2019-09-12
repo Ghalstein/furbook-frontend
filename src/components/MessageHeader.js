@@ -20,6 +20,7 @@ class MessageHeader extends React.Component {
 
   handleClose = () => {
     this.setState({open: false})
+    this.props.getMessages()
 
   }
 
@@ -45,7 +46,11 @@ class MessageHeader extends React.Component {
       // console.log(this.props)
       if (!this.props.user.friends.length) return null
       // debugger
-      let notifications = this.props.user.messages_info[0].messages.filter(message => !message.viewed && message.user_id !== this.props.user.id)
+      let messages = this.props.user.messages_info.map(messages => messages.messages).flat()
+      // debugger
+
+      let notifications = messages.filter(message => !message.viewed && message.user_id !== this.props.user.id)
+
     return (
       <div className="message-setup">
         {this.state.open ? 
