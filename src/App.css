@@ -25,6 +25,21 @@ input:focus {
   outline:none;
 }
 
+.errors-container {
+  margin-left: 2em;
+  background: #FFFFFF;
+}
+
+.errors {
+  background: #FFFFFF;
+}
+
+.error {
+  background: #FFFFFF;
+  color: red;
+
+}
+
 .LoginPage {
   background: #f6f5f7;
   display: flex;
@@ -870,7 +885,7 @@ Profile Page
   display:flex;
   justify-content: center;
   /*align-items: center;*/
-  flex-wrap:wrap;
+  /*flex-wrap:wrap;*/
   background: WhiteSmoke;
   width: 100em;
   height: 27em;
@@ -882,16 +897,26 @@ Profile Page
   color: #FF416C;;
 }
 
-.profile-posts, .profile-photos, .no-photos-to-show, .no-posts-to-show {
+.profile-posts, .no-posts-to-show {
   margin: 0 auto;
-  margin-top: 0;
-  overflow: auto;
+  margin-top: 1em;
+  overflow: scroll;
   max-height: 24em;
   border-radius:10px;
 }
 
+.profile-photos, .no-photos-to-show {
+  margin: 0 auto;
+  margin-top: 1em;
+  overflow: scroll;
+  max-height: 24em;
+  border-radius:10px;
+  max-width: 20em;
+}
+
 .profile-photo {
-  width: 20em;
+  width: 15em;
+  max-height: 18em;
   border-radius: 10px;
 }
 .profile-post {
@@ -1131,13 +1156,16 @@ message header
   /*background-color: #fefefe;*/
   background: #FF416C;
   /*border-radius: 20px;*/
+  position:fixed;
+  bottom:0;
+  right: 0;
   background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
   background: linear-gradient(to right, #FF4B2B, #FF416C);
   margin: 0 auto; /* 15% from the top and centered */
   padding: 20px;
   /*border: 1px solid #888;*/
   width: 19em; /* Could be more or less, depending on screen size */
-  height: 33em;
+  height: 21em;
   text-align: cetner;
   color: #FF416C;
   overflow: scroll;
@@ -1240,11 +1268,15 @@ message header
 
 }
 
-.messageSubmit:hover, .messageSubmit:focus {
+.messageSubmit:hover {
   background: #fa7d7d;
   background: -webkit-linear-gradient(to right, #FF4B2B, #fa7d7d);
   background: linear-gradient(to right, #FF4B2B, #fa7d7d);
   cursor:pointer;
+  
+}
+
+.messageSubmit:focus {
   outline:none;
 }
 
@@ -1282,3 +1314,4 @@ message header
   margin-left: 9em;
   font-size: 20px;
 }
+
