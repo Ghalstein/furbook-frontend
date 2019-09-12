@@ -964,6 +964,7 @@ Profile Page
   width: 15em;
   max-height: 18em;
   border-radius: 10px;
+  margin-bottom:1em;
 }
 .profile-post {
   color: #FF4B2B;
@@ -1223,6 +1224,13 @@ message header
 .your-dms {
   color: #FFFFFF;
   margin-bottom:1em;
+  position:fixed;
+  background: #FF416C;
+  background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
+  background: linear-gradient(to right, #FF4B2B, #FF416C);
+  height: 3em;
+  width: 17em;
+  padding:10px;
 }
 
 .your-dms:hover, .your-dms:focus {
@@ -1231,6 +1239,7 @@ message header
 }
 
 .message-friends {
+  margin-top:3em;
   display: inline-block;
   margin-bottom: 50px;
 }
@@ -1259,6 +1268,7 @@ message header
   /*overflow: auto;*/ /* Enable scroll if needed */
   width:17em;
   max-height: 21em;
+  min-height: 21em;
   border-radius: 10px;
   padding:10px;
   overflow: auto;
@@ -1357,7 +1367,7 @@ message header
 }
 
 .closeout {
-  margin-left: 9em;
+  margin-left: 8em;
   font-size: 20px;
 }
 

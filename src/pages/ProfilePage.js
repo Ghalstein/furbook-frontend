@@ -106,8 +106,13 @@ class ProfilePage extends React.Component {
       window.location.reload();
     }
     // debugger
-    // console.log(this.props)
+    console.log(this.props)
     // debugger
+    if (this.props.profileUser.error === "Not Found") {
+      // debugger
+      this.props.history.push('/home')
+      window.location.reload();
+    }
     return (
       <div className="/profile">
         <div className="ProfilePage">

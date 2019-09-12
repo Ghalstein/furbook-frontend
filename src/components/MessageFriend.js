@@ -37,13 +37,6 @@ class MessageFriend extends React.Component {
 		// this.props.getMessages();
 	}
 
-	componentDidUpdate() {
-    // var objDiv = document.querySelector(".dm-container");
-    // if (!!objDiv) {
-    //   objDiv.scrollTop = objDiv.scrollHeight;
-    // }
-  }
-
 	render = () => {
 		// debugger
 

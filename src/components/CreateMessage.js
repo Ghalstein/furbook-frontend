@@ -15,12 +15,7 @@ class CreateMessage extends React.Component {
     this.setState({[event.target.name]: event.target.value})
   }
 
-  componentDidUpdate() {
-    // var objDiv = document.querySelector(".dm-container");
-    // if (objDiv) {
-    //   objDiv.scrollTop = objDiv.scrollHeight;
-    // }
-  }
+  
 
 	handleSubmit = (event) => {
     event.preventDefault();
