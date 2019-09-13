@@ -23,7 +23,11 @@ export default class ProfilePhoto extends React.Component {
 				: 
 					null
 				}
-				<img onClick={this.enlarge} className="profile-photo" src={this.props.photo.picture.url} />
+				{this.props.photo.picture.url.split('.').slice(-1)[0] === 'mp4' || this.props.photo.picture.url.split('.').slice(-1)[0] === 'mov' ?
+					<video > src={this.props.photo.picture.url} </video>
+				:
+					<img onClick={this.enlarge} className="profile-photo" src={this.props.photo.picture.url} />
+				}
 			</div>
 		)
 	}
