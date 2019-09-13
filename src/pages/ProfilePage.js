@@ -9,6 +9,7 @@ import { createMessage } from '../actions/messageActions';
 import ProfilePhotos from '../components/ProfilePhotos';
 import ProfilePosts from '../components/ProfilePosts';
 import EditProfilePic from '../components/EditProfilePic';
+import EditBio from '../components/EditBio';
 
 // make a working redux fetch for the specific profile you are on
 
@@ -96,6 +97,14 @@ class ProfilePage extends React.Component {
   handleEditProfile = () => {
     this.setState({editProfileClicked: !this.state.editProfileClicked})
   }
+
+  // {this.state.editProfileClicked ? 
+  //   <div className="profile-modal">
+  //     <EditBio profileUser={this.props.user} handleEditProfile={this.handleEditProfile}/>
+  //   </div>
+  // :
+  //   null
+  // }
 
 
   render = () => {
