@@ -40,14 +40,14 @@ class MessageFriend extends React.Component {
 	render = () => {
 		// debugger
 
-		// console.log(this.props)
+		console.log(this.props)
 		// debugger
 
 		// debugger
 		// if (!Object.keys(this.props.messages).length) return null
-			
 		let notifications = this.props.messages.filter(message => !message.viewed && message.user.id === this.props.messageInfo.friend.id)
 		// debugger
+		let sortedMessages = this.props.messages.sort(function(a, b) { return a.id-b.id})
 		return (
 				<div className="chat-container">
 					{this.props.openedMessage === this.props.messageInfo.friendship_id ?
@@ -59,7 +59,7 @@ class MessageFriend extends React.Component {
 								{this.props.messageInfo.friend.username}
 							</div>
 							<div className="dm-container">
-								{this.props.messages.map(message => <Message messageInfo={message} friendship_id={this.props.messageInfo.friendship_id} friend={this.props.messageInfo.friend}/>)}
+								{sortedMessages.map(message => <Message messageInfo={message} friendship_id={this.props.messageInfo.friendship_id} friend={this.props.messageInfo.friend}/>)}
 							</div>
 							<div>
 								<CreateMessage messageInfo={this.props.messageInfo} messageCreated={this.messageCreated}/>

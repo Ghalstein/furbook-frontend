@@ -1204,6 +1204,7 @@ message header
   background: #FF416C;
   /*border-radius: 20px;*/
   position:fixed;
+  /*position:relative;*/
   bottom:0;
   right: 0;
   background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
@@ -1224,13 +1225,18 @@ message header
 .your-dms {
   color: #FFFFFF;
   margin-bottom:1em;
+  margin-top: -2em;
+  margin-left: -1em;
+  right: 0;
   position:fixed;
   background: #FF416C;
   background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
   background: linear-gradient(to right, #FF4B2B, #FF416C);
   height: 3em;
-  width: 17em;
+  width: 19em;
   padding:10px;
+  border-radius:10px;
+  border: 2px solid #FFFFFF;
 }
 
 .your-dms:hover, .your-dms:focus {
@@ -1367,7 +1373,7 @@ message header
 }
 
 .closeout {
-  margin-left: 8em;
+  margin-left: 10em;
   font-size: 20px;
 }
 
