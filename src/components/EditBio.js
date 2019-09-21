@@ -32,13 +32,6 @@ class EditProfilePic extends React.Component {
         "bio": this.state.bioContent
       }) 
     })
-    // .then(res => res.json())
-    // .then(console.log)
-
-    // this.setState({bioContent: ''})
-    // this.props.handleEditProfile();
-      // this.props.messageCreated()
-    // }
   }
 
 
