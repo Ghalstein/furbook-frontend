@@ -30,24 +30,9 @@ class SignupPage extends React.Component{
 			alert("Passwords do not match");
 			return;
 		}
-		// if (!this.state.password.trim()) {
-		// 	alert("Password cannot be blank")
-		// 	return;
-		// }
-		// if (!this.state.email.trim()) {
-		// 	alert("Email cannot be blank")
-		// 	return;
-		// }
-		// if (!this.state.username.trim()) {
-		// 	alert("Username cannot be blank")
-		// 	return;
-		// }
+		
 		this.props.signUp(this.state.username, this.state.password, this.state.email)
 		.then(user => this.setState({user: user}));
-
-		// this.props.history.push('/login');
-		// alert("Thank you for joining. Please sign in and enjoy.");
-		// this.props.logIn(this.state.username, this.state.password)
 	}
 
   render = () => {

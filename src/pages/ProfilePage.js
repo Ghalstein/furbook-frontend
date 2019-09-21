@@ -21,11 +21,7 @@ class ProfilePage extends React.Component {
   }
   componentDidMount = () => {
     if (!localStorage.token && this.props.hasOwnProperty('history')) this.props.history.push("/")
-    // if (this.props.location.pathname === "/profile") {
-    //   console.log(this.props)
-    //   this.setState({user: this.props.user})
-    // }
-    // this.setState({userID: this.props.location.pathname.split("/")[2]})
+   
     this.props.getUserById(this.props.location.pathname.split("/")[2]);
     this.setState({pathname: this.props.location.pathname})
   }
