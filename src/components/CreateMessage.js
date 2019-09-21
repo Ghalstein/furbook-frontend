@@ -28,11 +28,6 @@ class CreateMessage extends React.Component {
   }
 
 	render = () => {
-    // console.log("createComment:", this.props)
-    // var objDiv = document.querySelector(".dm-container");
-    // if (objDiv) {
-    //   objDiv.scrollTop = objDiv.scrollHeight;
-    // }
 	  return (
 		  <form className="messageForm" onSubmit={this.handleSubmit}>
         <div className="messageInputs">
