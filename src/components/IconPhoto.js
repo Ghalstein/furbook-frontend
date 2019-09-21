@@ -10,29 +10,7 @@ import { getUserById } from '../actions/usersActions';
 
 class IconPhoto extends React.Component {
 
-  // state = {
-  //   username: '',
-  //   commentsClicked: false
-  // }
 
-  // handleCommentsClick = () => {
-  //   this.setState({commentsClicked: !this.state.commentsClicked})
-  // }
-
-
-  
-  // componentDidMount() {
-  //   // console.log(this.props.post)
-  //   fetch(`http://localhost:3000/users/${this.props.post.user_id}`, {
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //       'Accept': 'application/json',
-  //        Authorization: localStorage.token
-  //     } 
-  //   })
-  //   .then(res => res.json())
-  //   .then(info => this.setState({username: info.object.username}))
-  // }
   render = () => {
     // console.log("posts: ", this.props)
     console.log(this.props)
