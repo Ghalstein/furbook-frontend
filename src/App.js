@@ -9,6 +9,7 @@ import HomeHeader from './components/HomeHeader';
 import Pages from './pages';
 import { connect } from 'react-redux';
 import MessageHeader from './components/MessageHeader';
+import { HashRouter } from 'react-router-dom';
 
 class App extends React.Component {
 
@@ -18,12 +19,14 @@ class App extends React.Component {
       <React.Fragment>
           <HomeHeader />
           <MessageHeader />
+          <HashRouter>
             <Switch>
               <Route exact path='/signup' component={Pages.SignupPage} />
               <Route exect path='/home' render={(routerProps)=> <HomePage  {...routerProps} component={HomePage} /> }/>
               <Route exact path='/users/:id' component={Pages.ProfilePage} />
               <Route path='/' component={Pages.LoginPage} />
             </Switch>
+          </HashRouter>
       </React.Fragment>
     );
   }
