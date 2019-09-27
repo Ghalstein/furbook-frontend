@@ -2,7 +2,7 @@
   "name": "furbook-frontend",
   "version": "0.1.0",
   "private": true,
-  "homepage:": "https://Ghalstein.github.io/furbook",
+  "homepage:": "https://garretthalstein.com/furbook",
   "dependencies": {
     "@rails/activestorage": "^6.0.0",
     "axios": "^0.19.0",
