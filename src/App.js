@@ -9,6 +9,7 @@ import HomeHeader from './components/HomeHeader';
 import Pages from './pages';
 import { connect } from 'react-redux';
 import MessageHeader from './components/MessageHeader';
+import { HashRouter } from 'react-router-dom';
 
 class App extends React.Component {
 

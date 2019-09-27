@@ -41,7 +41,7 @@ class ProfilePage extends React.Component {
   }
 
   handleFriendRequest = () => {
-    fetch(`http://localhost:3000/friendships`, {
+    fetch(`http://furbook-api.herokuapp.com/friendships`, {
       method: "POST",
       headers: {
         'Authorization': localStorage.token,
@@ -61,7 +61,7 @@ class ProfilePage extends React.Component {
   handleAccept = () => {
     let friendship = this.props.user.pending_friend_requests.find(friendRequest => friendRequest.user.id === this.props.profileUser.id);
     // this.props.createMessage("Thanks for accepting my friend request", friendship.user_id, friendship.id)
-    fetch(`http://localhost:3000/friendships/${friendship.id}`, {
+    fetch(`http://furbook-api.herokuapp.com/friendships/${friendship.id}`, {
       method: 'PATCH',
       headers: {
         'Authorization': localStorage.token,
@@ -79,7 +79,7 @@ class ProfilePage extends React.Component {
 
   handleUnfriend = () => {
     let id = this.props.profileUser.friends.find(friend => parseInt(friend.user.id) === parseInt(this.props.user.id)).id;
-    fetch(`http://localhost:3000/friendships/${id}`, {
+    fetch(`http://furbook-api.herokuapp.com/friendships/${id}`, {
       method: 'DELETE',
       headers: {
         'Authorization': localStorage.token,
@@ -140,7 +140,7 @@ class ProfilePage extends React.Component {
             </div>
             <div className="friend-options">
               {this.props.user.id === parseInt(this.props.location.pathname.split("/")[2]) ?
-                <button className="edit-profile" onClick={this.handleEditProfile}>Edit Profile</button>
+                null
               :
                 this.props.profileUser.friends.find(friend => friend.user.id === this.props.user.id) || this.state.acceptedRequest || this.state.unfriended? 
                   <button onClick={this.handleUnfriend} className="unfriend">Unfriend</button>

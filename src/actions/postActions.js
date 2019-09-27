@@ -1,7 +1,7 @@
 
 export const createPost = (postContent, userId) => {
   return function(dispatch) {
-    fetch('http://localhost:3000/posts', {
+    fetch('http://furbook-api.herokuapp.com/posts', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -25,7 +25,7 @@ export const createPost = (postContent, userId) => {
 export const getPosts = () => {
 
   return function(dispatch){
-    fetch("http://localhost:3000/posts", { 
+    fetch("http://furbook-api.herokuapp.com/posts", { 
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
@@ -43,7 +43,7 @@ export const getPosts = () => {
 export const getPostById = (id) => {
 
   return function(dispatch){
-    fetch(`http://localhost:3000/posts/${id}`, { 
+    fetch(`http://furbook-api.herokuapp.com/posts/${id}`, { 
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',

@@ -11,7 +11,7 @@ class Comment extends React.Component {
   
   componentDidMount() {
     // debugger
-    fetch(`http://localhost:3000/users/${this.props.comment.user_id}`, {
+    fetch(`http://furbook-api.herokuapp.com/users/${this.props.comment.user_id}`, {
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
