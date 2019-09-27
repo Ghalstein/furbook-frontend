@@ -1,7 +1,7 @@
 export const createMessage = (messageContent, user_id, friendship_id) => {
   // debugger
   return function(dispatch) {
-    fetch('http://localhost:3000/messages', {
+    fetch('http://furbook-api.herokuapp.com/messages', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -24,7 +24,7 @@ export const createMessage = (messageContent, user_id, friendship_id) => {
 
 export const getMessages = () => {
   return function(dispatch){
-    fetch("http://localhost:3000/messages", { 
+    fetch("http://furbook-api.herokuapp.com/messages", { 
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
@@ -43,7 +43,7 @@ export const viewedMessage = (message) => {
   // debugger
 
   return function(dispatch) {
-    fetch(`http://localhost:3000/messages/${message.id}`, {
+    fetch(`http://furbook-api.herokuapp.com/messages/${message.id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
