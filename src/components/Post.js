@@ -54,7 +54,7 @@ class Post extends React.Component {
     date = date[0] + ' ' + date[1] + ' ' + date[2] + ' ' + date[3];
     // console.log("hi from posts")
     return (
-      <li className="post-content">
+      <div className="post-content">
         <div className="post-div">
           <div className="icon-date">
             <div className="icon-img-text"> 
@@ -91,7 +91,7 @@ class Post extends React.Component {
             <CreateComment commentCreated={this.commentCreated} postInfo={this.props.post} />
           </div>
         </div>
-      </li>
+      </div>
     );
   }
 }
