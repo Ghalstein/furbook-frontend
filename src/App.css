@@ -11,6 +11,10 @@ Login
   list-style: none;
 }
 
+#root {
+  overflow-x: hidden;
+}
+
 button:hover, button:focus {
   cursor:pointer;
   outline:none;
@@ -320,8 +324,8 @@ Header
 }
 
 .dropdownmenu {
+  width: 100vw;
   display: flex;
-  flex-wrap:wrap;
 }
 
 .search-inputs {
@@ -496,16 +500,17 @@ li:hover ul#submenu {
 Post
 *********************************/
 .posts-container{
-  width: 50em;
+  width: 100vw;
   height: 80vh;
-  margin: 0 auto;
+  display:flex;
+  justify-content: center;
   overflow: scroll;
   border-radius:10px;
   /*background: red;*/
 }
 
 .post-div {
-  /*display: flex;*/
+
   align-items: center;
   justify-content: center;
   padding: 1em;
@@ -565,7 +570,7 @@ Post
 }
 
 
-.posts li {
+.post-content  {
   text-align: center;
   list-style-type: none;
   width: 40em;
@@ -575,7 +580,7 @@ Post
   background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
   background: linear-gradient(to right, #FF4B2B, #FF416C);
   border-radius: 20px;
-  margin-left: 40px;
+  height: 20em;
 }
 
 .icon {
@@ -654,6 +659,9 @@ Post
   color: #FF4B2B;
   text-align:center;
   margin-bottom: 1em;
+  margin-top: 1em;
+  height: 2em;
+  width: 100vw;
 }
 
 .date {
@@ -700,8 +708,13 @@ post form
   margin-right: 5em;
 }
 
+.posts {
+  width:100vw;
+  display:flex;
+  justify-content: center;
+}
+
 .posts-container {
-  padding: 40px;
   height: 65vh;
 }
 
@@ -711,9 +724,14 @@ post form
   margin-left: 5em;
 }
 
+.post-form-container {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
 .postForm {
-  justify-content: cetner;
-  margin: 0 auto;
+  /*margin: 0 auto;*/
   width: 40em;
   border: 1px solid #FF4B2B;
   background: #FF416C;
@@ -818,6 +836,9 @@ HomePage
 
 .HomePage {
   height: 80vh;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content: center;
 }
 
 /*********************************
@@ -903,11 +924,11 @@ Profile Page
 }
 
 .ProfilePage {
-  margin-left: 5em;
-  margin-right: 5em;
+  overflow-x:auto;
 }
 
 .profile-icon-div {
+  margin-left:3em;
   padding: 20px;
   width: 20em;
   background: WhiteSmoke;
@@ -927,15 +948,17 @@ Profile Page
 }
 
 .posts-photos-div {
+  margin-left:3em;
   display:flex;
-  justify-content: center;
+  justify-content: space-around;
   /*align-items: center;*/
   /*flex-wrap:wrap;*/
   background: WhiteSmoke;
-  width: 100em;
+  width: 95em;
   height: 27em;
   margin-top: -2em;
   border-radius:10px;
+  margin-bottom:5em;
   /*overflow:scroll;*/
 }
 
@@ -952,7 +975,6 @@ Profile Page
 }
 
 .profile-photos, .no-photos-to-show {
-  margin: 0 auto;
   margin-top: 1em;
   overflow: scroll;
   /*max-height: 24em;*/
@@ -1011,7 +1033,6 @@ Profile Page
 }
 
 .profile-posts-container {
-  margin-left: 10em;
   max-height: 20em;
 }
 
@@ -1106,7 +1127,7 @@ Profile Page
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 5em;
+  margin-right: 4em;
 }
 
 .messages-header {
@@ -1377,3 +1398,98 @@ message header
   font-size: 20px;
 }
 
+@media only screen and (max-width: 850px) {
+  .postForm {
+    width: 100vw;
+    display:flex;
+    justify-content: space-around;
+  }
+
+  .create-post-form {
+    margin-left: 0;
+  }
+
+  .postInputs {
+    display:flex;
+    justify-content: space-around;
+    width:100vw;
+  }
+
+  .postInput {
+    width:50vw;
+  }
+
+  .postSubmit {
+    width:6em;
+    margin-left: 0;
+  }
+
+  .post-div {
+    display: flex;
+    flex-wrap:wrap;
+  }
+
+  .post-content {
+    width: 100vw;
+  }
+
+  .content {
+    margin:0;
+  }
+
+  .date {
+    margin:0;
+  }
+
+  .comment-tag {
+    margin: 0;
+  }
+
+  .search-user {
+    margin-left: 1em;
+    width: 25em;
+  }
+
+  .messages-container-modal {
+    width: 100vw;
+    margin:0;
+    height: 100vh;
+  }
+
+  .your-dms {
+    margin: 0;
+    width: 100vw;
+    height: 5em;
+    margin-top:-21px;
+  }
+
+  .message-friends {
+    margin-top: 5em;
+  }
+
+  .chat {
+    margin: 0;
+    width: 90vw;
+    max-height:80vh;
+    height: 100vh;
+  }
+
+  .message-menu {
+    margin:0;
+    width: 100vw;
+    height: 4em;
+  }
+
+  .posts-photos-div {
+    width: 150vw;
+  }
+
+  .profile-posts-container {
+    display:none;
+  }
+
+  .profile-posts, .no-posts-to-show {
+    display:none;
+  }
+
+}
