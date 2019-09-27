@@ -28,11 +28,13 @@ class HomePage extends React.Component {
     return (
       <div className="HomePage">
         <h1 className="Hi"> {this.props.user.id ? `Here is your feed ${this.props.user.username}!` : 'Getting your profile...'}</h1>
-        <div className="postForm">
-          <CreatePost postCreated={this.postCreated} user={this.props.user}/>
+        <div className="post-form-container">
+          <div className="postForm">
+            <CreatePost postCreated={this.postCreated} user={this.props.user}/>
+          </div>
         </div>
         <div className="posts-container">
-          <ul className="posts">{this.props.posts && this.props.user.id ? this.props.posts.map(post => <Post post={post} comments={post.comments} />) : 'Getting your feed...'}</ul>
+          <div className="posts">{this.props.posts && this.props.user.id ? this.props.posts.map(post => <Post post={post} comments={post.comments} />) : 'Getting your feed...'}</div>
         </div>
       </div>
     );
