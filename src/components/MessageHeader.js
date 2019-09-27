@@ -25,7 +25,7 @@ class MessageHeader extends React.Component {
   }
 
   updateMessage = (message) => {
-    fetch(`http://localhost:3000/messages/${message.id}`, {
+    fetch(`http://furbook-api.herokuapp.com/messages/${message.id}`, {
       method: 'PATCH',
       headers: {
         'Authorization': localStorage.token,
