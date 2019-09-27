@@ -1,7 +1,7 @@
 export const getCommentById = (id) => {
 
   return function(dispatch){
-    fetch(`http://localhost:3000/comments/${id}`, { 
+    fetch(`http://furbook-api.herokuapp.com/comments/${id}`, { 
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
