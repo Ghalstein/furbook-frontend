@@ -74,7 +74,6 @@ class ProfilePage extends React.Component {
         })
     })
     .then(this.setState({acceptedRequest: true}))
-    .then(window.location.reload())
   }
 
   handleUnfriend = () => {
