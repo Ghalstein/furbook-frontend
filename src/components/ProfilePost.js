@@ -33,7 +33,7 @@ class ProfilePost extends React.Component {
   componentDidMount() {
     // console.log(this.props.post)
     this.props.getComments();
-    fetch(`http://localhost:3000/users/${this.props.post.user_id}`, {
+    fetch(`http://furbook-api.herokuapp.com/users/${this.props.post.user_id}`, {
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
