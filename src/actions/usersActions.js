@@ -1,7 +1,7 @@
 export const getUsers = () => {
 
   return function(dispatch){
-    fetch("http://localhost:3000/users", { 
+    fetch("http://furbook-api.herokuapp.com/users", { 
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
@@ -19,7 +19,7 @@ export const getUsers = () => {
 export const getUserById = (userId) => {
   
   return function(dispatch){
-    fetch(`http://localhost:3000/users/${userId}`, { 
+    fetch(`http://furbook-api.herokuapp.com/users/${userId}`, { 
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
