@@ -56,7 +56,7 @@ class ProfilePost extends React.Component {
     date = date[0] + ' ' + date[1] + ' ' + date[2] + ' ' + date[3];
     if (this.state.postUser === undefined) return null;
     return (
-      <li className="post-content">
+      <div className="post-content">
         <div className="profile-post-div">
           <div className="icon-date">
             <div className="icon-img-text"> 
@@ -93,7 +93,7 @@ class ProfilePost extends React.Component {
             <CreateComment postInfo={this.props.post} />
           </div>
         </div>
-      </li>
+      </div>
     );
   }
 }
