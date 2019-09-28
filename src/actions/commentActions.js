@@ -2,7 +2,7 @@
 export const createComment = (postContent, userId, postId) => {
   // debugger
   return function(dispatch) {
-    fetch('http://furbook-api.herokuapp.com/comments', {
+    fetch('https://furbook-api.herokuapp.com/comments', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -25,7 +25,7 @@ export const createComment = (postContent, userId, postId) => {
 
 export const getComments = () => {
   return function(dispatch){
-    fetch("http://furbook-api.herokuapp.com/comments", { 
+    fetch("https://furbook-api.herokuapp.com/comments", { 
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
