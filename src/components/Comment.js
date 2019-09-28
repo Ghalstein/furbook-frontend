@@ -11,7 +11,7 @@ class Comment extends React.Component {
   
   componentDidMount() {
     // debugger
-    fetch(`http://furbook-api.herokuapp.com/users/${this.props.comment.user_id}`, {
+    fetch(`https://furbook-api.herokuapp.com/users/${this.props.comment.user_id}`, {
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
@@ -31,7 +31,7 @@ class Comment extends React.Component {
     if (Object.keys(this.state.user).length) {
       // debugger
       return (
-        <li className="comment-content views">
+        <div className="comment-content views">
           <div className="comment-content comment-div">
             <div className="icon-date">
               <Link className="comment-link" to={`/users/${this.state.user.id}`} >
@@ -54,7 +54,7 @@ class Comment extends React.Component {
               {this.props.comment.content}
             </div>
           </div>
-        </li>
+        </div>
       );
     }
     else return null

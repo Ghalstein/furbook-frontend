@@ -510,10 +510,10 @@ Post
 }
 
 .post-div {
-
   align-items: center;
   justify-content: center;
   padding: 1em;
+
 }
 
 .post-div h3 {
@@ -580,7 +580,8 @@ Post
   background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
   background: linear-gradient(to right, #FF4B2B, #FF416C);
   border-radius: 20px;
-  height: 20em;
+  min-height: 20em;
+  /*height:auto;*/
 }
 
 .icon {
@@ -620,7 +621,7 @@ Post
   margin: 0 auto;
   border-radius: 15px;
   color: #faf5f5;
-  margin-left: 3em;
+  /*margin-left: 3em;*/
   /*position: relative;
   right: 125px;*/
 }
@@ -637,6 +638,7 @@ Post
   margin: 0 auto;
   margin-top: 20px;
   margin-bottom:20px;
+  overflow:scroll;
   /*background: #faf5f5;*/
 }
 
@@ -709,14 +711,18 @@ post form
 }
 
 .posts {
-  width:100vw;
+  width:50vw;
   display:flex;
   justify-content: center;
+  flex-wrap:wrap
 }
 
 .posts-container {
-  height: 65vh;
+  height: 30em;
+  margin-bottom: 20em;
 }
+
+
 
 .create-post-form {
   max-width: 30em;
@@ -830,15 +836,21 @@ textarea {
   margin-bottom: 10px;
 }
 
+.all-comments {
+  overflow-y:auto;
+
+}
+
 /*********************************
 HomePage
 *********************************/
 
 .HomePage {
-  height: 80vh;
+  height: 90vh;
   display:flex;
   flex-wrap:wrap;
   justify-content: center;
+  overflow:hidden;
 }
 
 /*********************************
@@ -1244,10 +1256,12 @@ message header
 }
 
 .your-dms {
+  display:flex;
+  justify-content: space-between;
   color: #FFFFFF;
-  margin-bottom:1em;
+  /*margin-bottom:1em;*/
   margin-top: -2em;
-  margin-left: -1em;
+  /*margin-left: -1em;*/
   right: 0;
   position:fixed;
   background: #FF416C;
@@ -1409,10 +1423,14 @@ message header
     margin-left: 0;
   }
 
+  .commentInputs {
+    width: 100vw;
+  }
+
   .postInputs {
     display:flex;
     justify-content: space-around;
-    width:100vw;
+    /*width:100vw;*/
   }
 
   .postInput {
@@ -1443,6 +1461,7 @@ message header
 
   .comment-tag {
     margin: 0;
+    width: 100vw;
   }
 
   .search-user {
@@ -1492,4 +1511,11 @@ message header
     display:none;
   }
 
+  .posts-container {
+    height: 20em;
+  }
+
+  .comment-container {
+    width: 100vw;
+  }
 }

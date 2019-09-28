@@ -1,7 +1,7 @@
 export const getCurrentUser = () => dispatch => {
 	dispatch({ type: "GET_PROFILE_REQUEST_START" })
 
-	return fetch('http://furbook-api.herokuapp.com/profile', {
+	return fetch('https://furbook-api.herokuapp.com/profile', {
         headers: {
         	Authorization: localStorage.token
       	}
@@ -34,7 +34,7 @@ export const getCurrentUser = () => dispatch => {
 
 export const logIn = (username, password) => dispatch => {
   dispatch({ type: "LOGIN_REQUEST_START" })
-  return fetch('http://furbook-api.herokuapp.com/login', {
+  return fetch('https://furbook-api.herokuapp.com/login', {
 		method: "POST",
 		headers: {
 			'Content-Type': 'application/json',
@@ -57,7 +57,7 @@ export const logIn = (username, password) => dispatch => {
 
 export const signUp = (username, password, email) => dispatch => {
   dispatch({ type: "SIGNUP_REQUEST_START" })
-  return fetch('http://furbook-api.herokuapp.com/signup', {
+  return fetch('https://furbook-api.herokuapp.com/signup', {
 		method: "POST",
 		headers: {
 			'Content-Type': 'application/json',
