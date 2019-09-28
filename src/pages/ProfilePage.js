@@ -41,7 +41,7 @@ class ProfilePage extends React.Component {
   }
 
   handleFriendRequest = () => {
-    fetch(`http://furbook-api.herokuapp.com/friendships`, {
+    fetch(`https://furbook-api.herokuapp.com/friendships`, {
       method: "POST",
       headers: {
         'Authorization': localStorage.token,
@@ -61,7 +61,7 @@ class ProfilePage extends React.Component {
   handleAccept = () => {
     let friendship = this.props.user.pending_friend_requests.find(friendRequest => friendRequest.user.id === this.props.profileUser.id);
     // this.props.createMessage("Thanks for accepting my friend request", friendship.user_id, friendship.id)
-    fetch(`http://furbook-api.herokuapp.com/friendships/${friendship.id}`, {
+    fetch(`https://furbook-api.herokuapp.com/friendships/${friendship.id}`, {
       method: 'PATCH',
       headers: {
         'Authorization': localStorage.token,
@@ -78,7 +78,7 @@ class ProfilePage extends React.Component {
 
   handleUnfriend = () => {
     let id = this.props.profileUser.friends.find(friend => parseInt(friend.user.id) === parseInt(this.props.user.id)).id;
-    fetch(`http://furbook-api.herokuapp.com/friendships/${id}`, {
+    fetch(`https://furbook-api.herokuapp.com/friendships/${id}`, {
       method: 'DELETE',
       headers: {
         'Authorization': localStorage.token,
@@ -133,7 +133,7 @@ class ProfilePage extends React.Component {
               {this.props.profileUser.pro_pics.length ?
                 <img onClick={this.handleIconClick} className="profile-icon" src={this.props.profileUser.pro_pics.slice(-1)[0].picture.url} />
               :
-                <img onClick={this.handleIconClick} className="profile-icon" src='https://image.flaticon.com/icons/png/512/17/17479.png' />
+                <img onClick={this.handleIconClick} className="profile-icon" src='httpss://image.flaticon.com/icons/png/512/17/17479.png' />
               }
               <h2 className="profile-username">{this.props.profileUser.username}</h2>
             </div>
