@@ -20,7 +20,7 @@ class EditProfilePic extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault();
     // if (this.props.messageInfo !== undefined) {
-    fetch(`http://furbook-api.herokuapp.com/users/${this.props.profileUser.id}`, {
+    fetch(`https://furbook-api.herokuapp.com/users/${this.props.profileUser.id}`, {
       'method': 'PATCH',
       'headers': {
         'Authorization': localStorage.token,
