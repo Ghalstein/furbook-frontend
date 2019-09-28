@@ -11,7 +11,7 @@ class Comment extends React.Component {
   
   componentDidMount() {
     // debugger
-    fetch(`http://furbook-api.herokuapp.com/users/${this.props.comment.user_id}`, {
+    fetch(`https://furbook-api.herokuapp.com/users/${this.props.comment.user_id}`, {
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
@@ -39,7 +39,7 @@ class Comment extends React.Component {
                   {this.props.comment.user.pro_pic_url.length ?
                     <img className="icon-img" src={this.props.comment.user.pro_pic_url.splice(-1)[0].url} />
                   :
-                    <img className="icon-img" src='https://image.flaticon.com/icons/png/512/17/17479.png' />
+                    <img className="icon-img" src='httpss://image.flaticon.com/icons/png/512/17/17479.png' />
                   }
                   <div className="comment-icon"> 
                     {this.state.user.username}
