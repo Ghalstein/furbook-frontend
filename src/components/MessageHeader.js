@@ -44,7 +44,7 @@ class MessageHeader extends React.Component {
   	// if (!localStorage.token && this.props.hasOwnProperty('history')) this.props.history.push("/")
       if (!this.props.user.id) return null;
       // console.log(this.props)
-      if (!this.props.user.friends.length) return null
+      // if (!this.props.user.friends.length) return null
       // debugger
       let messages = this.props.user.messages_info.map(messages => messages.messages).flat()
       // debugger
