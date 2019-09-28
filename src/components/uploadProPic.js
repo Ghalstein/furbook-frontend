@@ -17,7 +17,7 @@ class uploadProPic extends React.Component {
 		// const formData = { user_id: this.props.userInfo.id, picture: this.state.photoFile};
 		axios({
 	    method: 'POST',
-	    url: `http://furbook-api.herokuapp.com/pro_pics`,
+	    url: `https://furbook-api.herokuapp.com/pro_pics`,
 	    data: formData,
 	    config: { headers: {'Content-Type': 'multipart/form-data', 'Authorization': `Bearer ${localStorage.token}` }}
 	  })
