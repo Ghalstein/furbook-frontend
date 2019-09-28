@@ -31,7 +31,7 @@ class Comment extends React.Component {
     if (Object.keys(this.state.user).length) {
       // debugger
       return (
-        <li className="comment-content views">
+        <div className="comment-content views">
           <div className="comment-content comment-div">
             <div className="icon-date">
               <Link className="comment-link" to={`/users/${this.state.user.id}`} >
@@ -39,7 +39,7 @@ class Comment extends React.Component {
                   {this.props.comment.user.pro_pic_url.length ?
                     <img className="icon-img" src={this.props.comment.user.pro_pic_url.splice(-1)[0].url} />
                   :
-                    <img className="icon-img" src='httpss://image.flaticon.com/icons/png/512/17/17479.png' />
+                    <img className="icon-img" src='https://image.flaticon.com/icons/png/512/17/17479.png' />
                   }
                   <div className="comment-icon"> 
                     {this.state.user.username}
@@ -54,7 +54,7 @@ class Comment extends React.Component {
               {this.props.comment.content}
             </div>
           </div>
-        </li>
+        </div>
       );
     }
     else return null
