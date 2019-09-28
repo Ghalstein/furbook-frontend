@@ -28,7 +28,7 @@ class Post extends React.Component {
   componentDidMount() {
     // console.log(this.props.post)
     this.props.getComments();
-    fetch(`http://furbook-api.herokuapp.com/users/${this.props.post.user_id}`, {
+    fetch(`https://furbook-api.herokuapp.com/users/${this.props.post.user_id}`, {
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
@@ -63,7 +63,7 @@ class Post extends React.Component {
                   {this.props.post.user.pro_pic_url.length ?
                     <img className="icon-img" src={this.props.post.user.pro_pic_url.slice(-1)[0].url} />
                   :
-                    <img className="icon-img" src='https://image.flaticon.com/icons/png/512/17/17479.png' />
+                    <img className="icon-img" src='httpss://image.flaticon.com/icons/png/512/17/17479.png' />
                   }
                   <div className="icon"> 
                     {this.props.post.user.username}
