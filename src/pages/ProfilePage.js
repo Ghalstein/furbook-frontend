@@ -133,7 +133,7 @@ class ProfilePage extends React.Component {
               {this.props.profileUser.pro_pics.length ?
                 <img onClick={this.handleIconClick} className="profile-icon" src={this.props.profileUser.pro_pics.slice(-1)[0].picture.url} />
               :
-                <img onClick={this.handleIconClick} className="profile-icon" src='httpss://image.flaticon.com/icons/png/512/17/17479.png' />
+                <img onClick={this.handleIconClick} className="profile-icon" src='https://image.flaticon.com/icons/png/512/17/17479.png' />
               }
               <h2 className="profile-username">{this.props.profileUser.username}</h2>
             </div>
