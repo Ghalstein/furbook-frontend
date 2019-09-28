@@ -940,7 +940,7 @@ Profile Page
 }
 
 .profile-icon-div {
-  margin-left:3em;
+  margin-left:5vw;
   padding: 20px;
   width: 20em;
   background: WhiteSmoke;
@@ -960,13 +960,13 @@ Profile Page
 }
 
 .posts-photos-div {
-  margin-left:3em;
+  margin-left:5vw;
   display:flex;
   justify-content: space-around;
   /*align-items: center;*/
   /*flex-wrap:wrap;*/
   background: WhiteSmoke;
-  width: 95em;
+  width: 85vw;
   height: 27em;
   margin-top: -2em;
   border-radius:10px;
@@ -1499,9 +1499,9 @@ message header
     height: 4em;
   }
 
-  .posts-photos-div {
-    width: 150vw;
-  }
+ /* .posts-photos-div {
+    width: 80vw;
+  }*/
 
   .profile-posts-container {
     display:none;
@@ -1517,5 +1517,9 @@ message header
 
   .comment-container {
     width: 100vw;
+  }
+
+  .profile-icon-div {
+    margin-left:5vw;
   }
 }
