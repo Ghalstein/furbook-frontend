@@ -137,12 +137,12 @@ input:focus {
   width: 25vw;
 }
 
-.loginSubmit:focus {
+.loginSubmit:focus, .signupSubmit:focus {
   outline: none;
 }
 
 
-.loginSubmit:hover  {
+.loginSubmit:hover, .signupSubmit:hover  {
   box-shadow: 0 1px 5px rgba(145, 92, 182, .4);
   cursor:pointer;
 }
