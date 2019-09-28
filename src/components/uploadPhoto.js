@@ -18,7 +18,7 @@ class uploadPhoto extends React.Component {
 		// debugger;
 		axios({
 	    method: 'POST',
-	    url: `http://furbook-api.herokuapp.com/photos`,
+	    url: `https://furbook-api.herokuapp.com/photos`,
 	    data: formData,
 	    config: { headers: {'Content-Type': 'multipart/form-data', 'Authorization': `Bearer ${localStorage.token}` }}
 	  })
