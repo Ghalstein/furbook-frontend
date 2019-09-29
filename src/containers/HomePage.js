@@ -34,7 +34,7 @@ class HomePage extends React.Component {
           </div>
         </div>
         <div className="posts-container">
-          <div className="posts">{this.props.hasOwnProperty("posts") ? this.props.posts.map(post => <Post post={post} comments={post.comments} />) : 'Getting your feed...'}</div>
+          <div className="posts">{this.props.hasOwnProperty("posts") && this.props.posts.length && Array.isArray(this.props.posts) ? this.props.posts.map(post => <Post post={post} comments={post.comments} />) : 'Getting your feed...'}</div>
         </div>
       </div>
     );
