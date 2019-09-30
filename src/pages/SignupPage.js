@@ -5,6 +5,7 @@ import { signUp, logIn } from '../actions/userActions';
 
 class SignupPage extends React.Component{
 
+	//state keeps track of all the inputs
 	state = {
 		username: "",
 		password: "",
@@ -18,12 +19,14 @@ class SignupPage extends React.Component{
 		// console.log(this.state);
 	}
 
+	// makes sure there is no token
 	componentDidMount() {
     if (localStorage.token && this.props.hasOwnProperty('history')) {
       this.props.history.push("/home")
     }
   }
 
+  // submits the data to the backend to validate it
 	handleSubmit = (event) => {
 		event.preventDefault();
 		if (this.state.password !== this.state.passwordConfirmation) {
@@ -35,14 +38,16 @@ class SignupPage extends React.Component{
 		.then(user => this.setState({user: user}));
 	}
 
+	// checks if there is a user object before anything
   render = () => {
   	if (this.state.user) {
+  		//checks if there is a token before moving forward
   		if (this.state.user.token) {
   			localStorage.token = this.state.user.token;
   			this.props.history.push('/home');
   		}
   	}
-  	// debugger
+  	// checks for errors in the submit
     return (
     	<div className="LoginPage">
 	    	<div className="form-container sign-up-container">
