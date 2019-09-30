@@ -9,7 +9,7 @@ import { getPosts } from '../actions/postActions';
 
 class HomePage extends React.Component {
 
-
+  // makes sure there is a token and gets all global posts
   componentDidMount() {
     if ((!localStorage.token ) && this.props.hasOwnProperty('history')) this.props.history.push("/")
       this.props.getPosts();
@@ -18,12 +18,10 @@ class HomePage extends React.Component {
       // console.log(this.props);
   }
 
-  // componentDidUpdate() {
-  //   this.props.getPosts();
-  // }
   render = () => {
     
     // console.log("homepage: ", this.props)
+    // if the user has no id yet then nothing is shown 
     if (!this.props.user.id) return null
     return (
       <div className="HomePage">
@@ -41,6 +39,7 @@ class HomePage extends React.Component {
   }
 }
 
+// gets current user and posts
 const mapStateToProps = state => {
   // console.log(state)
   return {
