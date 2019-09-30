@@ -11,6 +11,10 @@ Login
   list-style: none;
 }
 
+video:focus {
+  outline:none;
+}
+
 #root {
   overflow-x: hidden;
 }
@@ -962,7 +966,7 @@ Profile Page
 .posts-photos-div {
   margin-left:5vw;
   display:flex;
-  justify-content: space-around;
+  justify-content: space-between;
   /*align-items: center;*/
   /*flex-wrap:wrap;*/
   background: WhiteSmoke;
