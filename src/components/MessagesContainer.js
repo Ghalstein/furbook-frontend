@@ -1,6 +1,7 @@
 import React from 'react';
 import MessageFriends from './MessageFriends'
 
+// contianer for the current messages
 class MessagesContainer extends React.Component {
 
 	render = () => {
