@@ -6,7 +6,7 @@ const defaultState = {
 
 export default (state = defaultState, action) => {
   // console.log('in root reducer', action);
-  // debugger
+  // handles login requests
   switch (action.type) {
     case 'LOGIN_REQUEST_START':
       return {...state, loading: true}
