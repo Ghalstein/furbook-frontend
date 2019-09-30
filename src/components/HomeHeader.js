@@ -19,10 +19,12 @@ class HomeHeader extends React.Component {
     notificationsClicked: false
   }
 
+  // handle whether the notfication was clicked
   handleNotifClick = () => {
     this.setState({notificationsClicked: !this.state.notificationsClicked})
   }
 
+  // exits out of the notfications modal
   handleExitNotifications = () => {
     this.setState({
       // posts: this.props.currentUser.posts,
@@ -31,6 +33,7 @@ class HomeHeader extends React.Component {
   }
 
   render = () => {
+    // checks for whether token is authentic
     if (localStorage.token === "undefined") {
       alert("Invalid login")
       this.props.logOut()
