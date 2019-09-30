@@ -14,7 +14,6 @@ export default (state = defaultState, action) => {
       }
     //creates posts
     case 'CREATE_POST':
-    	// debugger
       return {
         posts: [action.payload, ...state.posts]
       }
