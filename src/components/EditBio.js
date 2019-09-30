@@ -6,6 +6,7 @@ import { withRouter } from 'react-router-dom';
 
 class EditProfilePic extends React.Component {
 
+  // manages state of the bio typed
   state = {
     // posts: this.props.currentUser.posts,
     bioContent: ''
@@ -16,7 +17,7 @@ class EditProfilePic extends React.Component {
   }
 
   
-
+  // edits the bio of the user and posts it to the data base 
   handleSubmit = (event) => {
     event.preventDefault();
     // if (this.props.messageInfo !== undefined) {

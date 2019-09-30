@@ -10,20 +10,24 @@ import { getMessages } from '../actions/messageActions';
 
 class MessageHeader extends React.Component {
 
+  // keeps track of whether messages is open 
   state ={
       open: false
   }
 
+  // opens the messages
   handleOpen = () => {
     this.setState({open: true})
     this.props.getMessages()
   }
 
+  //closes the messges
   handleClose = () => {
     this.setState({open: false})
     this.props.getMessages()
   }
 
+  // updates the message to viewed once it is opended
   updateMessage = (message) => {
     fetch(`https://furbook-api.herokuapp.com/messages/${message.id}`, {
       method: 'PATCH',

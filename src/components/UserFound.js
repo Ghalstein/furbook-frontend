@@ -6,7 +6,7 @@ class UserFound extends React.Component {
 
   render = () => {
     
-    // console.log("homepage: ", this.props)
+    // if a user is found he/she is added to the found list
     console.log(this.props.user)
     return (
       <div className="user-found">

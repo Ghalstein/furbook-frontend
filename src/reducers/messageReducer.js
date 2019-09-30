@@ -4,28 +4,26 @@ const defaultState = {
 
 export default (state = defaultState, action) => {
   // console.log('in messages reducer', action);
-
+  // handles message requests
   switch (action.type) {
+    // creates messages
     case 'CREATE_MESSAGE':
-      // debugger
       return {
       	...state,
         messages: [...state.messages, action.payload]
       }
-
+      // fetches messgaes
       case 'FETCH_MY_MESSAGES':
-      // debugger
       return {
         ...state,
         messages: action.payload
       }
+      //updates message to viewed
       case 'VIEWED_MESSAGE':
-      // debugger
       return {
         ...state,
         messages: [...state.messages, action.payload]
       }
-      // debugger
     default:
       return state
   }

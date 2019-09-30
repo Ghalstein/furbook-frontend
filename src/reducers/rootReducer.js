@@ -6,6 +6,7 @@ import commentReducer from './commentReducer';
 import usersReducer from './usersReducer';
 import messageReducer from './messageReducer';
 
+//handles all of the users requests
 export default combineReducers({
   currentUser,
   loggedIn, 

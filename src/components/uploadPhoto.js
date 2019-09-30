@@ -8,6 +8,7 @@ class uploadPhoto extends React.Component {
 		photoFile: null
 	}
 
+	// uploads the photo 
 	handleSubmit = (e) => {
 		// debugger;
 		e.preventDefault();

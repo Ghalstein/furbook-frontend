@@ -1,6 +1,7 @@
 export const getUsers = () => {
 
   return function(dispatch){
+    // action for getting users
     fetch("https://furbook-api.herokuapp.com/users", { 
       headers: {
         'Content-Type': 'application/json',
@@ -17,7 +18,7 @@ export const getUsers = () => {
 }
 
 export const getUserById = (userId) => {
-  
+  // action for getting specfic users
   return function(dispatch){
     fetch(`https://furbook-api.herokuapp.com/users/${userId}`, { 
       headers: {

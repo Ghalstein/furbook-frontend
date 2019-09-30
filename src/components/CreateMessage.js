@@ -16,7 +16,7 @@ class CreateMessage extends React.Component {
   }
 
   
-
+  // creates the message and psots it to databse and in chat
 	handleSubmit = (event) => {
     event.preventDefault();
     // if (this.props.messageInfo !== undefined) {

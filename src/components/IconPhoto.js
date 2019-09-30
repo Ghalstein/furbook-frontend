@@ -8,8 +8,8 @@ import withAuth from '../hocs/withAuth';
 import { withRouter } from 'react-router-dom';
 import { getUserById } from '../actions/usersActions';
 
+// icon photos that may show up on comments or posts
 class IconPhoto extends React.Component {
-
 
   render = () => {
     // console.log("posts: ", this.props)

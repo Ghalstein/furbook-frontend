@@ -9,6 +9,7 @@ import withAuth from '../hocs/withAuth';
 import { withRouter } from 'react-router-dom';
 // import IconPhoto from './IconPhoto';
 
+// simialr to normal post
 class ProfilePost extends React.Component {
 
   state = {

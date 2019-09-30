@@ -1,5 +1,6 @@
 
 export const createPost = (postContent, userId) => {
+  // action for creating a post
   return function(dispatch) {
     fetch('https://furbook-api.herokuapp.com/posts', {
       method: 'POST',
@@ -23,7 +24,7 @@ export const createPost = (postContent, userId) => {
 }
 
 export const getPosts = () => {
-
+  // action for getting posts
   return function(dispatch){
     fetch("https://furbook-api.herokuapp.com/posts", { 
       headers: {
@@ -41,7 +42,7 @@ export const getPosts = () => {
 }
 
 export const getPostById = (id) => {
-
+  // action for getting a specfic post by its id
   return function(dispatch){
     fetch(`https://furbook-api.herokuapp.com/posts/${id}`, { 
       headers: {

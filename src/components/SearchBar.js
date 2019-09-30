@@ -5,7 +5,7 @@ import { getUsers } from '../actions/usersActions'
 import SearchResults from '../containers/SearchResults';
 
 class SearchBar extends React.Component {
-
+  // keeps track of users found and filters the ones based on what's beeing typed in
   state = {
     // posts: this.props.currentUser.posts,
     search: '',

@@ -6,25 +6,30 @@ export default class ProfilePhoto extends React.Component {
 		clicked:false
 	}
 
+	// enlarges the image
 	enlarge = () => {
 		this.setState({clicked: !this.state.clicked})
 	}
 
+	leave = (event) => {
+		if (event.target.className === "pic-modal") {
+			this.setState({clicked: false})
+		}
+	}
+
 	render = () => {
-		// debugger
-		// console.log(this.state)
+	
 		return(
 			<div>
 				{this.state.clicked ? 
-					<div className="pic-modal">
-						<button onClick={this.enlarge} className="closePic">X</button>
-						<img className="modal-profile-photo" src={this.props.photo.picture.url} />
+					<div className="pic-modal" onClick={this.leave}>
+							<img className="profile-photo" className="profile-photo" src={this.props.photo.picture.url} />
 					</div> 
 				: 
 					null
 				}
-				{this.props.photo.picture.url.split('.').slice(-1)[0] === 'mp4' || this.props.photo.picture.url.split('.').slice(-1)[0] === 'mov' ?
-					<video > src={this.props.photo.picture.url} </video>
+				{this.props.photo.picture.url.split('.').slice(-1)[0].toLowerCase() === 'mp4' || this.props.photo.picture.url.split('.').slice(-1)[0].toLowerCase() === 'mov' ?
+					<video className="profile-photo" controls src={this.props.photo.picture.url}/>
 				:
 					<img onClick={this.enlarge} className="profile-photo" src={this.props.photo.picture.url} />
 				}

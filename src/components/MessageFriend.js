@@ -9,25 +9,18 @@ import Message from './Message';
 
 class MessageFriend extends React.Component {
 
-	// state = {
-	// 	messageOpend: false
-	// }
-
-	// loop = setInterval(() => {this.props.getMessages()}, 3000)
-
 	componentDidMount() {
 		this.props.getMessages()
 	}
 
-  // componentWillUnmount() {
-  // 	clearInterval(this.loop)
-  // }
 
+	// opens the messages
 	handleOpenMessages = (notifications) => {
 		this.props.openMessage(this.props.messageInfo.friendship_id);
 		notifications.forEach( message => this.props.updateMessage(message))
 	}
 
+	// closes the messages
 	handleCloseMessages = () => {
 		this.props.closeMessage();
 		this.props.getMessages();
@@ -38,15 +31,12 @@ class MessageFriend extends React.Component {
 	}
 
 	render = () => {
-		// debugger
 
 		console.log(this.props)
-		// debugger
 
-		// debugger
-		// if (!Object.keys(this.props.messages).length) return null
+		// figures out how many viewed messages are in the list
 		let notifications = this.props.messages.filter(message => !message.viewed && message.user.id === this.props.messageInfo.friend.id)
-		// debugger
+		// sorts the messages
 		let sortedMessages = this.props.messages.sort(function(a, b) { return a.id-b.id})
 		return (
 				<div className="chat-container">

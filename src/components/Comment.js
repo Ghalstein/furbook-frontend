@@ -5,10 +5,12 @@ import { connect } from 'react-redux';
 
 class Comment extends React.Component {
 
+  // keeps track of the current user's comment
   state = {
     user: {}
   }
   
+  // makes a fetch to the user of the comment
   componentDidMount() {
     // debugger
     fetch(`https://furbook-api.herokuapp.com/users/${this.props.comment.user_id}`, {
@@ -24,6 +26,7 @@ class Comment extends React.Component {
   render = () => {
     // console.log(this.state)
     // console.log("COMMENT:", this.props)
+    // parses the date correctly for displaying
     let date = new Date(this.props.comment.created_at)
     date = date.toString();
     date = date.split(' ');
