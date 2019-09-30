@@ -57,6 +57,7 @@ export const logIn = (username, password) => dispatch => {
 }
 
 export const signUp = (username, password, email) => dispatch => {
+  //action for signing up
   dispatch({ type: "SIGNUP_REQUEST_START" })
   return fetch('https://furbook-api.herokuapp.com/signup', {
 		method: "POST",
@@ -80,6 +81,7 @@ export const signUp = (username, password, email) => dispatch => {
 }
 
 export const logOut = () => dispatch => {
+  // logs the user out
   window.location.reload();
   localStorage.clear()
   dispatch({ type: 'LOGOUT' })
