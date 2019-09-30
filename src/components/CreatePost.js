@@ -13,10 +13,12 @@ class CreatePost extends React.Component {
     postContent: ''
   }
 
+  // handles any change in the input 
   handleChange = (event) => {
     this.setState({[event.target.name]: event.target.value})
   }
 
+  // posts the post content to the database and on the dom
 	handleSubmit = (event) => {
     event.preventDefault();
      this.props.dispatch(createPost(this.state.postContent, this.props.user.id))
