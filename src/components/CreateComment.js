@@ -11,10 +11,12 @@ class CreateComment extends React.Component {
     commentContent: ''
   }
 
+  // keeps track of typing anything in the create comment ttexta area
   handleChange = (event) => {
     this.setState({[event.target.name]: event.target.value})
   }
 
+  // creates the comment via post request
 	handleSubmit = (event) => {
     event.preventDefault();
     if (this.props.postInfo !== undefined) {
@@ -23,6 +25,7 @@ class CreateComment extends React.Component {
       // this.props.commentCreated();
       var commentScroll = document.querySelector(".comment-container");
       if (commentScroll) {
+        //auto scrolls to bottom of comments
         commentScroll.scrollTop = commentScroll.scrollHeight;
       }
     }
