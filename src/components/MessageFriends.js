@@ -5,10 +5,12 @@ class MessageFriends extends React.Component {
 		openedMessage: 0
 	}
 
+	// opens the specfic message with the firendship id
 	openMessage = (friendshipId) => {
 		this.setState({openedMessage: friendshipId})
 	}
 
+	//closes that specfic message
 	closeMessage = () => {
 		this.setState({openedMessage: 0})
 	}
