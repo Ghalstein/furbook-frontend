@@ -61,12 +61,14 @@ class LoginPage extends React.Component{
 }
 
 const mapStateToProps = state => {
+	// gets the current signed in user
   return {
     user: state.currentUser
   }
 }
 
 const mapDispatchToProps = {
+		// login function for passing the unsername and password
     logIn: logIn
 }
 
