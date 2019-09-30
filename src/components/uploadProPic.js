@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 
+// simialr to upload photos except for profile pics
 class uploadProPic extends React.Component {
 
 	state = { 
