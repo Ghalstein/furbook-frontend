@@ -1,6 +1,7 @@
 import React from 'react';
 import UserAlert from './UserAlert';
 
+// notifications for the friend requests that are pending
 class Notifications extends React.Component {
 
   render = () => {
