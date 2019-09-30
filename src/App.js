@@ -1,11 +1,8 @@
 import React from 'react';
 import './App.css';
-// import LoginPage from './containers/LoginPage';
 import { Switch, Route } from 'react-router-dom';
 import HomePage from './containers/HomePage';
 import HomeHeader from './components/HomeHeader';
-// import ProfilePage from './containers/ProfilePage';
-// import SignupPage from './containers/SignupPage';
 import Pages from './pages';
 import { connect } from 'react-redux';
 import MessageHeader from './components/MessageHeader';
@@ -16,6 +13,7 @@ class App extends React.Component {
 
   render = () => {
     return (
+      //uses hashes for routes
       <HashRouter basename='/'>
         <React.Fragment>
             <HomeHeader />
@@ -33,8 +31,9 @@ class App extends React.Component {
 }
 
 const mapStateToProps = state => {
-  // debugger
+  
   return {
+    // gets the current signed in user
     user: state.currentUser
   }
 }
