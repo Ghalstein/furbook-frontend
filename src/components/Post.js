@@ -42,6 +42,7 @@ class Post extends React.Component {
     // debugger
   }
 
+  // when comment added it has to rerender
   commentCreated = () => {
     this.props.getComments();
   }
