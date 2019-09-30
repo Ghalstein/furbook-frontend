@@ -4,10 +4,12 @@ import { connect } from 'react-redux';
 
 class Message extends React.Component {
 
+  // info of the specific message
   state = {
     info: {}
   }
   
+  // figuress out whether message is user or friend
   componentDidMount() {
     if (this.props.messageInfo.user_id === this.props.user.id) {
       this.setState({info: this.props})
@@ -19,6 +21,7 @@ class Message extends React.Component {
     }
   }
 
+  // jumps to bottom of messages on each new message
   componentDidUpdate() {
     var objDiv = document.querySelector(".dm-container");
     if (objDiv) {
@@ -27,8 +30,9 @@ class Message extends React.Component {
   }
 
   render = () => {
-
+    // returns nothing info contains nothing
     if (!Object.keys(this.state.info).length) return null
+    // makes sure that the message is in the right spot
     if (this.state.info.messageInfo.friendship.id !== this.props.friendship_id) return null;
     console.log(this.props)
 
