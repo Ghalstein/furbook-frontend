@@ -15,31 +15,38 @@ import EditBio from '../components/EditBio';
 
 class ProfilePage extends React.Component {
 
+  // state keeps track of whether icon is clicked
   state = {
     iconClicked: false,
     editProfileClicked: false
   }
   componentDidMount = () => {
+    // makes sure user is signedin
     if (!localStorage.token && this.props.hasOwnProperty('history')) this.props.history.push("/")
-   
+    // gets the user's page info
     this.props.getUserById(this.props.location.pathname.split("/")[2]);
+    // keeps track of the state's pathname
     this.setState({pathname: this.props.location.pathname})
   }
+
 
   uploadedPhoto = () => {
     this.setState({editProfileClicked: true})
   }
 
+  // if the user is on his/own page can click the icon to edit pro pic
   handleIconClick = () => {
     if (this.props.user.id === parseInt(this.props.location.pathname.split("/")[2])) {
       this.setState({iconClicked: true})
     }
   }
 
+  // closes the close for the modal
   handleCloseIcon = () => {
     this.setState({iconClicked: false})
   }
 
+  // makes the fetch to update the database that a friend request was sent to the respective user
   handleFriendRequest = () => {
     fetch(`https://furbook-api.herokuapp.com/friendships`, {
       method: "POST",
@@ -55,6 +62,7 @@ class ProfilePage extends React.Component {
         })
 
     }).then(res => res.json())
+    //displays the friend status as pending
     .then(this.setState({friendRequestSent: true}))
   }
 
