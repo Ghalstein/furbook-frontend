@@ -1,6 +1,6 @@
 export const getCurrentUser = () => dispatch => {
 	dispatch({ type: "GET_PROFILE_REQUEST_START" })
-
+  //action for getting the current user
 	return fetch('https://furbook-api.herokuapp.com/profile', {
         headers: {
         	Authorization: localStorage.token
@@ -33,6 +33,7 @@ export const getCurrentUser = () => dispatch => {
 }
 
 export const logIn = (username, password) => dispatch => {
+  //action for logging in
   dispatch({ type: "LOGIN_REQUEST_START" })
   return fetch('https://furbook-api.herokuapp.com/login', {
 		method: "POST",
