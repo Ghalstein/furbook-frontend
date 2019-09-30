@@ -66,6 +66,7 @@ class ProfilePage extends React.Component {
     .then(this.setState({friendRequestSent: true}))
   }
 
+  // accepting the friend request makes the the two users friends and changes the firend status the button to unfriend
   handleAccept = () => {
     let friendship = this.props.user.pending_friend_requests.find(friendRequest => friendRequest.user.id === this.props.profileUser.id);
     // this.props.createMessage("Thanks for accepting my friend request", friendship.user_id, friendship.id)
@@ -84,6 +85,7 @@ class ProfilePage extends React.Component {
     .then(this.setState({acceptedRequest: true}))
   }
 
+  // unfriends the friend and makes them not friends anymore
   handleUnfriend = () => {
     let id = this.props.profileUser.friends.find(friend => parseInt(friend.user.id) === parseInt(this.props.user.id)).id;
     fetch(`https://furbook-api.herokuapp.com/friendships/${id}`, {
@@ -111,6 +113,7 @@ class ProfilePage extends React.Component {
 
 
   render = () => {
+    // checks if their is a user
     if (!Object.keys(this.props.profileUser).length) return null;
     if (!this.props.user.id) return null;
     if (this.props.location.pathname !== this.state.pathname) {
