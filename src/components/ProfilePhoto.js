@@ -6,13 +6,13 @@ export default class ProfilePhoto extends React.Component {
 		clicked:false
 	}
 
+	// enlarges the image
 	enlarge = () => {
 		this.setState({clicked: !this.state.clicked})
 	}
 
 	render = () => {
-		// debugger
-		// console.log(this.state)
+	
 		return(
 			<div>
 				{this.state.clicked ? 
