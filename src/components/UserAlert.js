@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+// the notfication for a pending request
 class UserAlert extends React.Component {
 
   render = () => {
