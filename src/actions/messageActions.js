@@ -1,5 +1,5 @@
 export const createMessage = (messageContent, user_id, friendship_id) => {
-  // debugger
+  // action for creating a message
   return function(dispatch) {
     fetch('https://furbook-api.herokuapp.com/messages', {
       method: 'POST',
@@ -23,6 +23,7 @@ export const createMessage = (messageContent, user_id, friendship_id) => {
 }
 
 export const getMessages = () => {
+  // action for get messages
   return function(dispatch){
     fetch("https://furbook-api.herokuapp.com/messages", { 
       headers: {
@@ -40,7 +41,7 @@ export const getMessages = () => {
 }
 
 export const viewedMessage = (message) => {
-  // debugger
+  // action for updating a message
 
   return function(dispatch) {
     fetch(`https://furbook-api.herokuapp.com/messages/${message.id}`, {
