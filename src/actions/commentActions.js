@@ -1,6 +1,6 @@
 
 export const createComment = (postContent, userId, postId) => {
-  // debugger
+  // the action for posting a new comment
   return function(dispatch) {
     fetch('https://furbook-api.herokuapp.com/comments', {
       method: 'POST',
@@ -24,6 +24,7 @@ export const createComment = (postContent, userId, postId) => {
 }
 
 export const getComments = () => {
+  // action for getting all the comments
   return function(dispatch){
     fetch("https://furbook-api.herokuapp.com/comments", { 
       headers: {
