@@ -1,18 +1,10 @@
 import React from 'react';
 import UserFound from '../components/UserFound';
-// import { connect } from 'react-redux';
-// import { getCurrentUser } from '../actions/userActions';
-// import withAuth from '../hocs/withAuth';
-// import { withRouter } from 'react-router-dom';
-// import Post from '../components/Post';
-// import CreatePost from '../components/CreatePost';
-// import { getPosts } from '../actions/postActions';
 
 class SearchResults extends React.Component {
 
   render = () => {
-    
-    // console.log("homepage: ", this.props)
+    // the search bar
     return (
       <div className="search-modal-content">
         <span className="close" onClick={() => this.props.handleExit()}>x</span>
@@ -22,18 +14,5 @@ class SearchResults extends React.Component {
     );
   }
 }
-
-// const mapStateToProps = state => {
-//   // console.log(state)
-//   return {
-//     user: state.currentUser,
-//     posts: state.postReducer.posts
-//   }
-// }
-
-// const mapDispatchToProps = {
-//   setCurrentUser: getCurrentUser,
-//   getPosts: getPosts
-// }
 
 export default SearchResults
