@@ -177,7 +177,7 @@ class ProfilePage extends React.Component {
 
             {this.props.profileUser.photos.length ? 
               <div className="profile-photos">
-                <h2> Photos</h2>
+                <h2> Photos & Videos</h2>
                 {this.props.user.id === parseInt(this.props.location.pathname.split("/")[2]) ?
                   <UploadPhoto uploadedPhoto={this.uploadedPhoto} userInfo={this.props.userInfo}/>
                 :
