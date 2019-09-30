@@ -10,6 +10,7 @@ import { withRouter } from 'react-router-dom';
 
 class Post extends React.Component {
 
+  // state keeps track of comments clicked and comments length
   state = {
     commentsClicked: false,
     commentsLength: 0
@@ -27,6 +28,7 @@ class Post extends React.Component {
   
   componentDidMount() {
     // console.log(this.props.post)
+    // gets the specfic users of the post
     this.props.getComments();
     fetch(`https://furbook-api.herokuapp.com/users/${this.props.post.user_id}`, {
       headers: {
