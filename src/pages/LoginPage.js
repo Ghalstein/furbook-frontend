@@ -4,23 +4,26 @@ import { connect } from 'react-redux'
 import { logIn } from '../actions/userActions'
 
 class LoginPage extends React.Component{
-
+	// state keeps track of the username and password entered
 	state = {
 		username: "",
 		password: ""
 	}
 
+	// handles changes in username or password input
 	handleChange = (event) => {
 		this.setState({[event.target.name]: event.target.value})
 		// console.log(this.state);
 	}
-
+	// when component mounts check to see if there is a token
 	componentDidMount = () => {
 		if (localStorage.token) this.props.history.push("/home");
 	}
 
+	// handles the login 
 	handleSubmit = (event) => {
 		event.preventDefault();
+		// passes the unsername and password to backend for a match
 		this.props.logIn(this.state.username, this.state.password)
 			.then(()=> {
 				this.props.history.push("/home")
