@@ -9,6 +9,7 @@ import { withRouter } from 'react-router-dom';
 
 class Comments extends React.Component {
 
+  // gets the current signed in user
   state = {
     username: ''
   }
@@ -18,6 +19,7 @@ class Comments extends React.Component {
   }
   
   render = () => {
+    // on render drags the scroll to the bottom
     var commentScroll = document.querySelector(".comment-container");
     if (commentScroll) {
       commentScroll.scrollTop = commentScroll.scrollHeight;
@@ -43,7 +45,7 @@ class Comments extends React.Component {
     );
   }
 }
-// might have to move comments to posts
+
 const mapStateToProps = state => {
   // console.log(state)
   return {
