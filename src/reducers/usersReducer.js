@@ -8,7 +8,7 @@ export default (state = defaultState, action) => {
  
   switch (action.type) {
     // gets all users 
-  	case 'FETCH_USERS':
+    case 'FETCH_USERS':
       return {
         ...state,
         users: action.payload
