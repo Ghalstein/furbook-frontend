@@ -38,9 +38,9 @@ class HomeHeader extends React.Component {
       alert("Invalid login")
       this.props.logOut()
     }
-  	if (!localStorage.token && this.props.hasOwnProperty('history')) this.props.history.push("/")
-      // console.log(this.props)
-    // debugger
+    // checking for token to see the header
+    if (!localStorage.token && this.props.hasOwnProperty('history')) this.props.history.push("/")
+    // double checking that the data traced from the backend is valid
     if (!this.props.user.id) return null;
     return (
       <div className="dropdownmenu">
@@ -48,7 +48,7 @@ class HomeHeader extends React.Component {
           <li><h2>furbook</h2></li>
           <li><SearchBar/></li>
           <li><Link to="/home">Feed</Link></li> 
-        	<li><Link to={`/users/${this.props.user.id}`}>Profile</Link></li> 
+          <li><Link to={`/users/${this.props.user.id}`}>Profile</Link></li> 
           <li><a className="notif" onClick={this.handleNotifClick}>Notifications ({this.props.user.pending_friend_requests.length})</a></li>
           <li onClick={this.onLogout}><Link to="/login">Logout</Link></li>
         </ul>
