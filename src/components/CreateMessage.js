@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom';
 
 class CreateMessage extends React.Component {
 	
-	state = {
+  state = {
     // posts: this.props.currentUser.posts,
     messageContent: ''
   }
@@ -17,26 +17,22 @@ class CreateMessage extends React.Component {
 
   
   // creates the message and psots it to databse and in chat
-	handleSubmit = (event) => {
+  handleSubmit = (event) => {
     event.preventDefault();
-    // if (this.props.messageInfo !== undefined) {
-      this.props.dispatch(createMessage(this.state.messageContent, this.props.user.id, this.props.messageInfo.friendship_id))
-      this.setState({messageContent: ''})
-
-      // this.props.messageCreated()
-    // }
+    this.props.dispatch(createMessage(this.state.messageContent, this.props.user.id, this.props.messageInfo.friendship_id))
+    this.setState({messageContent: ''})
   }
 
-	render = () => {
-	  return (
-		  <form className="messageForm" onSubmit={this.handleSubmit}>
+  render = () => {
+    return (
+      <form className="messageForm" onSubmit={this.handleSubmit}>
         <div className="messageInputs">
-  		    <textarea className="messageInput" type="text" placeholder="Write a message..." value={this.state.messageContent} onChange={this.handleChange} name="messageContent"/>
-  		    <input className="messageSubmit" type="submit" value="Send"/>
+          <textarea className="messageInput" type="text" placeholder="Write a message..." value={this.state.messageContent} onChange={this.handleChange} name="messageContent"/>
+          <input className="messageSubmit" type="submit" value="Send"/>
         </div>
-		  </form>
-		)
-	}
+      </form>
+    )
+  }
 }
 
 const mapStateToProps = state => {

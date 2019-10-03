@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom';
 
 class CreateComment extends React.Component {
 	
-	state = {
+  state = {
     // posts: this.props.currentUser.posts,
     commentContent: ''
   }
@@ -17,7 +17,7 @@ class CreateComment extends React.Component {
   }
 
   // creates the comment via post request
-	handleSubmit = (event) => {
+  handleSubmit = (event) => {
     event.preventDefault();
     if (this.props.postInfo !== undefined) {
       this.props.dispatch(createComment(this.state.commentContent, this.props.user.id, this.props.postInfo.id))
@@ -31,18 +31,17 @@ class CreateComment extends React.Component {
     }
   }
 
-	render = () => {
-    // console.log("createComment:", this.props)
-	  return (
-		  <form className="commentForm" onSubmit={this.handleSubmit}>
-		    <h3>Write a comment</h3>
-        <div className="commentInputs">
-  		    <textarea className="commentInput" type="text" placeholder="Leave a comment..." value={this.state.commentContent} onChange={this.handleChange} name="commentContent"/>
-  		    <input className="commentSubmit" type="submit" value="Comment"/>
-        </div>
-		  </form>
-		)
-	}
+  render = () => {
+  // console.log("createComment:", this.props)
+  return (
+    <form className="commentForm" onSubmit={this.handleSubmit}>
+      <h3>Write a comment</h3>
+      <div className="commentInputs">
+        <textarea className="commentInput" type="text" placeholder="Leave a comment..." value={this.state.commentContent} onChange={this.handleChange} name="commentContent"/>
+        <input className="commentSubmit" type="submit" value="Comment"/>
+      </div>
+    </form>
+  )}
 }
 
 const mapStateToProps = state => {
