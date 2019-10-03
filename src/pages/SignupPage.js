@@ -6,7 +6,7 @@ import { signUp, logIn } from '../actions/userActions';
 class SignupPage extends React.Component{
 
 	//state keeps track of all the inputs
-	state = {
+  state = {
     username: "",
     password: "",
     passwordConfirmation: "",
@@ -14,11 +14,11 @@ class SignupPage extends React.Component{
     user: {}
 	}
 
-	handleChange = (event) => {
-		this.setState({[event.target.name]: event.target.value})
-	}
+  handleChange = (event) => {
+    this.setState({[event.target.name]: event.target.value})
+  }
 
-	//makes sure there is no token
+  //makes sure there is no token
 	componentDidMount() {
     if (localStorage.token && this.props.hasOwnProperty('history')) {
       this.props.history.push("/home")
@@ -26,49 +26,50 @@ class SignupPage extends React.Component{
   }
 
   //submits the data to the backend to validate it
-	handleSubmit = (event) => {
-		event.preventDefault();
-		if (this.state.password !== this.state.passwordConfirmation) {
-			alert("Passwords do not match");
-			return;
-		}
+  handleSubmit = (event) => {
+    event.preventDefault();
+    if (this.state.password !== this.state.passwordConfirmation) {
+      alert("Passwords do not match");
+      return;
+    }
 		
-		this.props.signUp(this.state.username, this.state.password, this.state.email)
-		.then(user => this.setState({user: user}));
-	}
+    this.props.signUp(this.state.username, this.state.password, this.state.email)
+    .then(user => this.setState({user: user}));
+  }
 
-	//checks if there is a user object before anything
+  //checks if there is a user object before anything
   render = () => {
-  	if (this.state.user) {
-  		//checks if there is a token before moving forward
-  		if (this.state.user.token) {
-  			localStorage.token = this.state.user.token;
-  			this.props.history.push('/home');
-  		}
-  	}
-  	//checks for errors in the submit
+    if (this.state.user) {
+      //checks if there is a token before moving forward
+      if (this.state.user.token) {
+        localStorage.token = this.state.user.token;
+        this.props.history.push('/home');
+      }
+    }
+
+    //checks for errors in the submit
     return (
-    	<div className="LoginPage">
-	    	<div className="form-container sign-up-container">
-	    		{this.state.user.hasOwnProperty('errors') ? <div className="errors-container"><ul className="errors">{this.state.user.errors.map(error => <li className="error">{error}</li>)}</ul></div> : null}
-		      <form className="signupForm" onSubmit={this.handleSubmit}>
-						<h1>Create Account</h1>
-			      <input className="signupInput" type="text" placeholder="Username" value={this.state.username} onChange={this.handleChange} name="username"/>
-			      <input className="signupInput" type="text" placeholder="Email" value={this.state.email} onChange={this.handleChange} name="email"/>
-			      <input className="signupInput" type="password" placeholder="Password" value={this.state.password} onChange={this.handleChange} name="password"/>
-			      <input className="signupInput" type="password" placeholder="Confirm Password" value={this.state.passwordConfirmation} onChange={this.handleChange} name="passwordConfirmation"/>
-			      <input className="signupSubmit" type="submit" value="Sign up"/>
-					</form>
-				</div>
-				<div className="overlay-container">
-					<div className="overlay">
-						<div className="overlay-panel overlay-right">
-							<h1>Welcome Back!</h1><p>To keep connected with us please login with your personal info</p>
-							<Link to="/"><button className="ghost" id="signIn">Sign In</button></Link>
-						</div>
-					</div>
-				</div>
-			</div>
+      <div className="LoginPage">
+        <div className="form-container sign-up-container">
+          {this.state.user.hasOwnProperty('errors') ? <div className="errors-container"><ul className="errors">{this.state.user.errors.map(error => <li className="error">{error}</li>)}</ul></div> : null}
+          <form className="signupForm" onSubmit={this.handleSubmit}>
+            <h1>Create Account</h1>
+            <input className="signupInput" type="text" placeholder="Username" value={this.state.username} onChange={this.handleChange} name="username"/>
+            <input className="signupInput" type="text" placeholder="Email" value={this.state.email} onChange={this.handleChange} name="email"/>
+            <input className="signupInput" type="password" placeholder="Password" value={this.state.password} onChange={this.handleChange} name="password"/>
+            <input className="signupInput" type="password" placeholder="Confirm Password" value={this.state.passwordConfirmation} onChange={this.handleChange} name="passwordConfirmation"/>
+            <input className="signupSubmit" type="submit" value="Sign up"/>
+          </form>
+        </div>
+        <div className="overlay-container">
+          <div className="overlay">
+            <div className="overlay-panel overlay-right">
+              <h1>Welcome Back!</h1><p>To keep connected with us please login with your personal info</p>
+              <Link to="/"><button className="ghost" id="signIn">Sign In</button></Link>
+            </div>
+          </div>
+        </div>
+      </div>
     );
   }
 }
