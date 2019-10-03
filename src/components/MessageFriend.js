@@ -14,13 +14,13 @@ class MessageFriend extends React.Component {
   }
 
 
-	// opens the messages from the specfic user
+  // opens the messages from the specfic user
   handleOpenMessages = (notifications) => {
     this.props.openMessage(this.props.messageInfo.friendship_id);
     notifications.forEach( message => this.props.updateMessage(message))
   }
 
-	// closes the messages currently viewing
+  // closes the messages currently viewing
   handleCloseMessages = () => {
     this.props.closeMessage();
     this.props.getMessages();
