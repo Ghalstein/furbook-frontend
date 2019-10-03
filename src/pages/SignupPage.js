@@ -38,7 +38,7 @@ class SignupPage extends React.Component{
 		.then(user => this.setState({user: user}));
 	}
 
-	// checks if there is a user object before anything
+	//checks if there is a user object before anything
   render = () => {
   	if (this.state.user) {
   		//checks if there is a token before moving forward
