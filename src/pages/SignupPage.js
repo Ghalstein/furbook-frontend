@@ -16,7 +16,6 @@ class SignupPage extends React.Component{
 
 	handleChange = (event) => {
 		this.setState({[event.target.name]: event.target.value})
-		// console.log(this.state);
 	}
 
 	// makes sure there is no token
@@ -81,8 +80,8 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = {
-    signUp: signUp,
-    logIn: logIn
+  signUp: signUp,
+  logIn: logIn
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignupPage)
