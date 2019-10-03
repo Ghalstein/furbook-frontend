@@ -14,7 +14,7 @@ class MessageFriends extends React.Component {
   closeMessage = () => {
     this.setState({openedMessage: 0})
   }
-	
+  
   render = () => {
     return (
       <div className="message-friends">
