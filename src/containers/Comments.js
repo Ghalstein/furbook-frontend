@@ -25,20 +25,19 @@ class Comments extends React.Component {
       commentScroll.scrollTop = commentScroll.scrollHeight;
     }
     // filters the comments based on it belonging to the post
-  	let comments = this.props.comments.filter(comment => comment.post_id === this.props.info.id)
+    let comments = this.props.comments.filter(comment => comment.post_id === this.props.info.id)
 
     return (
-    	<div className="all-comments">
-	      <div className="comment-container">
-	      	{comments.length ? comments.map(comment => <Comment comment={comment}/>) : <div className="no-comments">There are no comments...</div>}
-	      </div>
-	     </div>
+      <div className="all-comments">
+        <div className="comment-container">
+          {comments.length ? comments.map(comment => <Comment comment={comment}/>) : <div className="no-comments">There are no comments...</div>}
+        </div>
+      </div>
     );
   }
 }
 
 const mapStateToProps = state => {
-  // console.log(state)
   return {
     user: state.currentUser,
     comments: state.commentReducer.comments
