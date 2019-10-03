@@ -30,6 +30,7 @@ class LoginPage extends React.Component{
 			})
 	}
 
+  // page render
   render = () => {
     return (
 	    <div className="LoginPage">
