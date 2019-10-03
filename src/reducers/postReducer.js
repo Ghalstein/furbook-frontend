@@ -7,7 +7,7 @@ export default (state = defaultState, action) => {
 
   switch (action.type) {
     //fetches posts
-  	case 'FETCH_MY_POSTS':
+    case 'FETCH_MY_POSTS':
       return {
         ...state,
         posts: action.payload

@@ -9,7 +9,7 @@ export default (state = defaultState, action) => {
     // creates messages
     case 'CREATE_MESSAGE':
       return {
-      	...state,
+        ...state,
         messages: [...state.messages, action.payload]
       }
       // fetches messgaes

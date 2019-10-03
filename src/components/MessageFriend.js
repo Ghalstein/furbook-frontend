@@ -14,13 +14,13 @@ class MessageFriend extends React.Component {
   }
 
 
-	// opens the messages from the specfic user
+  // opens the messages from the specfic user
   handleOpenMessages = (notifications) => {
     this.props.openMessage(this.props.messageInfo.friendship_id);
     notifications.forEach( message => this.props.updateMessage(message))
   }
 
-	// closes the messages currently viewing
+  // closes the messages currently viewing
   handleCloseMessages = () => {
     this.props.closeMessage();
     this.props.getMessages();
@@ -31,12 +31,12 @@ class MessageFriend extends React.Component {
   }
 
   render = () => {
-		
+   
     // figures out how many viewed messages are in the list
     let notifications = this.props.messages.filter(message => !message.viewed && message.user.id === this.props.messageInfo.friend.id)
     // sorts the messages
     let sortedMessages = this.props.messages.sort(function(a, b) { return a.id-b.id})
-		
+   
     return (
       <div className="chat-container">
         {this.props.openedMessage === this.props.messageInfo.friendship_id ?
@@ -60,8 +60,8 @@ class MessageFriend extends React.Component {
           </div>
         }
       </div>
-		)
-	}
+    )
+  }
 }
 
 const mapStateToProps = state => {

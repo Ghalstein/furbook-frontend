@@ -59,8 +59,8 @@ class ProfilePage extends React.Component {
         {
           'user_id': this.props.user.id,
           'friend_user_id': this.props.profileUser.id
-        })
-
+        }
+      )
     }).then(res => res.json())
     //displays the friend status as pending
     .then(this.setState({friendRequestSent: true}))

@@ -5,21 +5,21 @@ import { signUp, logIn } from '../actions/userActions';
 
 class SignupPage extends React.Component{
 
-	//state keeps track of all the inputs
+  //state keeps track of all the inputs
   state = {
     username: "",
     password: "",
     passwordConfirmation: "",
     email: "",
     user: {}
-	}
+  }
 
   handleChange = (event) => {
     this.setState({[event.target.name]: event.target.value})
   }
 
   //makes sure there is no token
-	componentDidMount() {
+  componentDidMount() {
     if (localStorage.token && this.props.hasOwnProperty('history')) {
       this.props.history.push("/home")
     }

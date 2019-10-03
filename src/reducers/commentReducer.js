@@ -10,7 +10,7 @@ export default (state = defaultState, action) => {
     case 'CREATE_COMMENT':
       // adds new comment to comments
       return {
-      	...state,
+        ...state,
         comments: [...state.comments, action.payload]
       }
     // gets all comments
