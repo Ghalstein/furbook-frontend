@@ -15,16 +15,15 @@ class uploadPhoto extends React.Component {
 		const formData = new FormData();
 		formData.append('photo[user_id]', this.props.user.id);
 		formData.append('photo[picture]', this.state.photoFile);
-		// const formData = { user_id: this.props.userInfo.id, picture: this.state.photoFile};
-		// debugger;
+
+		// customized fetch for creating the image in rails
 		axios({
-	    method: 'POST',
-	    url: `https://furbook-api.herokuapp.com/photos`,
-	    data: formData,
-	    config: { headers: {'Content-Type': 'multipart/form-data', 'Authorization': `Bearer ${localStorage.token}` }}
-	  })
-	  .then(() => window.location.reload(false))
-	  // this.props.uploadedPhoto();
+			method: 'POST',
+			url: `https://furbook-api.herokuapp.com/photos`,
+			data: formData,
+			config: { headers: {'Content-Type': 'multipart/form-data', 'Authorization': `Bearer ${localStorage.token}` }}
+		})
+		.then(() => window.location.reload(false))
 	}
 
 	handleFile = (e) => {
