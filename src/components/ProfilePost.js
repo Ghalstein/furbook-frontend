@@ -18,10 +18,6 @@ class ProfilePost extends React.Component {
   }
 
   handleCommentsClick = (e) => {
-    var commentsScroll = e.target.parentElement.parentElement.parentElement.parentElement;
-      // if (commentsScroll) {
-      //   commentsScroll.scrollTop = commentsScroll.scrollHeight;
-      // }
     this.setState({commentsClicked: !this.state.commentsClicked})
   }
 
@@ -47,9 +43,6 @@ class ProfilePost extends React.Component {
 
 
   render = () => {
-    // console.log("post: ", this.props)
-    // console.log(this.props.post)
-    // debugger
     let comments = this.props.comments.filter(comment => comment.post_id === this.props.post.id)
     let date = new Date(this.props.post.created_at)
     date = date.toString();
