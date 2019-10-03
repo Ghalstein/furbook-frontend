@@ -6,8 +6,9 @@ export const getUsers = () => {
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
-         Authorization: localStorage.token
-      }})
+        'Authorization': localStorage.token
+      }
+    })
     .then(res => res.json())
     .then(users => {
       dispatch({ type: 'FETCH_USERS', payload: users})
@@ -24,8 +25,9 @@ export const getUserById = (userId) => {
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
-         Authorization: localStorage.token
-      }})
+        'Authorization': localStorage.token
+      }
+    })
     .then(res => res.json())
     .then(user => {
       dispatch({ type: 'FETCH_USER', payload: user})
