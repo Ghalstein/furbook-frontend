@@ -7,7 +7,8 @@ export const getCommentById = (id) => {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
          Authorization: localStorage.token
-      }})
+      }
+    })
     .then(res => res.json())
     .then(post => {
       dispatch({ type: 'FETCH_MY_COMMENT', payload: post})
