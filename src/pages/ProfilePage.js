@@ -112,6 +112,7 @@ class ProfilePage extends React.Component {
   // }
 
 
+  // page render
   render = () => {
     // checks if their is a user
     if (!Object.keys(this.props.profileUser).length) return null;
@@ -152,7 +153,7 @@ class ProfilePage extends React.Component {
               {this.props.user.id === parseInt(this.props.location.pathname.split("/")[2]) ?
                 null
               :
-                this.props.profileUser.friends.find(friend => friend.user.id === this.props.user.id) || this.state.acceptedRequest || this.state.unfriended? 
+                this.props.profileUser.friends.find(friend => friend.user.id === this.props.user.id) || this.state.acceptedRequest || this.state.unfriended ? 
                   <button onClick={this.handleUnfriend} className="unfriend">Unfriend</button>
                 :
                   this.props.profileUser.pending_friend_requests.find(friendRequest => friendRequest.user.id === this.props.user.id) || this.state.friendRequestSent ?
