@@ -7,11 +7,11 @@ class SignupPage extends React.Component{
 
 	//state keeps track of all the inputs
 	state = {
-		username: "",
-		password: "",
-		passwordConfirmation: "",
-		email: "",
-		user: {}
+    username: "",
+    password: "",
+    passwordConfirmation: "",
+    email: "",
+    user: {}
 	}
 
 	handleChange = (event) => {
