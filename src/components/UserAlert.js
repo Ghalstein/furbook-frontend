@@ -19,4 +19,4 @@ class UserAlert extends React.Component {
   }
 }
 
-export default UserAlert
+export default UserAlert;
