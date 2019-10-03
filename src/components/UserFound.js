@@ -13,7 +13,7 @@ class UserFound extends React.Component {
             <img className="search-icon-img" src={this.props.user.pro_pics.slice(-1)[0].picture.url} />
           :
             <img className="search-icon-img" src='https://image.flaticon.com/icons/png/512/17/17479.png' />
-		      }
+          }
           {this.props.user.username}
         </Link>
       </div>
