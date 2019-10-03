@@ -13,13 +13,13 @@ export default (state = defaultState, action) => {
         messages: [...state.messages, action.payload]
       }
       // fetches messgaes
-      case 'FETCH_MY_MESSAGES':
+    case 'FETCH_MY_MESSAGES':
       return {
         ...state,
         messages: action.payload
       }
       //updates message to viewed
-      case 'VIEWED_MESSAGE':
+    case 'VIEWED_MESSAGE':
       return {
         ...state,
         messages: [...state.messages, action.payload]
