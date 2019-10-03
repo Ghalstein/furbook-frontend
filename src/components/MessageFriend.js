@@ -31,11 +31,12 @@ class MessageFriend extends React.Component {
 	}
 
 	render = () => {
-
+		
 		// figures out how many viewed messages are in the list
 		let notifications = this.props.messages.filter(message => !message.viewed && message.user.id === this.props.messageInfo.friend.id)
 		// sorts the messages
 		let sortedMessages = this.props.messages.sort(function(a, b) { return a.id-b.id})
+		
 		return (
 		<div className="chat-container">
 			{this.props.openedMessage === this.props.messageInfo.friendship_id ?
