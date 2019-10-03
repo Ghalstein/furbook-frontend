@@ -11,10 +11,6 @@ class HomeHeader extends React.Component {
     this.props.logOut()
   }
 
-  goToProfile = () => {
-
-  }
-
   state = {
     notificationsClicked: false
   }
