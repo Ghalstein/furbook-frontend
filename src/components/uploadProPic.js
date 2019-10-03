@@ -31,7 +31,7 @@ class uploadProPic extends React.Component {
 
   render() {
   	// console.log(this.props);
-  	return (
+    return (
       <div className="uplaod-form">
         Upload a new profile picture
         <form onSubmit={this.handleSubmit}>
