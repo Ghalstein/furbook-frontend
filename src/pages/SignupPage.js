@@ -18,14 +18,14 @@ class SignupPage extends React.Component{
 		this.setState({[event.target.name]: event.target.value})
 	}
 
-	// makes sure there is no token
+	//makes sure there is no token
 	componentDidMount() {
     if (localStorage.token && this.props.hasOwnProperty('history')) {
       this.props.history.push("/home")
     }
   }
 
-  // submits the data to the backend to validate it
+  //submits the data to the backend to validate it
 	handleSubmit = (event) => {
 		event.preventDefault();
 		if (this.state.password !== this.state.passwordConfirmation) {
@@ -46,7 +46,7 @@ class SignupPage extends React.Component{
   			this.props.history.push('/home');
   		}
   	}
-  	// checks for errors in the submit
+  	//checks for errors in the submit
     return (
     	<div className="LoginPage">
 	    	<div className="form-container sign-up-container">
