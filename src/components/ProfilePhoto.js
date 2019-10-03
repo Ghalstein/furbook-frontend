@@ -18,7 +18,8 @@ export default class ProfilePhoto extends React.Component {
 	}
 
 	render = () => {
-	
+		
+		// conditionally renders a photo or video based on the file its processing
 		return(
 			<div>
 				{this.state.clicked ? 
