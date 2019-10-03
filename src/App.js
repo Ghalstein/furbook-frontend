@@ -16,14 +16,14 @@ class App extends React.Component {
       //uses hashes for routes
       <HashRouter basename='/'>
         <React.Fragment>
-            <HomeHeader />
-            <MessageHeader />
-              <Switch>
-                <Route exact path='/signup' component={Pages.SignupPage} />
-                <Route exect path='/home' render={(routerProps)=> <HomePage  {...routerProps} component={HomePage} /> }/>
-                <Route exact path='/users/:id' component={Pages.ProfilePage} />
-                <Route path='/' component={Pages.LoginPage} />
-              </Switch>
+          <HomeHeader />
+          <MessageHeader />
+          <Switch>
+            <Route exact path='/signup' component={Pages.SignupPage} />
+            <Route exect path='/home' render={(routerProps)=> <HomePage  {...routerProps} component={HomePage} /> }/>
+            <Route exact path='/users/:id' component={Pages.ProfilePage} />
+            <Route path='/' component={Pages.LoginPage} />
+          </Switch>
         </React.Fragment>
       </HashRouter>
     );

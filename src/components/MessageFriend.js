@@ -9,58 +9,57 @@ import Message from './Message';
 
 class MessageFriend extends React.Component {
 
-	componentDidMount() {
-		this.props.getMessages()
-	}
+  componentDidMount() {
+    this.props.getMessages()
+  }
 
 
-	// opens the messages
-	handleOpenMessages = (notifications) => {
-		this.props.openMessage(this.props.messageInfo.friendship_id);
-		notifications.forEach( message => this.props.updateMessage(message))
-	}
+	// opens the messages from the specfic user
+  handleOpenMessages = (notifications) => {
+    this.props.openMessage(this.props.messageInfo.friendship_id);
+    notifications.forEach( message => this.props.updateMessage(message))
+  }
 
-	// closes the messages
-	handleCloseMessages = () => {
-		this.props.closeMessage();
-		this.props.getMessages();
-	}
+	// closes the messages currently viewing
+  handleCloseMessages = () => {
+    this.props.closeMessage();
+    this.props.getMessages();
+  }
 
-	messageCreated = () => {
-		// this.props.getMessages();
-	}
+  messageCreated = () => {
+    // this.props.getMessages();
+  }
 
-	render = () => {
-
-		console.log(this.props)
-
-		// figures out how many viewed messages are in the list
-		let notifications = this.props.messages.filter(message => !message.viewed && message.user.id === this.props.messageInfo.friend.id)
-		// sorts the messages
-		let sortedMessages = this.props.messages.sort(function(a, b) { return a.id-b.id})
-		return (
-				<div className="chat-container">
-					{this.props.openedMessage === this.props.messageInfo.friendship_id ?
-						<div className="chat">
-							<div className="top-chat">
-								<a onClick={this.handleCloseMessages} className="close x-out">x</a>
-							</div>
-							<div className="message-friend-name">
-								{this.props.messageInfo.friend.username}
-							</div>
-							<div className="dm-container">
-								{sortedMessages.map(message => <Message messageInfo={message} friendship_id={this.props.messageInfo.friendship_id} friend={this.props.messageInfo.friend}/>)}
-							</div>
-							<div>
-								<CreateMessage messageInfo={this.props.messageInfo} messageCreated={this.messageCreated}/>
-							</div>
-						</div>
-					:
-						<div onClick={() => this.handleOpenMessages(notifications)} className="message-friend">
-							{this.props.messageInfo.friend.username} ({notifications.length})
-						</div>
-					}
-				</div>
+  render = () => {
+		
+    // figures out how many viewed messages are in the list
+    let notifications = this.props.messages.filter(message => !message.viewed && message.user.id === this.props.messageInfo.friend.id)
+    // sorts the messages
+    let sortedMessages = this.props.messages.sort(function(a, b) { return a.id-b.id})
+		
+    return (
+      <div className="chat-container">
+        {this.props.openedMessage === this.props.messageInfo.friendship_id ?
+          <div className="chat">
+            <div className="top-chat">
+              <a onClick={this.handleCloseMessages} className="close x-out">x</a>
+            </div>
+            <div className="message-friend-name">
+              {this.props.messageInfo.friend.username}
+            </div>
+            <div className="dm-container">
+              {sortedMessages.map(message => <Message messageInfo={message} friendship_id={this.props.messageInfo.friendship_id} friend={this.props.messageInfo.friend}/>)}
+            </div>
+            <div>
+              <CreateMessage messageInfo={this.props.messageInfo} messageCreated={this.messageCreated}/>
+            </div>
+          </div>
+        :
+          <div onClick={() => this.handleOpenMessages(notifications)} className="message-friend">
+            {this.props.messageInfo.friend.username} ({notifications.length})
+          </div>
+        }
+      </div>
 		)
 	}
 }
