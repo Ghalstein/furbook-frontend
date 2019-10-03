@@ -18,13 +18,13 @@ export default class ProfilePhoto extends React.Component {
   }
 
   render = () => {
-		
+    
     // conditionally renders a photo or video based on the file its processing
     return(
       <div>
         {this.state.clicked ? 
           <div className="pic-modal" onClick={this.leave}>
-							<img className="profile-photo" className="profile-photo" src={this.props.photo.picture.url} />
+            <img className="profile-photo" className="profile-photo" src={this.props.photo.picture.url} />
           </div> 
         : 
           null
