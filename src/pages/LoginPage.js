@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { logIn } from '../actions/userActions'
 
 class LoginPage extends React.Component{
-	// state keeps track of the username and password entered
+  // state keeps track of the username and password entered
   state = {
     username: "",
     password: ""
