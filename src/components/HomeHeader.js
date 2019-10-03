@@ -38,10 +38,13 @@ class HomeHeader extends React.Component {
       alert("Invalid login")
       this.props.logOut()
     }
+    
     // checking for token to see the header
     if (!localStorage.token && this.props.hasOwnProperty('history')) this.props.history.push("/")
+    
     // double checking that the data traced from the backend is valid
     if (!this.props.user.id) return null;
+    
     return (
       <div className="dropdownmenu">
         <ul>
