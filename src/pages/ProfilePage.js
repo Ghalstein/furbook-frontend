@@ -112,6 +112,7 @@ class ProfilePage extends React.Component {
   // }
 
 
+  // page render
   render = () => {
     // checks if their is a user
     if (!Object.keys(this.props.profileUser).length) return null;
