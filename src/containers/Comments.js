@@ -15,7 +15,7 @@ class Comments extends React.Component {
   }
 
   componentDidMount() {
-  	this.props.getComments();
+    this.props.getComments();
   }
   
   render = () => {
@@ -24,30 +24,20 @@ class Comments extends React.Component {
     if (commentScroll) {
       commentScroll.scrollTop = commentScroll.scrollHeight;
     }
-    // var postScroll = document.querySelector(".profile-posts");
-    // if (postScroll) {
-    //   // debugger
-    //   postScroll.scrollTop = 10000;
-    // }
-    // var commentScroll = document.querySelector(".profile-container");
-    // if (commentScroll) {
-    //   commentScroll.scrollTop = commentScroll.scrollHeight;
-    // }
-  	// console.log("FROM COMMENTS: ", this.props)
-  	let comments = this.props.comments.filter(comment => comment.post_id === this.props.info.id)
+    // filters the comments based on it belonging to the post
+    let comments = this.props.comments.filter(comment => comment.post_id === this.props.info.id)
 
     return (
-    	<div className="all-comments">
-	      <div className="comment-container">
-	      	{comments.length ? comments.map(comment => <Comment comment={comment}/>) : <div className="no-comments">There are no comments...</div>}
-	      </div>
-	     </div>
+      <div className="all-comments">
+        <div className="comment-container">
+          {comments.length ? comments.map(comment => <Comment comment={comment}/>) : <div className="no-comments">There are no comments...</div>}
+        </div>
+      </div>
     );
   }
 }
 
 const mapStateToProps = state => {
-  // console.log(state)
   return {
     user: state.currentUser,
     comments: state.commentReducer.comments
