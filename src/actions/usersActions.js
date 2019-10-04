@@ -34,5 +34,5 @@ export const getUserById = (userId) => {
     })
   }
   // Return is an action
-  // return { type: FETCH_MY_POSTS, payload: myWallPosts }
+  // return { type: FETCH_USER, payload: user }
 }
