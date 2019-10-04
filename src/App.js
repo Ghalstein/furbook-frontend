@@ -5,7 +5,7 @@ import HomePage from './containers/HomePage';
 import HomeHeader from './components/HomeHeader';
 import Pages from './pages';
 import { connect } from 'react-redux';
-import MessageHeader from './components/MessageHeader';
+import MessageHeader from './components/Message/MessageHeader';
 import { HashRouter } from 'react-router-dom';
 
 class App extends React.Component {
