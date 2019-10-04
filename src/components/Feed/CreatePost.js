@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { createPost } from '../actions/postActions';
-import withAuth from '../hocs/withAuth';
+import { createPost } from '../../actions/postActions';
+import withAuth from '../../hocs/withAuth';
 import { withRouter } from 'react-router-dom';
-import { getComments } from '../actions/commentActions';
+import { getComments } from '../../actions/commentActions';
 
 
 class CreatePost extends React.Component {

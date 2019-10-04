@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { logOut } from '../actions/userActions';
-import SearchBar from './SearchBar';
+import SearchBar from './Search/SearchBar';
 import Notifications from './Notifications';
 
 class HomeHeader extends React.Component {

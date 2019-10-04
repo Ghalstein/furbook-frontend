@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { createComment } from '../actions/commentActions';
-import withAuth from '../hocs/withAuth';
+import withAuth from '../../hocs/withAuth';
 import { withRouter } from 'react-router-dom';
 
 class EditProfilePic extends React.Component {

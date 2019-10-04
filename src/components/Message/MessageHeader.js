@@ -1,12 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import SearchBar from './SearchBar';
-import { getCurrentUser } from '../actions/userActions';
-import withAuth from '../hocs/withAuth';
+import { getCurrentUser } from '../../actions/userActions';
+import withAuth from '../../hocs/withAuth';
 import { withRouter } from 'react-router-dom';
 import MessagesContainer from './MessagesContainer';
-import { getMessages } from '../actions/messageActions';
+import { getMessages } from '../../actions/messageActions';
 
 class MessageHeader extends React.Component {
 

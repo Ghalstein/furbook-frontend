@@ -1,5 +1,5 @@
 import React from 'react';
-import UserFound from '../components/UserFound';
+import UserFound from './UserFound';
 
 class SearchResults extends React.Component {
 

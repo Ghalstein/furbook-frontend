@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { getUserById } from '../actions/usersActions';
+import { getUserById } from '../../actions/usersActions';
 import { connect } from 'react-redux';
 
 class Comment extends React.Component {

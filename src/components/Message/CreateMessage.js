@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { createMessage } from '../actions/messageActions';
-import withAuth from '../hocs/withAuth';
+import { createMessage } from '../../actions/messageActions';
+import withAuth from '../../hocs/withAuth';
 import { withRouter } from 'react-router-dom';
 
 class CreateMessage extends React.Component {

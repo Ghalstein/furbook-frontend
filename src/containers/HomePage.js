@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { getCurrentUser } from '../actions/userActions';
 import withAuth from '../hocs/withAuth';
 import { withRouter } from 'react-router-dom';
-import Post from '../components/Post';
-import CreatePost from '../components/CreatePost';
+import Post from '../components/Feed/Post';
+import CreatePost from '../components/Feed/CreatePost';
 import { getPosts } from '../actions/postActions';
 
 class HomePage extends React.Component {
@@ -13,16 +13,13 @@ class HomePage extends React.Component {
   componentDidMount() {
     if ((!localStorage.token ) && this.props.hasOwnProperty('history')) this.props.history.push("/")
       this.props.getPosts();
-      // debugger
-      // console.log("rerendered homepage")
-      // console.log(this.props);
   }
 
   render = () => {
     
-    // console.log("homepage: ", this.props)
-    // if the user has no id yet then nothing is shown 
+    // enforcing user auth
     if (!this.props.user.id) return null
+
     return (
       <div className="HomePage">
         <h1 className="Hi"> {this.props.user.id ? `Here is your feed ${this.props.user.username}!` : 'Getting your profile...'}</h1>
@@ -41,7 +38,6 @@ class HomePage extends React.Component {
 
 // gets current user and posts
 const mapStateToProps = state => {
-  // console.log(state)
   return {
     user: state.currentUser,
     posts: state.postReducer.posts

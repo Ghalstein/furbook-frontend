@@ -1,5 +1,6 @@
 import React from 'react';
 import MessageFriend from './MessageFriend';
+
 class MessageFriends extends React.Component {
   state = {
     openedMessage: 0

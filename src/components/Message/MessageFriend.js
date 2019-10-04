@@ -1,9 +1,8 @@
 import React from 'react';
 import CreateMessage from './CreateMessage';
-import { getMessages, viewedMessage } from '../actions/messageActions';
-// import { viewedMessage } from '../actions/messageActions';
+import { getMessages, viewedMessage } from '../../actions/messageActions';
 import { connect } from 'react-redux';
-import withAuth from '../hocs/withAuth';
+import withAuth from '../../hocs/withAuth';
 import { withRouter } from 'react-router-dom';
 import Message from './Message';
 

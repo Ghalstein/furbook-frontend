@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getUsers } from '../actions/usersActions'
-import SearchResults from '../containers/SearchResults';
+import { getUsers } from '../../actions/usersActions'
+import SearchResults from './SearchResults';
 
 class SearchBar extends React.Component {
   // keeps track of users found and filters the ones based on what's beeing typed in
