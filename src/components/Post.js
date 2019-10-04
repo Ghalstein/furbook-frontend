@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Comments from '../containers/Comments';
-import CreateComment from './CreateComment';
+import CreateComment from './Comment/CreateComment';
 import { getComments } from '../actions/commentActions';
 import { connect } from 'react-redux';
 import withAuth from '../hocs/withAuth';
