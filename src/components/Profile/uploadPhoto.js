@@ -12,17 +12,17 @@ class uploadPhoto extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData();
-    formData.append('photo[user_id]', this.props.user.id);
-    formData.append('photo[picture]', this.state.photoFile);
+    formData.append(`${this.props.type}[user_id]`, this.props.user.id);
+    formData.append(`${this.props.type}[picture]`, this.state.photoFile);
 
     // customized fetch for creating the image in rails
     axios({
       method: 'POST',
-      url: `https://furbook-api.herokuapp.com/photos`,
+      url: `https://furbook-api.herokuapp.com/${this.props.type}s`,
       data: formData,
       config: { headers: {'Content-Type': 'multipart/form-data', 'Authorization': `Bearer ${localStorage.token}` }}
     })
-    .then(() => window.location.reload(false))
+    .then(() => window.location.reload(false));
   }
 
   handleFile = (e) => {
@@ -30,10 +30,9 @@ class uploadPhoto extends React.Component {
   }
 
   render() {
-    // console.log(this.state);
     return (
       <div>
-        Upload a new photo
+        Upload a new {this.props.type === "photos" ? "photo" : "profile picture"}.
         <form onSubmit={this.handleSubmit}>
           <input type="file" onChange={this.handleFile}/>
           <button className="upload-button">Upload Photo </button>
