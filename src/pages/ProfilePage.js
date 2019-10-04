@@ -1,6 +1,5 @@
 import React from 'react';
 import UploadPhoto from '../components/Profile/uploadPhoto';
-import UploadProPic from '../components/Profile/uploadProPic';
 import withAuth from '../hocs/withAuth';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
@@ -180,7 +179,7 @@ class ProfilePage extends React.Component {
               <div className="profile-photos">
                 <h2> Photos & Videos</h2>
                 {this.props.user.id === parseInt(this.props.location.pathname.split("/")[2]) ?
-                  <UploadPhoto uploadedPhoto={this.uploadedPhoto} userInfo={this.props.userInfo}/>
+                  <UploadPhoto uploadedPhoto={this.uploadedPhoto} type={"photos"} userInfo={this.props.userInfo}/>
                 :
                   null
                 }
@@ -190,7 +189,7 @@ class ProfilePage extends React.Component {
               <div className="profile-photos">
                 <h2 className="no-photos-to-show">No photos to show...</h2>
                 {this.props.user.id === parseInt(this.props.location.pathname.split("/")[2]) ?
-                  <UploadPhoto uploadedPhoto={this.uploadedPhoto} userInfo={this.props.userInfo}/>
+                  <UploadPhoto type={"photo"} />
                 :
                   null
                 }
