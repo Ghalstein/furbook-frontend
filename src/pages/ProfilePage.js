@@ -1,15 +1,15 @@
 import React from 'react';
-import UploadPhoto from '../components/uploadPhoto';
-import UploadProPic from '../components/uploadProPic';
+import UploadPhoto from '../components/Profile/uploadPhoto';
+import UploadProPic from '../components/Profile/uploadProPic';
 import withAuth from '../hocs/withAuth';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { getUserById } from '../actions/usersActions';
 import { createMessage } from '../actions/messageActions';
-import ProfilePhotos from '../components/ProfilePhotos';
-import ProfilePosts from '../components/ProfilePosts';
-import EditProfilePic from '../components/EditProfilePic';
-import EditBio from '../components/EditBio';
+import ProfilePhotos from '../components/Profile/ProfilePhotos';
+import ProfilePosts from '../components/Profile/ProfilePosts';
+import EditProfilePic from '../components/Profile/EditProfilePic';
+import EditBio from '../components/Profile/EditBio';
 
 // make a working redux fetch for the specific profile you are on
 
