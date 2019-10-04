@@ -2,18 +2,16 @@ import React from 'react';
 import { connect } from 'react-redux';
 import withAuth from '../../hocs/withAuth';
 import { withRouter } from 'react-router-dom';
-import UploadProPic from './uploadProPic';
+import UploadProPic from './uploadPhoto';
 
 class EditProfilePic extends React.Component {
 
 
   render = () => {
-    // console.log("createComment:", this.props)
-    // console.log(this.props)
     return (
       <div className="profile-modal-content">
         <h3 className="profile-close" onClick={() => this.props.handleCloseIcon()}>x</h3>
-        <UploadProPic />
+        <UploadProPic type={"pro_pic"} />
       </div>
     )
   }
