@@ -1,8 +1,8 @@
 # Furbook
 
-- A facebook clone for your pets
-- Built on react in the frontend with the help of redux
-- The backend is built on Ruby on Rails
+- A facebook clone for your pets.
+- Built on React in the frontend with the help of redux.
+- Built on Ruby on Rails in the backend.
 
 You can see the back-end repository, _[here](https://github.com/Ghalstein/furbook-api)_.
 
